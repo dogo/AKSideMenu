@@ -113,27 +113,27 @@ self.sideMenuViewController!.hideMenuViewController()
 ```swift
 public var animationDuration: NSTimeInterval
 ```
-The animation duration. Defaults to 0.5.
+The animation duration. Defaults to 0.35.
 ```swift
 public var backgroundImage: UIImage
 ```
-The background color. Defaults to transparent black.
+The content background image. Defaults to white.
 ```swift
 public var panGestureEnabled: Bool
 ```
-Enables defocus on vertical swipe. Defaults to True.
+Enables panGesture detection. Defaults to True.
 ```swift
 public var panFromEdge: Bool
 ```
-Returns whether the animation has an elastic effect. Defaults to True.
+Enables panGesture detection from the edge. Defaults to True.
 ```swift
-public var panMinimumOpenThreshold: Int
+public var panMinimumOpenThreshold: Float
 ```
-Returns whether zoom is enabled on fullscreen image. Defaults to True.
+The minimum pan gesture amount to open the side menu. Defaults to 60.0.
 ```swift
 public var interactivePopGestureRecognizerEnabled: Bool
 ```
-Enables focus on pinch gesture. Defaults to False.
+Enables interactive pop gesture recognizer. Defaults to True.
 ```swift
 public var scaleContentView: Bool
 ```
@@ -205,7 +205,7 @@ Controller used to show custom accessories. If none is specified a default contr
 ```swift
 public var menuPreferredStatusBarStyle: UIStatusBarStyle
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+Preferred UIStatusBarStyle when the menu is visible. Defaults to UIStatusBarStyle.Default.
 ```swift
 public var menuPrefersStatusBarHidden: Bool
 ```
