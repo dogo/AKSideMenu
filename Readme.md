@@ -137,71 +137,71 @@ Enables interactive pop gesture recognizer. Defaults to True.
 ```swift
 public var scaleContentView: Bool
 ```
-Returns whether gesture is disabled during zooming. Defaults to True.
+TODO. Defaults to True.
 ```swift
 public var scaleBackgroundImageView: Bool
 ```
-Returns whether defocus is enabled with a tap on view. Defaults to False.
+TODO. Defaults to False.
 ```swift
 public var scaleMenuView: Bool
 ```
-Returns wheter a play icon is automatically added to video thumbnails. Defaults to True.
+TODO. Defaults to True.
 ```swift
-public let contentViewShadowEnabled: UIColor
+public let contentViewShadowEnabled: Bool
 ```
-Image used to show a play icon on video thumbnails. Defaults to nil (uses internal image).
+TODO. Defaults to False.
 ```swift
 public var contentViewShadowOffset: CGSize
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to CGSizeZero.
 ```swift
-public var contentViewShadowOpacity: CGFloat
+public var contentViewShadowOpacity: Float
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to 0.4.
 ```swift
 public var contentViewShadowRadius: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to 8.0.
 ```swift
 public var contentViewScaleValue: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to 0.7.
 ```swift
 public var contentViewInLandscapeOffsetCenterX: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to 30.0.
 ```swift
 public var contentViewInPortraitOffsetCenterX: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to 30.0.
 ```swift
 public var parallaxMenuMinimumRelativeValue: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to -15.
 ```swift
 public var parallaxMenuMaximumRelativeValue: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to 15.
 ```swift
 public var parallaxContentMinimumRelativeValue: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to -25.
 ```swift
 public var parallaxContentMaximumRelativeValue: CGFloat
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to 25.
 ```swift
 public var menuViewControllerTransformation: CGAffineTransform
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to nil.
 ```swift
 public var parallaxEnabled: Bool
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to True.
 ```swift
 public var bouncesHorizontally: Bool
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to True.
 ```swift
 public var menuPreferredStatusBarStyle: UIStatusBarStyle
 ```
@@ -209,7 +209,7 @@ Preferred UIStatusBarStyle when the menu is visible. Defaults to UIStatusBarStyl
 ```swift
 public var menuPrefersStatusBarHidden: Bool
 ```
-Controller used to show custom accessories. If none is specified a default controller is used with a simple close button.
+TODO. Defaults to False.
 
 ## Collaboration
 I tried to build an easy way to use API, while being flexible enough for multiple variations, but I'm sure there are ways of improving and adding more features, so feel free to collaborate with ideas, issues and/or pull requests.
