@@ -9,8 +9,8 @@ Beautiful iOS side menu library with parallax effect. Written in Swift
 
 AKSideMenu is a double side menu library with parallax effect.
 
-![](https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Screenshot.png) 
-![](https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Demo.gif)
+<img src="https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Screenshot.png" alt="AKSideMenu Screenshot" width="400" height="568" />
+<img src="https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Demo.gif?2" alt="AKSideMenu Screenshot" width="320" height="568" />
 
 ## Example Project
 See the contained examples to get a sample of how `AKSideMenu` can easily be integrated in your project.
