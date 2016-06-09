@@ -1,8 +1,6 @@
 AKSideMenu
 ============
 
-Beautiful iOS side menu library with parallax effect. Written in Swift
-
 [![Build Status](https://travis-ci.org/dogo/AKSideMenu.svg?branch=master)](https://travis-ci.org/dogo/AKSideMenu)
 [![Cocoapods](http://img.shields.io/cocoapods/v/AKSideMenu.svg)](http://cocoapods.org/?q=AKSideMenu)
 [![Pod License](http://img.shields.io/cocoapods/l/AKSideMenu.svg)](https://github.com/dogo/AKSideMenu/blob/master/LICENSE)
@@ -209,7 +207,7 @@ Preferred UIStatusBarStyle when the menu is visible. Defaults to UIStatusBarStyl
 ```swift
 public var menuPrefersStatusBarHidden: Bool
 ```
-TODO. Defaults to False.
+Sets StatusBar hidden or not when the menu is visible. Defaults to False.
 
 ## Collaboration
 I tried to build an easy way to use API, while being flexible enough for multiple variations, but I'm sure there are ways of improving and adding more features, so feel free to collaborate with ideas, issues and/or pull requests.
