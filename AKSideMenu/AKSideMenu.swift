@@ -87,7 +87,7 @@ import UIKit
     }
     
     override public func awakeFromNib() {
-        
+        super.awakeFromNib()
         if (self.contentViewStoryboardID != nil) {
             self.contentViewController = self.storyboard!.instantiateViewControllerWithIdentifier(self.contentViewStoryboardID!)
         }
