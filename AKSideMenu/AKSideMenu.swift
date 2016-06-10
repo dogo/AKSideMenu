@@ -747,6 +747,10 @@ import UIKit
         return self.contentViewController!.shouldAutorotate()
     }
     
+    public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return self.contentViewController!.supportedInterfaceOrientations()
+    }
+        
     public override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if (self.visible) {
             self.menuViewContainer.bounds = self.view.bounds
