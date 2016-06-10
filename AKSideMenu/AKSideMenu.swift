@@ -398,6 +398,7 @@ import UIKit
         
         let completionBlock = { [weak self] in
             visibleMenuViewController.endAppearanceTransition()
+            self!.statusBarNeedsAppearanceUpdate()
             if (self!.visible == false) {
                 self!.delegate?.sideMenu?(self!, didHideMenuViewController:rightMenuVisible ? self!.rightMenuViewController! : self!.leftMenuViewController!)
             }
@@ -415,7 +416,6 @@ import UIKit
             animationBlock()
             completionBlock()
         }
-        self.statusBarNeedsAppearanceUpdate()
     }
     
     func addContentButton() {
