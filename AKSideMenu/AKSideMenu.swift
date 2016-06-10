@@ -33,6 +33,8 @@ import UIKit
     @IBInspectable public let leftMenuViewStoryboardID: String? = nil
     @IBInspectable public let rightMenuViewStoryboardID: String? = nil
     @IBInspectable public var panFromEdgeZoneWidth : CGFloat = 20.0
+    @IBInspectable public var panGestureLeftEnabled : Bool = true
+    @IBInspectable public var panGestureRightEnabled : Bool = true
     @IBInspectable public var interactivePopGestureRecognizerEnabled: Bool = true
     @IBInspectable public var scaleContentView: Bool = true
     @IBInspectable public var fadeMenuView: Bool = true
@@ -179,6 +181,8 @@ import UIKit
         self.fadeMenuView = true
         
         self.parallaxEnabled = true
+        self.panGestureLeftEnabled = true
+        self.panGestureRightEnabled = true
         self.parallaxMenuMinimumRelativeValue = -15
         self.parallaxMenuMaximumRelativeValue = 15
         self.parallaxContentMinimumRelativeValue = -25
@@ -519,7 +523,7 @@ import UIKit
         
         if (self.panFromEdge && gestureRecognizer.isKindOfClass(UIPanGestureRecognizer) && !self.visible) {
             let point: CGPoint = touch.locationInView(gestureRecognizer.view)
-            if (point.x < self.panFromEdgeZoneWidth || point.x > self.view.frame.size.width - self.panFromEdgeZoneWidth) {
+            if((self.panGestureLeftEnabled && point.x < self.panFromEdgeZoneWidth) || (self.panGestureRightEnabled && point.x > self.view.frame.size.width - self.panFromEdgeZoneWidth)) {
                 return true
             } else {
                 return false

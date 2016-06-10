@@ -208,6 +208,22 @@ Preferred UIStatusBarStyle when the menu is visible. Defaults to UIStatusBarStyl
 public var menuPrefersStatusBarHidden: Bool
 ```
 Sets StatusBar hidden or not when the menu is visible. Defaults to False.
+```swift
+public var backgroundTransformScale: CGFloat
+```
+Sets the transform scale amount applied to the background imageview. Defaults to 1.7.
+```swift
+public var panFromEdgeZoneWidth: CGFloat
+```
+Sets the width of the pan gesture zone should be recognized. Defaults to 20.0.
+```swift
+public var panGestureLeftEnabled: Bool
+```
+Enable or disable left pan gesture recognition. Defaults to True.
+```swift
+public var panGestureRightEnabled: Bool
+```
+Enable or disable right pan gesture recognition. Defaults to True.
 
 ## Collaboration
 I tried to build an easy way to use API, while being flexible enough for multiple variations, but I'm sure there are ways of improving and adding more features, so feel free to collaborate with ideas, issues and/or pull requests.
