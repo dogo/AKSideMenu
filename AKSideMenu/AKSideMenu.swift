@@ -32,9 +32,11 @@ import UIKit
     @IBInspectable public let contentViewStoryboardID: String? = nil
     @IBInspectable public let leftMenuViewStoryboardID: String? = nil
     @IBInspectable public let rightMenuViewStoryboardID: String? = nil
+    @IBInspectable public var panFromEdgeZoneWidth : CGFloat = 20.0
     @IBInspectable public var interactivePopGestureRecognizerEnabled: Bool = true
     @IBInspectable public var scaleContentView: Bool = true
     @IBInspectable public var fadeMenuView: Bool = true
+    @IBInspectable public var backgroundTransformScale: CGFloat = 1.7
     @IBInspectable public var scaleBackgroundImageView: Bool = true
     @IBInspectable public var scaleMenuView: Bool = true
     @IBInspectable public var contentViewShadowEnabled: Bool = false
@@ -53,7 +55,6 @@ import UIKit
     @IBInspectable public var parallaxEnabled: Bool = true
     @IBInspectable public var bouncesHorizontally: Bool = true
     @IBInspectable public var menuPrefersStatusBarHidden: Bool = false
-    @IBInspectable public var backgroundTransformScale: CGFloat = 1.7
     
     public var animationDuration: NSTimeInterval =  0.35
     public var menuViewControllerTransformation: CGAffineTransform?
@@ -187,6 +188,7 @@ import UIKit
         
         self.panGestureEnabled = true
         self.panFromEdge = true
+        self.panFromEdgeZoneWidth = 20.0
         self.panMinimumOpenThreshold = 60.0
         
         self.contentViewShadowEnabled = false
@@ -517,7 +519,7 @@ import UIKit
         
         if (self.panFromEdge && gestureRecognizer.isKindOfClass(UIPanGestureRecognizer) && !self.visible) {
             let point: CGPoint = touch.locationInView(gestureRecognizer.view)
-            if (point.x < 20.0 || point.x > self.view.frame.size.width - 20.0) {
+            if (point.x < self.panFromEdgeZoneWidth || point.x > self.view.frame.size.width - self.panFromEdgeZoneWidth) {
                 return true
             } else {
                 return false
@@ -750,7 +752,7 @@ import UIKit
     public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return self.contentViewController!.supportedInterfaceOrientations()
     }
-        
+    
     public override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         if (self.visible) {
             self.menuViewContainer.bounds = self.view.bounds
