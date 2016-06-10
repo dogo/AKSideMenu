@@ -53,6 +53,7 @@ import UIKit
     @IBInspectable public var parallaxEnabled: Bool = true
     @IBInspectable public var bouncesHorizontally: Bool = true
     @IBInspectable public var menuPrefersStatusBarHidden: Bool = false
+    @IBInspectable public var backgroundTransformScale: CGFloat = 1.7
     
     public var animationDuration: NSTimeInterval =  0.35
     public var menuViewControllerTransformation: CGAffineTransform?
@@ -146,7 +147,7 @@ import UIKit
         }
         
         if (self.scaleBackgroundImageView) {
-            self.backgroundImageView!.transform = CGAffineTransformMakeScale(1.7, 1.7)
+            self.backgroundImageView!.transform = self.backgroundTransformMakeScale()
         }
         
         self.addMenuViewControllerMotionEffects()
@@ -171,6 +172,7 @@ import UIKit
         self.menuViewControllerTransformation = CGAffineTransformMakeScale(1.5, 1.5)
         
         self.scaleContentView = true
+        self.backgroundTransformScale = 1.7
         self.scaleBackgroundImageView = true
         self.scaleMenuView = true
         self.fadeMenuView = true
@@ -265,7 +267,7 @@ import UIKit
         }
         
         if (self.scaleBackgroundImageView) {
-            self.backgroundImageView!.transform = CGAffineTransformMakeScale(1.7, 1.7)
+            self.backgroundImageView!.transform = self.backgroundTransformMakeScale()
         }
         
         self.delegate?.sideMenu?(self , willShowMenuViewController: menuViewController)
@@ -386,7 +388,7 @@ import UIKit
             self!.contentViewContainer.alpha = 1
             
             if (self!.scaleBackgroundImageView) {
-                self!.backgroundImageView!.transform = CGAffineTransformMakeScale(1.7, 1.7)
+                self!.backgroundImageView!.transform = self!.backgroundTransformMakeScale()
                 
             }
             if (self!.parallaxEnabled) {
@@ -456,6 +458,10 @@ import UIKit
         self.contentViewContainer.transform = CGAffineTransformIdentity
         self.contentViewContainer.transform = CGAffineTransformMakeScale(scale, scale)
         self.contentViewContainer.frame = frame
+    }
+    
+    func backgroundTransformMakeScale() -> CGAffineTransform {
+        return CGAffineTransformMakeScale(self.backgroundTransformScale, self.backgroundTransformScale);
     }
     
     // MARK: - iOS 7 Motion Effects (Private)
@@ -560,7 +566,7 @@ import UIKit
             
             var contentViewScale: CGFloat = self.scaleContentView ? 1 - ((1 - self.contentViewScaleValue) * delta) : 1
             
-            var backgroundViewScale: CGFloat = 1.7 - (0.7 * delta)
+            var backgroundViewScale: CGFloat = self.backgroundTransformScale - (0.7 * delta)
             var menuViewScale: CGFloat = 1.5 - (0.5 * delta)
             
             if (!self.bouncesHorizontally) {
