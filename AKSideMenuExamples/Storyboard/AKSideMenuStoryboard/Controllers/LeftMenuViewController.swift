@@ -19,14 +19,14 @@ public class RightMenuViewController : UIViewController, UITableViewDelegate, UI
     override public func viewDidLoad() {
         super.viewDidLoad()
     
-        let tableView: UITableView = UITableView.init(frame: CGRectMake(0, (self.view.frame.size.height - 54 * 2) / 2.0, self.view.frame.size.width, 54 * 2), style: UITableViewStyle.Plain)
-        tableView.autoresizingMask = [UIViewAutoresizing.FlexibleTopMargin , UIViewAutoresizing.FlexibleBottomMargin , UIViewAutoresizing.FlexibleWidth]
+        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 2) / 2.0, width: self.view.frame.size.width, height: 54 * 2), style: UITableViewStyle.plain)
+        tableView.autoresizingMask = [UIViewAutoresizing.flexibleTopMargin , UIViewAutoresizing.flexibleBottomMargin , UIViewAutoresizing.flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.opaque = false
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.isOpaque = false
+        tableView.backgroundColor = UIColor.clear
         tableView.backgroundView = nil
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.bounces = false
         tableView.scrollsToTop = false
         
@@ -36,17 +36,17 @@ public class RightMenuViewController : UIViewController, UITableViewDelegate, UI
     
     // MARK: - <UITableViewDelegate>
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         switch (indexPath.row) {
-            case 0:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewControllerWithIdentifier("firstViewController")), animated: true)
-                self.sideMenuViewController!.hideMenuViewController()
-                break
-            case 1:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewControllerWithIdentifier("secondViewController")), animated: true)
-                self.sideMenuViewController!.hideMenuViewController()
-                break
+        case 0:
+            self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "firstViewController")), animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
+            break
+        case 1:
+            self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "secondViewController")), animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
+            break
         default:
             break
         }
@@ -54,35 +54,35 @@ public class RightMenuViewController : UIViewController, UITableViewDelegate, UI
     
     // MARK: - <UITableViewDataSource>
     
-    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 54
     }
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
         return 2
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier: String = "Cell"
     
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
     
         if (cell == nil) {
-            cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
-            cell!.backgroundColor = UIColor.clearColor()
+            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellIdentifier)
+            cell!.backgroundColor = UIColor.clear
             cell!.textLabel?.font = UIFont.init(name: "HelveticaNeue", size: 21)
-            cell!.textLabel?.textColor = UIColor.whiteColor()
-            cell!.textLabel?.highlightedTextColor = UIColor.lightGrayColor()
+            cell!.textLabel?.textColor = UIColor.white
+            cell!.textLabel?.highlightedTextColor = UIColor.lightGray
             cell!.selectedBackgroundView = UIView.init()
         }
     
         var titles:[String] = ["Test 1", "Test 2"]
         cell!.textLabel?.text = titles[indexPath.row]
-        cell!.textLabel?.textAlignment = NSTextAlignment.Right
+        cell!.textLabel?.textAlignment = NSTextAlignment.right
     
         return cell!
     }

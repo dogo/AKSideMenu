@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LeftMenuViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+open class LeftMenuViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView: UITableView?
     
@@ -20,17 +20,17 @@ public class LeftMenuViewController : UIViewController, UITableViewDelegate, UIT
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
     
-        let tableView: UITableView = UITableView.init(frame: CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0, self.view.frame.size.width, 54 * 5), style: UITableViewStyle.Plain)
-        tableView.autoresizingMask = [UIViewAutoresizing.FlexibleTopMargin , UIViewAutoresizing.FlexibleBottomMargin , UIViewAutoresizing.FlexibleWidth]
+        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5), style: UITableViewStyle.plain)
+        tableView.autoresizingMask = [UIViewAutoresizing.flexibleTopMargin , UIViewAutoresizing.flexibleBottomMargin , UIViewAutoresizing.flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.opaque = false
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.isOpaque = false
+        tableView.backgroundColor = UIColor.clear
         tableView.backgroundView = nil
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.bounces = false
         
         self.tableView = tableView
@@ -39,9 +39,9 @@ public class LeftMenuViewController : UIViewController, UITableViewDelegate, UIT
     
     // MARK: - <UITableViewDelegate>
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        switch (indexPath.row) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch ((indexPath as NSIndexPath).row) {
             case 0:
                 self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: FirstViewController.init()), animated: true)
                 self.sideMenuViewController!.hideMenuViewController()
@@ -57,36 +57,36 @@ public class LeftMenuViewController : UIViewController, UITableViewDelegate, UIT
     
     // MARK: - <UITableViewDataSource>
     
-    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 54
     }
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
         return 5
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier: String = "Cell"
     
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
     
         if (cell == nil) {
-            cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
-            cell!.backgroundColor = UIColor.clearColor()
+            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellIdentifier)
+            cell!.backgroundColor = UIColor.clear
             cell!.textLabel?.font = UIFont.init(name: "HelveticaNeue", size: 21)
-            cell!.textLabel?.textColor = UIColor.whiteColor()
-            cell!.textLabel?.highlightedTextColor = UIColor.lightGrayColor()
+            cell!.textLabel?.textColor = UIColor.white
+            cell!.textLabel?.highlightedTextColor = UIColor.lightGray
             cell!.selectedBackgroundView = UIView.init()
         }
     
         var titles:[String] = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
         var images:[String] = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
-        cell!.textLabel?.text = titles[indexPath.row]
-        cell!.imageView?.image = UIImage.init(named: images[indexPath.row])
+        cell!.textLabel?.text = titles[(indexPath as NSIndexPath).row]
+        cell!.imageView?.image = UIImage.init(named: images[(indexPath as NSIndexPath).row])
     
         return cell!
     }

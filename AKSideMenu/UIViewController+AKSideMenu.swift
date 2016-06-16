@@ -12,14 +12,15 @@ import UIKit
 
 extension UIViewController {
     
-    var sideMenuViewController: AKSideMenu? {
+    public var sideMenuViewController: AKSideMenu? {
         get {
-            var iter : UIViewController = self.parentViewController!
-            while (iter != nibName) {
-                if (iter.isKindOfClass(AKSideMenu)) {
+            var iter : UIViewController = self.parent!
+            let strClass = String(describing: type(of: iter)).components(separatedBy: ".").last!
+            while (strClass != nibName) {
+                if (iter is AKSideMenu) {
                     return (iter as! AKSideMenu)
-                } else if (iter.parentViewController != nil && iter.parentViewController != iter) {
-                    iter = iter.parentViewController!
+                } else if (iter.parent != nil && iter.parent != iter) {
+                    iter = iter.parent!
                 }
             }
             return nil
@@ -32,11 +33,11 @@ extension UIViewController {
     // MARK: - Public
     // MARK: - IB Action Helper methods
     
-    @IBAction public func presentLeftMenuViewController(sender: AnyObject) {
+    @IBAction public func presentLeftMenuViewController(_ sender: AnyObject) {
         self.sideMenuViewController!.presentLeftMenuViewController()
     }
     
-    @IBAction public func presentRightMenuViewController(sender: AnyObject) {
+    @IBAction public func presentRightMenuViewController(_ sender: AnyObject) {
         self.sideMenuViewController!.presentRightMenuViewController()
     }
 }

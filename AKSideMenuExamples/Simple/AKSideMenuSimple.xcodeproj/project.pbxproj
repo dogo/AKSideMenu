@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD040B741D09A3C900813035 /* AKSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD040B721D09A3C900813035 /* AKSideMenu.swift */; };
-		DD040B751D09A3C900813035 /* UIViewController+AKSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD040B731D09A3C900813035 /* UIViewController+AKSideMenu.swift */; };
+		3205BCA72B3CCC645ED699AC /* Pods_AKSideMenuSimple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071D78E47BB4333E6857235F /* Pods_AKSideMenuSimple.framework */; };
 		DD185F6D1D01B26700B38366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD185F651D01B26700B38366 /* AppDelegate.swift */; };
 		DD185F6E1D01B26700B38366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD185F661D01B26700B38366 /* Assets.xcassets */; };
 		DD185F6F1D01B26700B38366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD185F671D01B26700B38366 /* LaunchScreen.storyboard */; };
@@ -20,8 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD040B721D09A3C900813035 /* AKSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSideMenu.swift; sourceTree = "<group>"; };
-		DD040B731D09A3C900813035 /* UIViewController+AKSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AKSideMenu.swift"; sourceTree = "<group>"; };
+		071D78E47BB4333E6857235F /* Pods_AKSideMenuSimple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKSideMenuSimple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A21FB7B695E65E9F3F292FA /* Pods-AKSideMenuSimple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuSimple.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKSideMenuSimple/Pods-AKSideMenuSimple.release.xcconfig"; sourceTree = "<group>"; };
+		7FC75173B769051E318F46CE /* Pods-AKSideMenuSimple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuSimple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKSideMenuSimple/Pods-AKSideMenuSimple.debug.xcconfig"; sourceTree = "<group>"; };
 		DD185F651D01B26700B38366 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD185F661D01B26700B38366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD185F681D01B26700B38366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,20 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3205BCA72B3CCC645ED699AC /* Pods_AKSideMenuSimple.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DD040B711D09A3C900813035 /* AKSideMenu */ = {
+		A0D22396D4975B3D9E2A5E8E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DD040B721D09A3C900813035 /* AKSideMenu.swift */,
-				DD040B731D09A3C900813035 /* UIViewController+AKSideMenu.swift */,
+				7FC75173B769051E318F46CE /* Pods-AKSideMenuSimple.debug.xcconfig */,
+				4A21FB7B695E65E9F3F292FA /* Pods-AKSideMenuSimple.release.xcconfig */,
 			);
-			name = AKSideMenu;
-			path = ../../AKSideMenu;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF548A5FCBE2F6CB65C6D969 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				071D78E47BB4333E6857235F /* Pods_AKSideMenuSimple.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DD185F641D01B26700B38366 /* AKSideMenuSimple */ = {
@@ -60,10 +68,10 @@
 			children = (
 				DDA259B21D05EB340085AE9F /* Controllers */,
 				DD185F651D01B26700B38366 /* AppDelegate.swift */,
-				DD185F661D01B26700B38366 /* Assets.xcassets */,
+				DD185F6C1D01B26700B38366 /* ViewController.swift */,
 				DD185F671D01B26700B38366 /* LaunchScreen.storyboard */,
 				DD185F6B1D01B26700B38366 /* Info.plist */,
-				DD185F6C1D01B26700B38366 /* ViewController.swift */,
+				DD185F661D01B26700B38366 /* Assets.xcassets */,
 			);
 			path = AKSideMenuSimple;
 			sourceTree = "<group>";
@@ -71,9 +79,10 @@
 		DD8F369D1D01AF32000DA9CC = {
 			isa = PBXGroup;
 			children = (
-				DD040B711D09A3C900813035 /* AKSideMenu */,
 				DD185F641D01B26700B38366 /* AKSideMenuSimple */,
 				DD8F36A71D01AF32000DA9CC /* Products */,
+				A0D22396D4975B3D9E2A5E8E /* Pods */,
+				BF548A5FCBE2F6CB65C6D969 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD8F36B81D01AF33000DA9CC /* Build configuration list for PBXNativeTarget "AKSideMenuSimple" */;
 			buildPhases = (
+				2B27E90A44319BB5537C49E5 /* [CP] Check Pods Manifest.lock */,
 				DD8F36A21D01AF32000DA9CC /* Sources */,
 				DD8F36A31D01AF32000DA9CC /* Frameworks */,
 				DD8F36A41D01AF32000DA9CC /* Resources */,
+				3E27A5B111D16B7C38923D4D /* [CP] Embed Pods Frameworks */,
+				7170E4B528AF977B5912EA26 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,11 +135,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "AnyKey Entertainment";
 				TargetAttributes = {
 					DD8F36A51D01AF32000DA9CC = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -161,6 +174,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B27E90A44319BB5537C49E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3E27A5B111D16B7C38923D4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AKSideMenuSimple/Pods-AKSideMenuSimple-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7170E4B528AF977B5912EA26 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AKSideMenuSimple/Pods-AKSideMenuSimple-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD8F36A21D01AF32000DA9CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -168,11 +229,9 @@
 			files = (
 				DDC9B29D1D06FE79000EF1FE /* SecondViewController.swift in Sources */,
 				DDA259B41D05EB410085AE9F /* FirstViewController.swift in Sources */,
-				DD040B741D09A3C900813035 /* AKSideMenu.swift in Sources */,
 				DDC9B2A11D070766000EF1FE /* RightMenuViewController.swift in Sources */,
 				DD185F721D01B26700B38366 /* ViewController.swift in Sources */,
 				DD185F6D1D01B26700B38366 /* AppDelegate.swift in Sources */,
-				DD040B751D09A3C900813035 /* UIViewController+AKSideMenu.swift in Sources */,
 				DDC9B29F1D070024000EF1FE /* LeftMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,8 +264,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -251,8 +312,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -278,23 +341,30 @@
 		};
 		DD8F36B91D01AF33000DA9CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FC75173B769051E318F46CE /* Pods-AKSideMenuSimple.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/AKSideMenuSimple/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anykey.AKSideMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		DD8F36BA1D01AF33000DA9CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A21FB7B695E65E9F3F292FA /* Pods-AKSideMenuSimple.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/AKSideMenuSimple/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anykey.AKSideMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

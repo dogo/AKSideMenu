@@ -7,21 +7,22 @@
 //
 
 import UIKit
+import AKSideMenu
 
 public class RootViewController: AKSideMenu, AKSideMenuDelegate {
     
     override public func awakeFromNib() {
         
-        self.menuPreferredStatusBarStyle = UIStatusBarStyle.LightContent
-        self.contentViewShadowColor = UIColor.blackColor()
-        self.contentViewShadowOffset = CGSizeMake(0, 0)
+        self.menuPreferredStatusBarStyle = UIStatusBarStyle.lightContent
+        self.contentViewShadowColor = UIColor.black
+        self.contentViewShadowOffset = CGSize(width: 0, height: 0)
         self.contentViewShadowOpacity = 0.6
         self.contentViewShadowRadius = 12
         self.contentViewShadowEnabled = true
         
-        self.contentViewController = self.storyboard!.instantiateViewControllerWithIdentifier("contentViewController")
-        self.leftMenuViewController = self.storyboard!.instantiateViewControllerWithIdentifier("leftMenuViewController")
-        self.rightMenuViewController = self.storyboard!.instantiateViewControllerWithIdentifier("rightMenuViewController")
+        self.contentViewController = self.storyboard!.instantiateViewController(withIdentifier: "contentViewController")
+        self.leftMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "leftMenuViewController")
+        self.rightMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "rightMenuViewController")
         self.backgroundImage = UIImage.init(named: "Stars")
         self.delegate = self
     }
@@ -36,19 +37,19 @@ public class RootViewController: AKSideMenu, AKSideMenuDelegate {
 
     // MARK: - <AKSideMenuDelegate>
     
-    public func sideMenu(sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
         print("willShowMenuViewController")
     }
     
-    public func sideMenu(sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
         print("didShowMenuViewController")
     }
     
-    public func sideMenu(sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
         print("willHideMenuViewController")
     }
     
-    public func sideMenu(sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
         print("didHideMenuViewController")
     }
 }
