@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol AKSideMenuDelegate {
+@objc public protocol AKSideMenuDelegate {
     optional func sideMenu(sideMenu: AKSideMenu, didRecognizePanGesture recognizer: UIPanGestureRecognizer)
     optional func sideMenu(sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController)
     optional func sideMenu(sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController)
@@ -27,7 +27,6 @@ import UIKit
     var backgroundImageView: UIImageView?
     var menuViewContainer: UIView = UIView()
     var contentViewContainer: UIView = UIView()
-    var delegate: AKSideMenuDelegate?
     
     @IBInspectable public let contentViewStoryboardID: String? = nil
     @IBInspectable public let leftMenuViewStoryboardID: String? = nil
@@ -58,6 +57,7 @@ import UIKit
     @IBInspectable public var bouncesHorizontally: Bool = true
     @IBInspectable public var menuPrefersStatusBarHidden: Bool = false
     
+    public var delegate: AKSideMenuDelegate?
     public var animationDuration: NSTimeInterval =  0.35
     public var menuViewControllerTransformation: CGAffineTransform?
     public var panGestureEnabled: Bool = true
@@ -79,7 +79,7 @@ import UIKit
         self.commonInit()
     }
     
-    convenience init(contentViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
+    convenience public init(contentViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
         self.init()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
