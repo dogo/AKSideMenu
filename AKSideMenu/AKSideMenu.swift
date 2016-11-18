@@ -79,7 +79,7 @@ import UIKit
         self.commonInit()
     }
     
-    convenience public init(contentViewController: UIViewController, leftMenuViewController: UIViewController, rightMenuViewController: UIViewController) {
+    convenience public init(contentViewController: UIViewController, leftMenuViewController: UIViewController?, rightMenuViewController: UIViewController?) {
         self.init()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
@@ -209,13 +209,17 @@ import UIKit
     // MARK: - Public
     
     public func presentLeftMenuViewController() {
-        self.presentMenuViewContainerWithMenuViewController(self.leftMenuViewController!)
-        self.showLeftMenuViewController()
+        if (self.leftMenuViewController != nil) {
+            self.presentMenuViewContainerWithMenuViewController(self.leftMenuViewController!)
+            self.showLeftMenuViewController()
+        }
     }
     
     public func presentRightMenuViewController() {
-        self.presentMenuViewContainerWithMenuViewController(self.rightMenuViewController!)
-        self.showRightMenuViewController()
+        if (self.rightMenuViewController != nil) {
+            self.presentMenuViewContainerWithMenuViewController(self.rightMenuViewController!)
+            self.showRightMenuViewController()
+        }
     }
     
     public func hideMenuViewController() {
@@ -284,8 +288,8 @@ import UIKit
             return
         }
         self.leftMenuViewController?.beginAppearanceTransition(true, animated: true)
-        self.leftMenuViewController!.view.isHidden = false
-        self.rightMenuViewController!.view.isHidden = true
+        self.leftMenuViewController?.view.isHidden = false
+        self.rightMenuViewController?.view.isHidden = true
         self.view.window?.endEditing(true)
         self.addContentButton()
         self.updateContentViewShadow()
@@ -326,8 +330,8 @@ import UIKit
             return
         }
         self.rightMenuViewController?.beginAppearanceTransition(true, animated: true)
-        self.leftMenuViewController!.view.isHidden = true
-        self.rightMenuViewController!.view.isHidden = false
+        self.leftMenuViewController?.view.isHidden = true
+        self.rightMenuViewController?.view.isHidden = false
         self.view.window?.endEditing(true)
         self.addContentButton()
         self.updateContentViewShadow()
@@ -819,7 +823,7 @@ import UIKit
             var statusBarAnimation: UIStatusBarAnimation = UIStatusBarAnimation.none
             
             statusBarAnimation = self.visible ? self.leftMenuViewController!.preferredStatusBarUpdateAnimation : self.contentViewController!.preferredStatusBarUpdateAnimation
-            if (self.contentViewContainer.frame.origin.y > 10) {
+            if ((self.contentViewContainer.frame.origin.y > 10) && (self.leftMenuViewController != nil)) {
                 statusBarAnimation = self.leftMenuViewController!.preferredStatusBarUpdateAnimation
             } else {
                 statusBarAnimation = self.contentViewController!.preferredStatusBarUpdateAnimation
