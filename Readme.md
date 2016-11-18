@@ -29,21 +29,21 @@ To install, add the following line to your Podfile:
 In your AppDelegate, add the code below.
 
 ```swift
-func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
-    
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    self.window = UIWindow.init(frame: UIScreen.main.bounds)
+
     // Create content and menu controllers
     let navigationController: UINavigationController = UINavigationController.init(rootViewController: FirstViewController.init())
     let leftMenuViewController: LeftMenuViewController = LeftMenuViewController.init()
     let rightMenuViewController: RightMenuViewController = RightMenuViewController.init()
 
     // Create side menu controller
-    let sideMenuViewController: AKSideMenu =  AKSideMenu.init(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
+    let sideMenuViewController: AKSideMenu = AKSideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
 
     // Make it a root controller
     self.window!.rootViewController = sideMenuViewController
 
-    self.window!.backgroundColor = UIColor.whiteColor()
+    self.window!.backgroundColor = UIColor.white
     self.window?.makeKeyAndVisible()
     return true
 }        
@@ -71,19 +71,20 @@ sideMenuViewController.delegate = self
 ...
 
 // MARK: - <AKSideMenuDelegate>
-func sideMenu(sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
+
+open func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
     print("willShowMenuViewController")
 }
 
-func sideMenu(sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
+open func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
     print("didShowMenuViewController")
 }
 
-func sideMenu(sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
+open func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
     print("willHideMenuViewController")
 }
 
-func sideMenu(sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
+open func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
     print("didHideMenuViewController")
 }
 ```
@@ -109,7 +110,7 @@ self.sideMenuViewController!.hideMenuViewController()
 
 ###Properties
 ```swift
-public var animationDuration: NSTimeInterval
+public var animationDuration: TimeInterval
 ```
 The animation duration. Defaults to 0.35.
 ```swift
@@ -203,7 +204,7 @@ TODO. Defaults to True.
 ```swift
 public var menuPreferredStatusBarStyle: UIStatusBarStyle
 ```
-Preferred UIStatusBarStyle when the menu is visible. Defaults to UIStatusBarStyle.Default.
+Preferred UIStatusBarStyle when the menu is visible. Defaults to UIStatusBarStyle.default.
 ```swift
 public var menuPrefersStatusBarHidden: Bool
 ```
