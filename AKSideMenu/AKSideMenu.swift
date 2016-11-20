@@ -646,8 +646,8 @@ import UIKit
                 self.contentViewContainer.transform = self.contentViewContainer.transform.translatedBy(x: point.x, y: 0)
             }
             
-            self.leftMenuViewController!.view.isHidden = self.contentViewContainer.frame.origin.x < 0
-            self.rightMenuViewController!.view.isHidden = self.contentViewContainer.frame.origin.x > 0
+            self.leftMenuViewController?.view.isHidden = self.contentViewContainer.frame.origin.x < 0
+            self.rightMenuViewController?.view.isHidden = self.contentViewContainer.frame.origin.x > 0
             
             if (self.leftMenuViewController == nil && self.contentViewContainer.frame.origin.x > 0) {
                 self.contentViewContainer.transform = CGAffineTransform.identity
