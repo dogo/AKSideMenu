@@ -41,15 +41,15 @@ open class LeftMenuViewController: UIViewController, UITableViewDelegate, UITabl
 
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch ((indexPath as NSIndexPath).row) {
+        switch indexPath.row {
             case 0:
                 self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: FirstViewController.init()), animated: true)
                 self.sideMenuViewController!.hideMenuViewController()
-                break
+
             case 1:
                 self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: SecondViewController.init()), animated: true)
                 self.sideMenuViewController!.hideMenuViewController()
-                break
+
         default:
             break
         }

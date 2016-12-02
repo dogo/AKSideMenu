@@ -38,15 +38,15 @@ public class RightMenuViewController: UIViewController, UITableViewDelegate, UIT
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch (indexPath.row) {
+        switch indexPath.row {
         case 0:
             self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "firstViewController")), animated: true)
             self.sideMenuViewController!.hideMenuViewController()
-            break
+
         case 1:
             self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "secondViewController")), animated: true)
             self.sideMenuViewController!.hideMenuViewController()
-            break
+
         default:
             break
         }
