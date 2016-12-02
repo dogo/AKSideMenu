@@ -57,7 +57,7 @@ import UIKit
     @IBInspectable public var bouncesHorizontally: Bool = true
     @IBInspectable public var menuPrefersStatusBarHidden: Bool = false
 
-    public var delegate: AKSideMenuDelegate?
+    public weak var delegate: AKSideMenuDelegate?
     public var animationDuration: TimeInterval =  0.35
     public var menuViewControllerTransformation: CGAffineTransform?
     public var panGestureEnabled: Bool = true
