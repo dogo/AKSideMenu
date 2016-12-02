@@ -1,15 +1,15 @@
 PODS:
-  - AKSideMenu (1.2)
+  - AKSideMenu (1.3.0)
 
 DEPENDENCIES:
   - AKSideMenu (from `../../AKSideMenu.podspec`)
 
 EXTERNAL SOURCES:
   AKSideMenu:
-    :path: "../../AKSideMenu.podspec"
+    :path: ../../AKSideMenu.podspec
 
 SPEC CHECKSUMS:
-  AKSideMenu: 267e49ceff95c5ae72057b3206f98182f8cc4813
+  AKSideMenu: 5b7d003733067c1536b0bf11de60028873e44b58
 
 PODFILE CHECKSUM: a1c2c7880ba2a312b10f3b4a36ecb2593d143a93
 

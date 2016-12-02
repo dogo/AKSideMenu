@@ -11,10 +11,10 @@ import UIKit
 // MARK: - UIViewController+AKSideMenu
 
 extension UIViewController {
-    
+
     public var sideMenuViewController: AKSideMenu? {
         get {
-            var iter : UIViewController = self.parent!
+            var iter: UIViewController = self.parent!
             let strClass = String(describing: type(of: iter)).components(separatedBy: ".").last!
             while (strClass != nibName) {
                 if (iter is AKSideMenu) {
@@ -29,14 +29,14 @@ extension UIViewController {
             self.sideMenuViewController = newValue
         }
     }
-    
+
     // MARK: - Public
     // MARK: - IB Action Helper methods
-    
+
     @IBAction public func presentLeftMenuViewController(_ sender: AnyObject) {
         self.sideMenuViewController!.presentLeftMenuViewController()
     }
-    
+
     @IBAction public func presentRightMenuViewController(_ sender: AnyObject) {
         self.sideMenuViewController!.presentRightMenuViewController()
     }
