@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		0B13D1968EC18F1145BB84BA /* Pods_AKSideMenuStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A886707A406B6C6FAED0CD6E /* Pods_AKSideMenuStoryboard.framework */; };
 		DD10F1BC1D09999E0053EDBB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1B81D09999E0053EDBB /* FirstViewController.swift */; };
-		DD10F1BD1D09999E0053EDBB /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1B91D09999E0053EDBB /* LeftMenuViewController.swift */; };
-		DD10F1BE1D09999E0053EDBB /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1BA1D09999E0053EDBB /* RightMenuViewController.swift */; };
+		DD10F1BD1D09999E0053EDBB /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1B91D09999E0053EDBB /* RightMenuViewController.swift */; };
+		DD10F1BE1D09999E0053EDBB /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1BA1D09999E0053EDBB /* LeftMenuViewController.swift */; };
 		DD10F1BF1D09999E0053EDBB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1BB1D09999E0053EDBB /* SecondViewController.swift */; };
 		DDA3AEC21D09955A0085CBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA3AEC11D09955A0085CBF3 /* AppDelegate.swift */; };
 		DDA3AEC41D09955A0085CBF3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA3AEC31D09955A0085CBF3 /* RootViewController.swift */; };
@@ -24,8 +24,8 @@
 		A886707A406B6C6FAED0CD6E /* Pods_AKSideMenuStoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKSideMenuStoryboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFB7BC2C655C5D1B45E8B16 /* Pods-AKSideMenuStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKSideMenuStoryboard/Pods-AKSideMenuStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		DD10F1B81D09999E0053EDBB /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DD10F1B91D09999E0053EDBB /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		DD10F1BA1D09999E0053EDBB /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		DD10F1B91D09999E0053EDBB /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		DD10F1BA1D09999E0053EDBB /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		DD10F1BB1D09999E0053EDBB /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DDA3AEBE1D09955A0085CBF3 /* AKSideMenuStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSideMenuStoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA3AEC11D09955A0085CBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				DD10F1B81D09999E0053EDBB /* FirstViewController.swift */,
-				DD10F1B91D09999E0053EDBB /* LeftMenuViewController.swift */,
-				DD10F1BA1D09999E0053EDBB /* RightMenuViewController.swift */,
+				DD10F1B91D09999E0053EDBB /* RightMenuViewController.swift */,
+				DD10F1BA1D09999E0053EDBB /* LeftMenuViewController.swift */,
 				DD10F1BB1D09999E0053EDBB /* SecondViewController.swift */,
 			);
 			path = Controllers;
@@ -233,9 +233,9 @@
 			files = (
 				DD10F1BF1D09999E0053EDBB /* SecondViewController.swift in Sources */,
 				DD10F1BC1D09999E0053EDBB /* FirstViewController.swift in Sources */,
-				DD10F1BD1D09999E0053EDBB /* LeftMenuViewController.swift in Sources */,
+				DD10F1BD1D09999E0053EDBB /* RightMenuViewController.swift in Sources */,
 				DDA3AEC41D09955A0085CBF3 /* RootViewController.swift in Sources */,
-				DD10F1BE1D09999E0053EDBB /* RightMenuViewController.swift in Sources */,
+				DD10F1BE1D09999E0053EDBB /* LeftMenuViewController.swift in Sources */,
 				DDA3AEC21D09955A0085CBF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

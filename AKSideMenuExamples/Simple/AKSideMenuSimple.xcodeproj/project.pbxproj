@@ -14,8 +14,8 @@
 		DD185F721D01B26700B38366 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD185F6C1D01B26700B38366 /* ViewController.swift */; };
 		DDA259B41D05EB410085AE9F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA259B31D05EB410085AE9F /* FirstViewController.swift */; };
 		DDC9B29D1D06FE79000EF1FE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */; };
-		DDC9B29F1D070024000EF1FE /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B29E1D070024000EF1FE /* LeftMenuViewController.swift */; };
-		DDC9B2A11D070766000EF1FE /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B2A01D070766000EF1FE /* RightMenuViewController.swift */; };
+		DDC9B29F1D070024000EF1FE /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B29E1D070024000EF1FE /* RightMenuViewController.swift */; };
+		DDC9B2A11D070766000EF1FE /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B2A01D070766000EF1FE /* LeftMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		DD8F36A61D01AF32000DA9CC /* AKSideMenuSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSideMenuSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA259B31D05EB410085AE9F /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		DDC9B29E1D070024000EF1FE /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		DDC9B2A01D070766000EF1FE /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		DDC9B29E1D070024000EF1FE /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
+		DDC9B2A01D070766000EF1FE /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				DDA259B31D05EB410085AE9F /* FirstViewController.swift */,
-				DDC9B29E1D070024000EF1FE /* LeftMenuViewController.swift */,
-				DDC9B2A01D070766000EF1FE /* RightMenuViewController.swift */,
+				DDC9B29E1D070024000EF1FE /* RightMenuViewController.swift */,
+				DDC9B2A01D070766000EF1FE /* LeftMenuViewController.swift */,
 				DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */,
 			);
 			path = Controllers;
@@ -229,10 +229,10 @@
 			files = (
 				DDC9B29D1D06FE79000EF1FE /* SecondViewController.swift in Sources */,
 				DDA259B41D05EB410085AE9F /* FirstViewController.swift in Sources */,
-				DDC9B2A11D070766000EF1FE /* RightMenuViewController.swift in Sources */,
+				DDC9B2A11D070766000EF1FE /* LeftMenuViewController.swift in Sources */,
 				DD185F721D01B26700B38366 /* ViewController.swift in Sources */,
 				DD185F6D1D01B26700B38366 /* AppDelegate.swift in Sources */,
-				DDC9B29F1D070024000EF1FE /* LeftMenuViewController.swift in Sources */,
+				DDC9B29F1D070024000EF1FE /* RightMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

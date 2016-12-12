@@ -1,5 +1,5 @@
 //
-//  LeftMenuViewController.swift
+//  RightMenuViewController.swift
 //  AKSideMenuSimple
 //
 //  Created by Diogo Autilio on 6/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class RightMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView: UITableView?
 
@@ -19,7 +19,7 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5), style: UITableViewStyle.plain)
+        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 2) / 2.0, width: self.view.frame.size.width, height: 54 * 2), style: UITableViewStyle.plain)
         tableView.autoresizingMask = [UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin, UIViewAutoresizing.flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,6 +28,7 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
         tableView.backgroundView = nil
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.bounces = false
+        tableView.scrollsToTop = false
 
         self.tableView = tableView
         self.view.addSubview(self.tableView!)
@@ -38,13 +39,13 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
-            case 0:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "firstViewController")), animated: true)
-                self.sideMenuViewController!.hideMenuViewController()
+        case 0:
+            self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "firstViewController")), animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
 
-            case 1:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "secondViewController")), animated: true)
-                self.sideMenuViewController!.hideMenuViewController()
+        case 1:
+            self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "secondViewController")), animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
 
         default:
             break
@@ -62,7 +63,7 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
-        return 5
+        return 2
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,10 +80,9 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
             cell!.selectedBackgroundView = UIView.init()
         }
 
-        var titles: [String] = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
-        var images: [String] = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
+        var titles: [String] = ["Test 1", "Test 2"]
         cell!.textLabel?.text = titles[indexPath.row]
-        cell!.imageView?.image = UIImage.init(named: images[indexPath.row])
+        cell!.textLabel?.textAlignment = NSTextAlignment.right
 
         return cell!
     }

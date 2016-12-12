@@ -1,5 +1,5 @@
 //
-//  RightMenuViewController.swift
+//  LeftMenuViewController.swift
 //  AKSideMenuSimple
 //
 //  Created by Diogo Autilio on 6/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class RightMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+open class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView: UITableView?
 
@@ -23,7 +23,7 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 2) / 2.0, width: self.view.frame.size.width, height: 54 * 2), style: UITableViewStyle.plain)
+        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5), style: UITableViewStyle.plain)
         tableView.autoresizingMask = [UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin, UIViewAutoresizing.flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
@@ -66,7 +66,7 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
-        return 2
+        return 5
     }
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,9 +83,10 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
             cell!.selectedBackgroundView = UIView.init()
         }
 
-        var titles: [String] = ["Test 1", "Test 2"]
+        var titles: [String] = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
+        var images: [String] = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
         cell!.textLabel?.text = titles[(indexPath as NSIndexPath).row]
-        cell!.textLabel?.textAlignment = NSTextAlignment.right
+        cell!.imageView?.image = UIImage.init(named: images[(indexPath as NSIndexPath).row])
 
         return cell!
     }
