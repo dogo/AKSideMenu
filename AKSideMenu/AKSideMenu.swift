@@ -241,7 +241,7 @@ import UIKit
 
             UIView.animate(withDuration: self.animationDuration, animations: {
                 contentViewController.view.alpha = 1
-                }, completion: { (Bool) in
+                }, completion: { (_) in
                     self.hideViewController(self.contentViewController!)
                     contentViewController.didMove(toParentViewController: self)
                     self.contentViewController = contentViewController
@@ -312,7 +312,7 @@ import UIKit
             if self.scaleBackgroundImageView {
                 self.backgroundImageView!.transform = CGAffineTransform.identity
             }
-        }) { (Bool) in
+        }) { (_) in
             self.addContentViewControllerMotionEffects()
             self.leftMenuViewController?.endAppearanceTransition()
 
@@ -354,7 +354,7 @@ import UIKit
             if self.scaleBackgroundImageView {
                 self.backgroundImageView!.transform = CGAffineTransform.identity
             }
-        }) { (Bool) in
+        }) { (_) in
             self.rightMenuViewController?.endAppearanceTransition()
 
             if !self.rightMenuVisible {
@@ -420,7 +420,7 @@ import UIKit
             UIApplication.shared.beginIgnoringInteractionEvents()
             UIView.animate(withDuration: self.animationDuration, animations: {
                 animationBlock()
-                }, completion: { (Bool) in
+                }, completion: { (_) in
                     UIApplication.shared.endIgnoringInteractionEvents()
                     completionBlock()
             })
@@ -519,7 +519,7 @@ import UIKit
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if self.interactivePopGestureRecognizerEnabled && self.contentViewController! is UINavigationController {
-            let navigationController: UINavigationController = (self.contentViewController as! UINavigationController)
+            let navigationController: UINavigationController = (self.contentViewController as UINavigationController)
             if navigationController.viewControllers.count > 1 && navigationController.interactivePopGestureRecognizer!.isEnabled {
                 return false
             }
