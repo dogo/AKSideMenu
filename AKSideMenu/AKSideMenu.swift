@@ -519,7 +519,7 @@ import UIKit
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if self.interactivePopGestureRecognizerEnabled && self.contentViewController! is UINavigationController {
-            let navigationController: UINavigationController = (self.contentViewController as UINavigationController)
+            let navigationController: UINavigationController = (self.contentViewController as! UINavigationController)
             if navigationController.viewControllers.count > 1 && navigationController.interactivePopGestureRecognizer!.isEnabled {
                 return false
             }

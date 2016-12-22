@@ -18,7 +18,7 @@ extension UIViewController {
             let strClass = String(describing: type(of: iter)).components(separatedBy: ".").last!
             while strClass != nibName {
                 if iter is AKSideMenu {
-                    return (iter as! AKSideMenu)
+                    return iter as? AKSideMenu
                 } else if iter.parent != nil && iter.parent != iter {
                     iter = iter.parent!
                 }
