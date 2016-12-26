@@ -21,7 +21,7 @@ import UIKit
     var visible: Bool = false
     var leftMenuVisible: Bool = false
     var rightMenuVisible: Bool = false
-    var didNotifyDelegate: Bool = false
+    var sideMenuDelegateNotify: Bool = false
     var originalPoint: CGPoint = CGPoint.zero
     var contentButton: UIButton = UIButton()
     var backgroundImageView: UIImageView?
@@ -561,7 +561,7 @@ import UIKit
             self.menuViewContainer.frame = self.view.bounds
             self.addContentButton()
             self.view.window?.endEditing(true)
-            self.didNotifyDelegate = false
+            self.sideMenuDelegateNotify = false
         }
 
         if recognizer.state == UIGestureRecognizerState.changed {
@@ -620,7 +620,7 @@ import UIKit
             }
             recognizer.setTranslation(point, in: self.view)
 
-            if !self.didNotifyDelegate {
+            if !self.sideMenuDelegateNotify {
                 if point.x > 0 {
                     if !self.visible {
                         self.delegate?.sideMenu?(self, willShowMenuViewController:self.leftMenuViewController!)
@@ -631,7 +631,7 @@ import UIKit
                         self.delegate?.sideMenu?(self, willShowMenuViewController:self.rightMenuViewController!)
                     }
                 }
-                self.didNotifyDelegate = true
+                self.sideMenuDelegateNotify = true
             }
 
             if contentViewScale > 1 {
@@ -662,7 +662,7 @@ import UIKit
         }
 
         if recognizer.state == UIGestureRecognizerState.ended {
-            self.didNotifyDelegate = false
+            self.sideMenuDelegateNotify = false
             if self.panMinimumOpenThreshold > 0 && ((self.contentViewContainer.frame.origin.x < 0 && self.contentViewContainer.frame.origin.x > -(CGFloat(self.panMinimumOpenThreshold))) ||
                 (self.contentViewContainer.frame.origin.x > 0 && self.contentViewContainer.frame.origin.x < CGFloat(self.panMinimumOpenThreshold))) {
                 self.hideMenuViewController()
