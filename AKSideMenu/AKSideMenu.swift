@@ -386,33 +386,33 @@ import UIKit
         self.rightMenuVisible = false
         self.contentButton.removeFromSuperview()
 
-        let animationBlock = { [weak self] in
-            self!.contentViewContainer.transform = CGAffineTransform.identity
-            self!.contentViewContainer.frame = self!.view.bounds
-            if self!.scaleMenuView {
-                self!.menuViewContainer.transform = self!.menuViewControllerTransformation!
+        let animationBlock = { [unowned self] in
+            self.contentViewContainer.transform = CGAffineTransform.identity
+            self.contentViewContainer.frame = self.view.bounds
+            if self.scaleMenuView {
+                self.menuViewContainer.transform = self.menuViewControllerTransformation!
             }
-            if self!.fadeMenuView {
-                self!.menuViewContainer.alpha = 0
+            if self.fadeMenuView {
+                self.menuViewContainer.alpha = 0
             }
-            self!.contentViewContainer.alpha = 1
+            self.contentViewContainer.alpha = 1
 
-            if self!.scaleBackgroundImageView {
-                self!.backgroundImageView!.transform = self!.backgroundTransformMakeScale()
+            if self.scaleBackgroundImageView {
+                self.backgroundImageView!.transform = self.backgroundTransformMakeScale()
 
             }
-            if self!.parallaxEnabled {
-                for effect in self!.contentViewContainer.motionEffects {
-                    self!.contentViewContainer.removeMotionEffect(effect)
+            if self.parallaxEnabled {
+                for effect in self.contentViewContainer.motionEffects {
+                    self.contentViewContainer.removeMotionEffect(effect)
                 }
             }
         }
 
-        let completionBlock = { [weak self] in
+        let completionBlock = { [unowned self] in
             visibleMenuViewController.endAppearanceTransition()
-            self!.statusBarNeedsAppearanceUpdate()
-            if self!.visible == false {
-                self!.delegate?.sideMenu?(self!, didHideMenuViewController:rightMenuVisible ? self!.rightMenuViewController! : self!.leftMenuViewController!)
+            self.statusBarNeedsAppearanceUpdate()
+            if self.visible == false {
+                self.delegate?.sideMenu?(self, didHideMenuViewController:rightMenuVisible ? self.rightMenuViewController! : self.leftMenuViewController!)
             }
         }
 
