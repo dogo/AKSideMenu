@@ -12,7 +12,7 @@ import AKSideMenu
 public class RootViewController: AKSideMenu, AKSideMenuDelegate {
 
     override public func awakeFromNib() {
-
+        super.awakeFromNib()
         self.menuPreferredStatusBarStyle = UIStatusBarStyle.lightContent
         self.contentViewShadowColor = UIColor.black
         self.contentViewShadowOffset = CGSize(width: 0, height: 0)
