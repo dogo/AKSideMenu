@@ -28,9 +28,9 @@ import UIKit
     var menuViewContainer: UIView = UIView()
     var contentViewContainer: UIView = UIView()
 
-    @IBInspectable public var contentViewStoryboardID: String? = nil
-    @IBInspectable public var leftMenuViewStoryboardID: String? = nil
-    @IBInspectable public var rightMenuViewStoryboardID: String? = nil
+    @IBInspectable public var contentViewStoryboardID: String?
+    @IBInspectable public var leftMenuViewStoryboardID: String?
+    @IBInspectable public var rightMenuViewStoryboardID: String?
     @IBInspectable public var panFromEdgeZoneWidth: CGFloat = 20.0
     @IBInspectable public var panGestureLeftEnabled: Bool = true
     @IBInspectable public var panGestureRightEnabled: Bool = true
