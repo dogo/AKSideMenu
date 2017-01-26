@@ -69,18 +69,14 @@ import UIKit
     private var _leftMenuViewController: UIViewController?
     private var _rightMenuViewController: UIViewController?
 
-    init() {
-        super.init(nibName:nil, bundle:nil)
-        self.commonInit()
-    }
-
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }
 
-    convenience public init(contentViewController: UIViewController, leftMenuViewController: UIViewController?, rightMenuViewController: UIViewController?) {
-        self.init()
+    required public init(contentViewController: UIViewController, leftMenuViewController: UIViewController?, rightMenuViewController: UIViewController?) {
+        super.init(nibName:nil, bundle:nil)
+        self.commonInit()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
         self.rightMenuViewController = rightMenuViewController
