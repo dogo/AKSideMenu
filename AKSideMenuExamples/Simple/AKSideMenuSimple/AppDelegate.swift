@@ -18,17 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AKSideMenuDelegate {
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
 
         // Create content and menu controllers
-        let navigationController: UINavigationController = UINavigationController.init(rootViewController: FirstViewController.init())
-        let leftMenuViewController: LeftMenuViewController = LeftMenuViewController.init()
-        let rightMenuViewController: RightMenuViewController = RightMenuViewController.init()
+        let navigationController = UINavigationController(rootViewController: FirstViewController())
+        let leftMenuViewController = LeftMenuViewController()
+        let rightMenuViewController = RightMenuViewController()
 
         // Create side menu controller
         let sideMenuViewController: AKSideMenu = AKSideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
 
-        sideMenuViewController.backgroundImage = UIImage.init(named: "Stars")!
-        sideMenuViewController.menuPreferredStatusBarStyle = UIStatusBarStyle.lightContent
+        sideMenuViewController.backgroundImage = UIImage(named: "Stars")!
+        sideMenuViewController.menuPreferredStatusBarStyle = .lightContent
         sideMenuViewController.delegate = self
-        sideMenuViewController.contentViewShadowColor = UIColor.black
+        sideMenuViewController.contentViewShadowColor = .black
         sideMenuViewController.contentViewShadowOffset = CGSize(width: 0, height: 0)
         sideMenuViewController.contentViewShadowOpacity = 0.6
         sideMenuViewController.contentViewShadowRadius = 12

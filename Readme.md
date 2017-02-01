@@ -18,11 +18,20 @@ Build the examples from the `AKSideMenuExamples` directory.
 
 ## Installation
 
-AKSideMenu is available through [CocoaPods](http://cocoapods.org).
+### [CocoaPods](https://cocoapods.org/).
 
 To install, add the following line to your Podfile:
+```ruby
+pod 'AKSideMenu'
+```
+ 
+### [Carthage](https://github.com/Carthage/Carthage).
 
-    pod 'AKSideMenu'
+To install, add the following line to your  Cartfile: 
+ 
+```ruby
+github "dogo/AKSideMenu" "1.3.3"
+```
 
 ## Easy to use
 
