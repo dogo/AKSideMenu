@@ -410,7 +410,7 @@ import UIKit
                 visibleMenuViewController.endAppearanceTransition()
                 self.statusBarNeedsAppearanceUpdate()
                 if self.visible == false {
-                    self.delegate?.sideMenu?(self, didHideMenuViewController:rightMenuVisible ? self.rightMenuViewController! : self.leftMenuViewController!)
+                    self.delegate?.sideMenu?(self, didHideMenuViewController: visibleMenuViewController)
                 }
             }
 
