@@ -618,13 +618,13 @@ import UIKit
 
             if !self.sideMenuDelegateNotify {
                 if point.x > 0 {
-                    if !self.visible {
-                        self.delegate?.sideMenu?(self, willShowMenuViewController:self.leftMenuViewController!)
+                    if let leftMenuViewController = self.leftMenuViewController, !self.visible {
+                        self.delegate?.sideMenu?(self, willShowMenuViewController:leftMenuViewController)
                     }
                 }
                 if point.x < 0 {
-                    if !self.visible {
-                        self.delegate?.sideMenu?(self, willShowMenuViewController:self.rightMenuViewController!)
+                    if let rightMenuViewController = self.rightMenuViewController, !self.visible {
+                        self.delegate?.sideMenu?(self, willShowMenuViewController:rightMenuViewController)
                     }
                 }
                 self.sideMenuDelegateNotify = true
