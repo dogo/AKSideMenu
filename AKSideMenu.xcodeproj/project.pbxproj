@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		41CF1F4C1E41F33A009CCA34 /* AKSideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 41CF1F4A1E41F33A009CCA34 /* AKSideMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41CF1F541E41F3F5009CCA34 /* AKSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF1F521E41F3F5009CCA34 /* AKSideMenu.swift */; };
+		41CF1F551E41F3F5009CCA34 /* UIViewController+AKSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CF1F531E41F3F5009CCA34 /* UIViewController+AKSideMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		41CF1F471E41F33A009CCA34 /* AKSideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AKSideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CF1F4A1E41F33A009CCA34 /* AKSideMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSideMenu.h; sourceTree = "<group>"; };
 		41CF1F4B1E41F33A009CCA34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41CF1F521E41F3F5009CCA34 /* AKSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSideMenu.swift; sourceTree = "<group>"; };
+		41CF1F531E41F3F5009CCA34 /* UIViewController+AKSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AKSideMenu.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,8 @@
 		41CF1F491E41F33A009CCA34 /* AKSideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				41CF1F521E41F3F5009CCA34 /* AKSideMenu.swift */,
+				41CF1F531E41F3F5009CCA34 /* UIViewController+AKSideMenu.swift */,
 				41CF1F4A1E41F33A009CCA34 /* AKSideMenu.h */,
 				41CF1F4B1E41F33A009CCA34 /* Info.plist */,
 			);
@@ -94,6 +100,7 @@
 				TargetAttributes = {
 					41CF1F461E41F33A009CCA34 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -130,6 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41CF1F551E41F3F5009CCA34 /* UIViewController+AKSideMenu.swift in Sources */,
+				41CF1F541E41F3F5009CCA34 /* AKSideMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +247,7 @@
 		41CF1F501E41F33A009CCA34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -249,6 +259,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anykey.AKSideMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -256,6 +267,7 @@
 		41CF1F511E41F33A009CCA34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -290,6 +302,7 @@
 				41CF1F511E41F33A009CCA34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
