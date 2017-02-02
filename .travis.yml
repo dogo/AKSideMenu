@@ -1,8 +1,11 @@
 # reference: http://www.objc.io/issue-6/travis-ci.html
 
-language: objective-c
-osx_image: xcode8
+language: swift
+osx_image: xcode8.2
 podfile: AKSideMenuExamples/Simple/Podfile
 
 script:
-- xcodebuild -workspace AKSideMenuExamples/Simple/AKSideMenuSimple.xcworkspace -scheme AKSideMenuSimple -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xcodebuild -workspace AKSideMenuExamples/Simple/AKSideMenuSimple.xcworkspace -scheme AKSideMenuSimple -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J AKSideMenu
