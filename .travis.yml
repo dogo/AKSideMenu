@@ -1,6 +1,6 @@
 # reference: http://www.objc.io/issue-6/travis-ci.html
 
-language: swift
+language: objective-c
 osx_image: xcode8.2
 podfile: AKSideMenuExamples/Simple/Podfile
 
