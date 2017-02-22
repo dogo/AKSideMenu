@@ -802,57 +802,45 @@ import UIKit
     // MARK: - Status Bar Appearance Management
 
     override open var preferredStatusBarStyle: UIStatusBarStyle {
-        var statusBarStyle: UIStatusBarStyle = .default
+        var statusBarStyle = self.contentViewController?.preferredStatusBarStyle ?? .default
 
         if self.scaleContentView {
             if self.contentViewContainer.frame.origin.y > 10 {
                 statusBarStyle = self.menuPreferredStatusBarStyle
-            } else {
-                statusBarStyle = self.contentViewController?.preferredStatusBarStyle ?? statusBarStyle
             }
         } else {
             if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
                 statusBarStyle = self.menuPreferredStatusBarStyle
-            } else {
-                statusBarStyle = self.contentViewController?.preferredStatusBarStyle ?? statusBarStyle
             }
         }
         return statusBarStyle
     }
 
     override open var prefersStatusBarHidden: Bool {
-        var statusBarHidden: Bool = false
+        var statusBarHidden = self.contentViewController?.prefersStatusBarHidden ?? false
 
         if self.scaleContentView {
             if self.contentViewContainer.frame.origin.y > 10 {
                 statusBarHidden = self.menuPrefersStatusBarHidden
-            } else {
-                statusBarHidden = self.contentViewController?.prefersStatusBarHidden ?? statusBarHidden
             }
         } else {
             if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
                 statusBarHidden = self.menuPrefersStatusBarHidden
-            } else {
-                statusBarHidden = self.contentViewController?.prefersStatusBarHidden ?? statusBarHidden
             }
         }
         return statusBarHidden
     }
 
     override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        var statusBarAnimation: UIStatusBarAnimation = .fade
+        var statusBarAnimation = self.contentViewController?.preferredStatusBarUpdateAnimation ?? .fade
 
         if self.scaleContentView {
-            if (self.contentViewContainer.frame.origin.y > 10) {
+            if self.contentViewContainer.frame.origin.y > 10 {
                 statusBarAnimation = self.leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
-            } else {
-                statusBarAnimation = self.contentViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
             }
         } else {
             if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
                 statusBarAnimation = self.leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
-            } else {
-                statusBarAnimation = self.contentViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
             }
         }
 
