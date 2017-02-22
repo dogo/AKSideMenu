@@ -343,7 +343,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7FC75173B769051E318F46CE /* Pods-AKSideMenuSimple.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/AKSideMenuSimple/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -357,7 +356,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A21FB7B695E65E9F3F292FA /* Pods-AKSideMenuSimple.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/AKSideMenuSimple/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

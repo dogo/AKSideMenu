@@ -356,7 +356,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEFB7BC2C655C5D1B45E8B16 /* Pods-AKSideMenuStoryboard.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AKSideMenuStoryboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -370,7 +369,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 548B60EA46C1D17CD5F34A0C /* Pods-AKSideMenuStoryboard.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AKSideMenuStoryboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
