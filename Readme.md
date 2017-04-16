@@ -35,7 +35,7 @@ github "dogo/AKSideMenu" "1.3.3"
 
 ## Easy to use
 
-###Simple implementation
+### Simple implementation
 In your AppDelegate, add the code below.
 
 ```swift
@@ -118,7 +118,7 @@ self.sideMenuViewController!.setContentViewController(viewController, animated: 
 self.sideMenuViewController!.hideMenuViewController()
 ```
 
-###Properties
+### Properties
 ```swift
 public var animationDuration: TimeInterval
 ```
