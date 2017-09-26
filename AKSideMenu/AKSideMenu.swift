@@ -223,7 +223,7 @@ import UIKit
         self.showRightMenuViewController()
     }
 
-    public func hideMenuViewController() {
+    @objc public func hideMenuViewController() {
         self.hideMenuViewControllerAnimated(true)
     }
 
@@ -559,7 +559,7 @@ import UIKit
 
     // MARK: - Pan gesture recognizer (Private)
 
-    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
 
         self.delegate?.sideMenu?(self, didRecognizePanGesture:recognizer)
 

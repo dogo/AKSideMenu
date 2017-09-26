@@ -26,7 +26,7 @@ open class SecondViewController: UIViewController {
 
     }
 
-    func pushViewController(_ sender: AnyObject) {
+    @objc func pushViewController(_ sender: AnyObject) {
         let viewController = UIViewController.init()
         viewController.title = "Pushed Controller"
         viewController.view.backgroundColor = UIColor.white
