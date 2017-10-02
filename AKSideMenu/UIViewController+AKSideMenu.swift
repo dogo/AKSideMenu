@@ -32,7 +32,7 @@ extension UIViewController {
     }
 
     // MARK: - Public
-    // MARK: - IB Action Helper methods
+    // MARK: - IBAction Helper methods
 
     @IBAction public func presentLeftMenuViewController(_ sender: AnyObject) {
         self.sideMenuViewController?.presentLeftMenuViewController()
