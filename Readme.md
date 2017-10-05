@@ -145,6 +145,10 @@ The content background image. Defaults to white.
 ```swift
 public var panGestureEnabled: Bool
 ```
+The content view corner radius. Defaults to 0.
+```swift
+public var contentViewCornerRadius: CGFloat
+```
 Enables panGesture detection. Defaults to True.
 ```swift
 public var panFromEdge: Bool
