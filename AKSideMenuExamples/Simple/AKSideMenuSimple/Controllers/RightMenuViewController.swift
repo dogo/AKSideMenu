@@ -23,7 +23,7 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView = UITableView(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 2) / 2.0, width: self.view.frame.size.width, height: 54 * 2), style: UITableViewStyle.plain)
+        let tableView = UITableView(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 2) / 2.0, width: self.view.frame.size.width, height: 54 * 2), style: .plain)
         tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
@@ -75,16 +75,16 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
         var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
 
         if cell == nil {
-            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellIdentifier)
-            cell!.backgroundColor = UIColor.clear
-            cell!.textLabel?.font = UIFont.init(name: "HelveticaNeue", size: 21)
-            cell!.textLabel?.textColor = UIColor.white
-            cell!.textLabel?.highlightedTextColor = UIColor.lightGray
-            cell!.selectedBackgroundView = UIView.init()
+            cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+            cell!.backgroundColor = .clear
+            cell!.textLabel?.font = UIFont(name: "HelveticaNeue", size: 21)
+            cell!.textLabel?.textColor = .white
+            cell!.textLabel?.highlightedTextColor = .lightGray
+            cell!.selectedBackgroundView = UIView()
         }
 
         var titles = ["Test 1", "Test 2"]
-        cell!.textLabel?.text = titles[(indexPath as NSIndexPath).row]
+        cell!.textLabel?.text = titles[indexPath.row]
         cell!.textLabel?.textAlignment = .right
 
         return cell!

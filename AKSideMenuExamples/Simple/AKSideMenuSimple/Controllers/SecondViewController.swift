@@ -17,7 +17,7 @@ open class SecondViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(self.presentLeftMenuViewController(_:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(self.presentRightMenuViewController(_:)))
 
-        let button = UIButton(type: UIButtonType.roundedRect)
+        let button = UIButton(type: .roundedRect)
         button.frame = CGRect(x: 0, y: 84, width: self.view.frame.size.width, height: 44)
         button.autoresizingMask = .flexibleWidth
         button.setTitle("Push View Controller", for: UIControlState())
