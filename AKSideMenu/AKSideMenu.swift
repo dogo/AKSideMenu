@@ -79,7 +79,7 @@ import UIKit
     }
 
     required public init(contentViewController: UIViewController, leftMenuViewController: UIViewController?, rightMenuViewController: UIViewController?) {
-        super.init(nibName:nil, bundle:nil)
+        super.init(nibName: nil, bundle: nil)
         self.commonInit()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
@@ -362,7 +362,7 @@ import UIKit
             self.rightMenuViewController?.endAppearanceTransition()
 
             if let rightMenuViewController = self.rightMenuViewController, !self.rightMenuVisible {
-                self.delegate?.sideMenu?(self, didShowMenuViewController:rightMenuViewController)
+                self.delegate?.sideMenu?(self, didShowMenuViewController: rightMenuViewController)
             }
             self.visible = !(self.contentViewContainer.frame.size.width == self.view.bounds.size.width && self.contentViewContainer.frame.size.height == self.view.bounds.size.height && self.contentViewContainer.frame.origin.x == 0 && self.contentViewContainer.frame.origin.y == 0)
             self.rightMenuVisible = self.visible
@@ -564,7 +564,7 @@ import UIKit
 
     @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
 
-        self.delegate?.sideMenu?(self, didRecognizePanGesture:recognizer)
+        self.delegate?.sideMenu?(self, didRecognizePanGesture: recognizer)
 
         if !self.panGestureEnabled {
             return
@@ -647,12 +647,12 @@ import UIKit
             if !self.sideMenuDelegateNotify {
                 if point.x > 0 {
                     if let leftMenuViewController = self.leftMenuViewController, !self.visible {
-                        self.delegate?.sideMenu?(self, willShowMenuViewController:leftMenuViewController)
+                        self.delegate?.sideMenu?(self, willShowMenuViewController: leftMenuViewController)
                     }
                 }
                 if point.x < 0 {
                     if let rightMenuViewController = self.rightMenuViewController, !self.visible {
-                        self.delegate?.sideMenu?(self, willShowMenuViewController:rightMenuViewController)
+                        self.delegate?.sideMenu?(self, willShowMenuViewController: rightMenuViewController)
                     }
                 }
                 self.sideMenuDelegateNotify = true

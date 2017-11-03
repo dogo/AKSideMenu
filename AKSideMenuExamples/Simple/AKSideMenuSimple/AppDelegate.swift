@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AKSideMenuDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
 
         // Create content and menu controllers
         let navigationController = UINavigationController(rootViewController: FirstViewController())
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AKSideMenuDelegate {
         sideMenuViewController.contentViewShadowEnabled = true
         self.window!.rootViewController = sideMenuViewController
 
-        self.window!.backgroundColor = UIColor.white
+        self.window!.backgroundColor = .white
         self.window?.makeKeyAndVisible()
         return true
     }

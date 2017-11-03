@@ -13,13 +13,13 @@ open class FirstViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.title = "First Controller"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Left", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.presentLeftMenuViewController(_:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Right", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.presentRightMenuViewController(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(self.presentLeftMenuViewController(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(self.presentRightMenuViewController(_:)))
 
-        let imageView: UIImageView = UIImageView.init(frame: self.view.bounds)
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-        imageView.image = UIImage.init(named: "Balloon")
+        let imageView = UIImageView(frame: self.view.bounds)
+        imageView.contentMode = .scaleAspectFill
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.image = UIImage(named: "Balloon")
         self.view.addSubview(imageView)
     }
 

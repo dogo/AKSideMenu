@@ -13,7 +13,7 @@ open class LeftMenuViewController: UIViewController, UITableViewDelegate, UITabl
     var tableView: UITableView?
 
     init() {
-        super.init(nibName:nil, bundle:nil)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -23,14 +23,14 @@ open class LeftMenuViewController: UIViewController, UITableViewDelegate, UITabl
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5), style: UITableViewStyle.plain)
-        tableView.autoresizingMask = [UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin, UIViewAutoresizing.flexibleWidth]
+        let tableView = UITableView(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5), style: UITableViewStyle.plain)
+        tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isOpaque = false
-        tableView.backgroundColor = UIColor.clear
+        tableView.backgroundColor = .clear
         tableView.backgroundView = nil
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = .none
         tableView.bounces = false
 
         self.tableView = tableView
@@ -43,11 +43,11 @@ open class LeftMenuViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
             case 0:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: FirstViewController.init()), animated: true)
+                self.sideMenuViewController!.setContentViewController(UINavigationController(rootViewController: FirstViewController()), animated: true)
                 self.sideMenuViewController!.hideMenuViewController()
 
             case 1:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: SecondViewController.init()), animated: true)
+                self.sideMenuViewController!.setContentViewController(UINavigationController(rootViewController: SecondViewController()), animated: true)
                 self.sideMenuViewController!.hideMenuViewController()
 
         default:
@@ -83,10 +83,10 @@ open class LeftMenuViewController: UIViewController, UITableViewDelegate, UITabl
             cell!.selectedBackgroundView = UIView.init()
         }
 
-        var titles: [String] = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
-        var images: [String] = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
+        var titles = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
+        var images = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
         cell!.textLabel?.text = titles[(indexPath as NSIndexPath).row]
-        cell!.imageView?.image = UIImage.init(named: images[(indexPath as NSIndexPath).row])
+        cell!.imageView?.image = UIImage(named: images[(indexPath as NSIndexPath).row])
 
         return cell!
     }
