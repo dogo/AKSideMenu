@@ -15,9 +15,9 @@ public class SecondViewController: UIViewController {
     }
 
     func pushViewController(_ sender: AnyObject) {
-        let viewController = UIViewController.init()
+        let viewController = UIViewController()
         viewController.title = "Pushed Controller"
-        viewController.view.backgroundColor = UIColor.white
+        viewController.view.backgroundColor = .white
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 

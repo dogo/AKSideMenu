@@ -19,14 +19,14 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView: UITableView = UITableView.init(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5), style: UITableViewStyle.plain)
-        tableView.autoresizingMask = [UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin, UIViewAutoresizing.flexibleWidth]
+        let tableView = UITableView(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 5) / 2.0, width: self.view.frame.size.width, height: 54 * 5), style: .plain)
+        tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isOpaque = false
-        tableView.backgroundColor = UIColor.clear
+        tableView.backgroundColor = .clear
         tableView.backgroundView = nil
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = .none
         tableView.bounces = false
 
         self.tableView = tableView
@@ -38,13 +38,13 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
-            case 0:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "firstViewController")), animated: true)
-                self.sideMenuViewController!.hideMenuViewController()
+        case 0:
+            self.sideMenuViewController!.setContentViewController(UINavigationController(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "firstViewController")), animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
 
-            case 1:
-                self.sideMenuViewController!.setContentViewController(UINavigationController.init(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "secondViewController")), animated: true)
-                self.sideMenuViewController!.hideMenuViewController()
+        case 1:
+            self.sideMenuViewController!.setContentViewController(UINavigationController(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "secondViewController")), animated: true)
+            self.sideMenuViewController!.hideMenuViewController()
 
         default:
             break
@@ -71,18 +71,18 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
         var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
 
         if cell == nil {
-            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellIdentifier)
-            cell!.backgroundColor = UIColor.clear
-            cell!.textLabel?.font = UIFont.init(name: "HelveticaNeue", size: 21)
-            cell!.textLabel?.textColor = UIColor.white
-            cell!.textLabel?.highlightedTextColor = UIColor.lightGray
-            cell!.selectedBackgroundView = UIView.init()
+            cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+            cell!.backgroundColor = .clear
+            cell!.textLabel?.font = UIFont(name: "HelveticaNeue", size: 21)
+            cell!.textLabel?.textColor = .white
+            cell!.textLabel?.highlightedTextColor = .lightGray
+            cell!.selectedBackgroundView = UIView()
         }
 
-        var titles: [String] = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
-        var images: [String] = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
+        var titles = ["Home", "Calendar", "Profile", "Settings", "Log Out"]
+        var images = ["IconHome", "IconCalendar", "IconProfile", "IconSettings", "IconEmpty"]
         cell!.textLabel?.text = titles[indexPath.row]
-        cell!.imageView?.image = UIImage.init(named: images[indexPath.row])
+        cell!.imageView?.image = UIImage(named: images[indexPath.row])
 
         return cell!
     }

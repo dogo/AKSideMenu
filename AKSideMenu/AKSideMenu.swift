@@ -316,7 +316,7 @@ import UIKit
             if self.scaleBackgroundImageView {
                 self.backgroundImageView?.transform = .identity
             }
-        }) { (_) in
+        }, completion: { (_: Bool) in
             self.addContentViewControllerMotionEffects()
             self.leftMenuViewController?.endAppearanceTransition()
 
@@ -325,7 +325,7 @@ import UIKit
             }
             self.visible = true
             self.leftMenuVisible = true
-        }
+        })
         self.statusBarNeedsAppearanceUpdate()
     }
 
@@ -358,7 +358,7 @@ import UIKit
             if self.scaleBackgroundImageView {
                 self.backgroundImageView?.transform = .identity
             }
-        }) { (_) in
+        }, completion: { (_: Bool) in
             self.rightMenuViewController?.endAppearanceTransition()
 
             if let rightMenuViewController = self.rightMenuViewController, !self.rightMenuVisible {
@@ -368,7 +368,7 @@ import UIKit
             self.rightMenuVisible = self.visible
             UIApplication.shared.endIgnoringInteractionEvents()
             self.addContentViewControllerMotionEffects()
-        }
+        })
         self.statusBarNeedsAppearanceUpdate()
     }
 
