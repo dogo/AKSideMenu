@@ -583,7 +583,6 @@ import UIKit
                 self.backgroundImageView?.frame = self.view.bounds
             }
             self.menuViewContainer.frame = self.view.bounds
-            //self.addContentButton()
             self.view.window?.endEditing(true)
             self.sideMenuDelegateNotify = false
         }
