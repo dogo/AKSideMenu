@@ -302,6 +302,7 @@ import UIKit
         UIView.animate(withDuration: self.animationDuration, animations: {
             if self.scaleContentView {
                 self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
+                self.updateContentViewAdditionalSafeAreaInsets()
             } else {
                 self.contentViewContainer.transform = .identity
             }
@@ -345,6 +346,7 @@ import UIKit
         UIView.animate(withDuration: self.animationDuration, animations: {
             if self.scaleContentView {
                 self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
+                self.updateContentViewAdditionalSafeAreaInsets()
             } else {
                 self.contentViewContainer.transform = .identity
             }
@@ -395,6 +397,8 @@ import UIKit
             let animationBlock = { [unowned self] in
                 self.contentViewContainer.transform = .identity
                 self.contentViewContainer.frame = self.view.bounds
+                self.updateContentViewAdditionalSafeAreaInsets()
+
                 if let transform = self.menuViewControllerTransformation, self.scaleMenuView {
                     self.menuViewContainer.transform = transform
                 }
@@ -485,7 +489,22 @@ import UIKit
         return CGAffineTransform(scaleX: self.backgroundTransformScale, y: self.backgroundTransformScale)
     }
 
-    // MARK: - iOS 7 Motion Effects (Private)
+    func updateContentViewAdditionalSafeAreaInsets() {
+        if #available(iOS 11.0, *) {
+            if var insets = self.contentViewController?.additionalSafeAreaInsets {
+                insets.top = self.contentViewContainer.frame.minY
+                let topSafeArea = self.view.safeAreaLayoutGuide.layoutFrame.minY
+                if insets.top > topSafeArea {
+                    insets.top = topSafeArea
+                } else if insets.top < 0.0 {
+                    insets.top = 0.0
+                }
+                self.contentViewController?.additionalSafeAreaInsets = insets
+            }
+        }
+    }
+
+    // MARK: - Motion Effects (Private)
 
     func addMenuViewControllerMotionEffects() {
         if self.parallaxEnabled {
@@ -681,6 +700,7 @@ import UIKit
                 self.rightMenuVisible = false
             }
 
+            self.updateContentViewAdditionalSafeAreaInsets()
             self.statusBarNeedsAppearanceUpdate()
         }
 
@@ -783,7 +803,7 @@ import UIKit
         }
     }
 
-    // MARK: - View Controller Rotation handler
+    // MARK: - ViewController Rotation handler
 
     override open var shouldAutorotate: Bool {
         return self.contentViewController?.shouldAutorotate ?? false
@@ -801,6 +821,7 @@ import UIKit
 
             if self.scaleContentView {
                 self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
+                self.updateContentViewAdditionalSafeAreaInsets()
             } else {
                 self.contentViewContainer.transform = .identity
             }
