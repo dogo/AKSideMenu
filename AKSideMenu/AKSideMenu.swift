@@ -453,9 +453,9 @@ import UIKit
     }
 
     func statusBarNeedsAppearanceUpdate() {
-        if self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate)) {
+        if self.responds(to: #selector(self.updateStatusBar)) {
             UIView.animate(withDuration: 0.3, animations: {
-                self.perform(#selector(UIViewController.setNeedsStatusBarAppearanceUpdate))
+                self.perform(#selector(self.updateStatusBar))
             })
         }
     }
@@ -838,25 +838,29 @@ import UIKit
     }
 
     // MARK: - Status Bar Appearance Management
-
-    override open var preferredStatusBarStyle: UIStatusBarStyle {
-        var statusBarStyle = self.contentViewController?.preferredStatusBarStyle ?? .default
-
-        if self.scaleContentView {
-            if self.contentViewContainer.frame.origin.y > 10 {
-                statusBarStyle = self.menuPreferredStatusBarStyle
-            }
+    
+    @objc func updateStatusBar() {
+        if self.menuPrefersStatusBarHidden {
+            self.hideStatusBarIfNeeded()
         } else {
-            if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
-                statusBarStyle = self.menuPreferredStatusBarStyle
+            var statusBarStyle = self.contentViewController?.preferredStatusBarStyle ?? .default
+            
+            if self.scaleContentView {
+                if self.contentViewContainer.frame.origin.y > 10 {
+                    statusBarStyle = self.menuPreferredStatusBarStyle
+                }
+            } else {
+                if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
+                    statusBarStyle = self.menuPreferredStatusBarStyle
+                }
             }
+            UIApplication.shared.statusBarStyle = statusBarStyle
         }
-        return statusBarStyle
     }
-
-    override open var prefersStatusBarHidden: Bool {
+    
+    func hideStatusBarIfNeeded() {
         var statusBarHidden = self.contentViewController?.prefersStatusBarHidden ?? false
-
+        
         if self.scaleContentView {
             if self.contentViewContainer.frame.origin.y > 10 {
                 statusBarHidden = self.menuPrefersStatusBarHidden
@@ -866,12 +870,12 @@ import UIKit
                 statusBarHidden = self.menuPrefersStatusBarHidden
             }
         }
-        return statusBarHidden
+        UIApplication.shared.setStatusBarHidden(statusBarHidden, with: self.statusBarUpdateAnimation())
     }
-
-    override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+    
+    func statusBarUpdateAnimation() -> UIStatusBarAnimation {
         var statusBarAnimation = self.contentViewController?.preferredStatusBarUpdateAnimation ?? .fade
-
+        
         if self.scaleContentView {
             if self.contentViewContainer.frame.origin.y > 10 {
                 statusBarAnimation = self.leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
@@ -881,7 +885,7 @@ import UIKit
                 statusBarAnimation = self.leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
             }
         }
-
+        
         return statusBarAnimation
     }
 }
