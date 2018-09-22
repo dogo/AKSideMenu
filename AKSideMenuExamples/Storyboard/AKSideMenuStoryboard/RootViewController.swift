@@ -19,20 +19,15 @@ public class RootViewController: AKSideMenu, AKSideMenuDelegate {
         self.contentViewShadowOpacity = 0.6
         self.contentViewShadowRadius = 12
         self.contentViewShadowEnabled = true
-
-        self.contentViewController = self.storyboard!.instantiateViewController(withIdentifier: "contentViewController")
-        self.leftMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "leftMenuViewController")
-        self.rightMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "rightMenuViewController")
+        
         self.backgroundImage = UIImage(named: "Stars")
         self.delegate = self
-    }
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override public func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        if let storyboard = self.storyboard {
+            self.contentViewController = storyboard.instantiateViewController(withIdentifier: "contentViewController")
+            self.leftMenuViewController = storyboard.instantiateViewController(withIdentifier: "leftMenuViewController")
+            self.rightMenuViewController = storyboard.instantiateViewController(withIdentifier: "rightMenuViewController")
+        }
     }
 
     // MARK: - <AKSideMenuDelegate>

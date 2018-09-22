@@ -10,10 +10,6 @@ import UIKit
 
 public class SecondViewController: UIViewController {
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     @IBAction func pushViewController(_ sender: Any) {
         let viewController = UIViewController()
         viewController.title = "Pushed Controller"

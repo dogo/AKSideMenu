@@ -67,18 +67,18 @@
                             <constraint firstAttribute="trailing" secondItem="sCD-GZ-hDv" secondAttribute="trailing" id="4CO-cB-U8R"/>
                             <constraint firstItem="sCD-GZ-hDv" firstAttribute="leading" secondItem="NKZ-RZ-CBv" secondAttribute="leading" id="Hk2-oT-q1b"/>
                             <constraint firstItem="sCD-GZ-hDv" firstAttribute="top" secondItem="NKZ-RZ-CBv" secondAttribute="topMargin" id="jBA-KH-thR"/>
-                            <constraint firstItem="4Jg-wT-hYl" firstAttribute="top" secondItem="sCD-GZ-hDv" secondAttribute="bottom" id="vpB-Z7-qht"/>
+                            <constraint firstAttribute="bottom" secondItem="sCD-GZ-hDv" secondAttribute="bottom" id="vpB-Z7-qht"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Controller" id="HIf-bS-REK">
                         <barButtonItem key="leftBarButtonItem" title="Left" id="SZg-Pf-I50">
                             <connections>
-                                <action selector="presentLeftMenuViewController:" destination="jsP-Dz-DYG" id="hwP-5s-SlX"/>
+                                <action selector="presentLeftMenuViewController:" destination="jsP-Dz-DYG" id="XBz-io-d7K"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Right" id="keH-6D-X6t">
                             <connections>
-                                <action selector="presentRightMenuViewController:" destination="jsP-Dz-DYG" id="UYT-AK-fzA"/>
+                                <action selector="presentRightMenuViewController:" destination="jsP-Dz-DYG" id="zga-VY-eiY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
