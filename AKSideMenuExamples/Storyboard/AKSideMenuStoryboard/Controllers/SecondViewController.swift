@@ -14,7 +14,7 @@ public class SecondViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func pushViewController(_ sender: AnyObject) {
+    @IBAction func pushViewController(_ sender: Any) {
         let viewController = UIViewController()
         viewController.title = "Pushed Controller"
         viewController.view.backgroundColor = .white
@@ -23,11 +23,11 @@ public class SecondViewController: UIViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSLog("SecondViewController will appear")
+        print("SecondViewController will appear")
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSLog("SecondViewController will disappear")
+        print("SecondViewController will disappear")
     }
 }

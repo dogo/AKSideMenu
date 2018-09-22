@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B13D1968EC18F1145BB84BA /* Pods_AKSideMenuStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A886707A406B6C6FAED0CD6E /* Pods_AKSideMenuStoryboard.framework */; };
+		00E58E1C7790EA96DA7E0D92 /* Pods_AKSideMenuStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E436B72F5463A580579F80E /* Pods_AKSideMenuStoryboard.framework */; };
 		DD10F1BC1D09999E0053EDBB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1B81D09999E0053EDBB /* FirstViewController.swift */; };
 		DD10F1BD1D09999E0053EDBB /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1B91D09999E0053EDBB /* RightMenuViewController.swift */; };
 		DD10F1BE1D09999E0053EDBB /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10F1BA1D09999E0053EDBB /* LeftMenuViewController.swift */; };
@@ -20,9 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		548B60EA46C1D17CD5F34A0C /* Pods-AKSideMenuStoryboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuStoryboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKSideMenuStoryboard/Pods-AKSideMenuStoryboard.release.xcconfig"; sourceTree = "<group>"; };
-		A886707A406B6C6FAED0CD6E /* Pods_AKSideMenuStoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKSideMenuStoryboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEFB7BC2C655C5D1B45E8B16 /* Pods-AKSideMenuStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKSideMenuStoryboard/Pods-AKSideMenuStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
+		083518AE90C639B8D996A71B /* Pods-AKSideMenuStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AKSideMenuStoryboard/Pods-AKSideMenuStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
+		4E436B72F5463A580579F80E /* Pods_AKSideMenuStoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKSideMenuStoryboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26E6DD6DAC53F778F1D10FA /* Pods-AKSideMenuStoryboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuStoryboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKSideMenuStoryboard/Pods-AKSideMenuStoryboard.release.xcconfig"; sourceTree = "<group>"; };
 		DD10F1B81D09999E0053EDBB /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		DD10F1B91D09999E0053EDBB /* RightMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuViewController.swift; sourceTree = "<group>"; };
 		DD10F1BA1D09999E0053EDBB /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
@@ -41,26 +41,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B13D1968EC18F1145BB84BA /* Pods_AKSideMenuStoryboard.framework in Frameworks */,
+				00E58E1C7790EA96DA7E0D92 /* Pods_AKSideMenuStoryboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1ACBE9CEFB295BB678811998 /* Pods */ = {
+		1CFE9389C1869D6154311270 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AEFB7BC2C655C5D1B45E8B16 /* Pods-AKSideMenuStoryboard.debug.xcconfig */,
-				548B60EA46C1D17CD5F34A0C /* Pods-AKSideMenuStoryboard.release.xcconfig */,
+				083518AE90C639B8D996A71B /* Pods-AKSideMenuStoryboard.debug.xcconfig */,
+				D26E6DD6DAC53F778F1D10FA /* Pods-AKSideMenuStoryboard.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C861B246950C7096EB3D6000 /* Frameworks */ = {
+		A50F8526EE783DDC306D327F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A886707A406B6C6FAED0CD6E /* Pods_AKSideMenuStoryboard.framework */,
+				4E436B72F5463A580579F80E /* Pods_AKSideMenuStoryboard.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -81,8 +81,8 @@
 			children = (
 				DDA3AEC01D09955A0085CBF3 /* AKSideMenuStoryboard */,
 				DDA3AEBF1D09955A0085CBF3 /* Products */,
-				1ACBE9CEFB295BB678811998 /* Pods */,
-				C861B246950C7096EB3D6000 /* Frameworks */,
+				1CFE9389C1869D6154311270 /* Pods */,
+				A50F8526EE783DDC306D327F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,11 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDA3AED01D09955A0085CBF3 /* Build configuration list for PBXNativeTarget "AKSideMenuStoryboard" */;
 			buildPhases = (
-				8647815295DACD8A1AE5AE70 /* [CP] Check Pods Manifest.lock */,
+				948D0A685C65776E1174E210 /* [CP] Check Pods Manifest.lock */,
 				DDA3AEBA1D09955A0085CBF3 /* Sources */,
 				DDA3AEBB1D09955A0085CBF3 /* Frameworks */,
 				DDA3AEBC1D09955A0085CBF3 /* Resources */,
-				7989D80B9BE366ACB9BE20AB /* [CP] Embed Pods Frameworks */,
+				7E74E86DE9CD12862D41AF5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,7 +178,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7989D80B9BE366ACB9BE20AB /* [CP] Embed Pods Frameworks */ = {
+		7E74E86DE9CD12862D41AF5B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,7 +196,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AKSideMenuStoryboard/Pods-AKSideMenuStoryboard-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8647815295DACD8A1AE5AE70 /* [CP] Check Pods Manifest.lock */ = {
+		948D0A685C65776E1174E210 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -360,7 +360,7 @@
 		};
 		DDA3AED11D09955A0085CBF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEFB7BC2C655C5D1B45E8B16 /* Pods-AKSideMenuStoryboard.debug.xcconfig */;
+			baseConfigurationReference = 083518AE90C639B8D996A71B /* Pods-AKSideMenuStoryboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AKSideMenuStoryboard/Info.plist;
@@ -368,13 +368,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anykey.AKSideMenuStoryboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		DDA3AED21D09955A0085CBF3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 548B60EA46C1D17CD5F34A0C /* Pods-AKSideMenuStoryboard.release.xcconfig */;
+			baseConfigurationReference = D26E6DD6DAC53F778F1D10FA /* Pods-AKSideMenuStoryboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AKSideMenuStoryboard/Info.plist;
@@ -382,7 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anykey.AKSideMenuStoryboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

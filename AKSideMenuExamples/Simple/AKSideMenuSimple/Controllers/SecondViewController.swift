@@ -20,7 +20,7 @@ open class SecondViewController: UIViewController {
         let button = UIButton(type: .roundedRect)
         button.frame = CGRect(x: 0, y: 84, width: self.view.frame.size.width, height: 44)
         button.autoresizingMask = .flexibleWidth
-        button.setTitle("Push View Controller", for: UIControlState())
+        button.setTitle("Push View Controller", for: UIControl.State())
         button.addTarget(self, action: #selector(SecondViewController.pushViewController(_:)), for: .touchUpInside)
         self.view.addSubview(button)
     }

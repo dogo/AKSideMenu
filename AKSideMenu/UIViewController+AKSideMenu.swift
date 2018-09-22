@@ -26,9 +26,6 @@ extension UIViewController {
             }
             return nil
         }
-        set(newValue) {
-            self.sideMenuViewController = newValue
-        }
     }
 
     // MARK: - Public
