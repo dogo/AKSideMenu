@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AKSideMenuDelegate {
         // Create side menu controller
         let sideMenuViewController: AKSideMenu = AKSideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
 
-        sideMenuViewController.backgroundImage = UIImage(named: "Stars")!
+        sideMenuViewController.backgroundImage = UIImage(named: "Stars")
         sideMenuViewController.menuPreferredStatusBarStyle = .lightContent
         sideMenuViewController.delegate = self
         sideMenuViewController.contentViewShadowColor = .black
