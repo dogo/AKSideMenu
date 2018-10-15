@@ -25,7 +25,7 @@ import UIKit
     var leftMenuVisible: Bool = false
     var rightMenuVisible: Bool = false
     var sideMenuDelegateNotify: Bool = false
-    var originalPoint: CGPoint = CGPoint.zero
+    var originalPoint: CGPoint = .zero
     var contentButton: UIButton = UIButton()
     var backgroundImageView: UIImageView?
     var menuViewContainer: UIView = UIView()
@@ -45,7 +45,7 @@ import UIKit
     @IBInspectable public var scaleMenuView: Bool = true
     @IBInspectable public var contentViewShadowEnabled: Bool = false
     @IBInspectable public var contentViewShadowColor: UIColor?
-    @IBInspectable public var contentViewShadowOffset: CGSize = CGSize.zero
+    @IBInspectable public var contentViewShadowOffset: CGSize = .zero
     @IBInspectable public var contentViewShadowOpacity: Float = 0.4
     @IBInspectable public var contentViewShadowRadius: CGFloat = 8.0
     @IBInspectable public var contentViewCornerRadius: CGFloat = 8.0
@@ -198,8 +198,8 @@ import UIKit
         self.panMinimumOpenThreshold = 60.0
 
         self.contentViewShadowEnabled = false
-        self.contentViewShadowColor = UIColor.black
-        self.contentViewShadowOffset = CGSize.zero
+        self.contentViewShadowColor = .black
+        self.contentViewShadowOffset = .zero
         self.contentViewShadowOpacity = 0.4
         self.contentViewShadowRadius = 8.0
         self.contentViewFadeOutAlpha = 1.0
