@@ -446,7 +446,7 @@ import UIKit
             return
         }
 
-        self.contentButton.autoresizingMask = UIView.AutoresizingMask()
+        self.contentButton.autoresizingMask = []
         self.contentButton.frame = self.contentViewContainer.bounds
         self.contentButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.contentViewContainer.addSubview(self.contentButton)
