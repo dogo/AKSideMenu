@@ -43,18 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AKSideMenuDelegate {
     // MARK: - <AKSideMenuDelegate>
 
     open func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
-        print("willShowMenuViewController")
+        print("willShowMenuViewController", menuViewController)
     }
 
     open func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
-        print("didShowMenuViewController")
+        print("didShowMenuViewController", menuViewController)
     }
 
     open func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
-        print("willHideMenuViewController")
+        print("willHideMenuViewController ", menuViewController)
     }
 
     open func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
-        print("didHideMenuViewController")
+        print("didHideMenuViewController", menuViewController)
     }
 }

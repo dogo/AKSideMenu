@@ -8,18 +8,28 @@
 
 import UIKit
 
-@objc public protocol AKSideMenuDelegate {
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, shouldRecognizeGesture recognizer: UIGestureRecognizer, simultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, didRecognizePanGesture recognizer: UIPanGestureRecognizer)
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController)
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController)
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController)
-    @objc optional func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController)
+@objc
+public protocol AKSideMenuDelegate {
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, shouldRecognizeGesture recognizer: UIGestureRecognizer, simultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, didRecognizePanGesture recognizer: UIPanGestureRecognizer)
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController)
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController)
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController)
+    @objc
+    optional func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController)
 }
 
-@IBDesignable open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
+@IBDesignable
+open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
     var visible: Bool = false
     var leftMenuVisible: Bool = false
@@ -62,7 +72,7 @@ import UIKit
     @IBInspectable public var menuPrefersStatusBarHidden: Bool = false
 
     public weak var delegate: AKSideMenuDelegate?
-    public var animationDuration: TimeInterval =  0.35
+    public var animationDuration: TimeInterval = 0.35
     public var menuViewControllerTransformation: CGAffineTransform?
     public var panGestureEnabled: Bool = true
     public var panFromEdge: Bool = true
@@ -204,7 +214,7 @@ import UIKit
         self.contentViewShadowRadius = 8.0
         self.contentViewFadeOutAlpha = 1.0
         self.contentViewInLandscapeOffsetCenterX = 30.0
-        self.contentViewInPortraitOffsetCenterX  = 30.0
+        self.contentViewInPortraitOffsetCenterX = 30.0
         self.contentViewScaleValue = 0.7
     }
 
@@ -224,7 +234,8 @@ import UIKit
         self.showRightMenuViewController()
     }
 
-    @objc public func hideMenuViewController() {
+    @objc
+    public func hideMenuViewController() {
         self.hideMenuViewControllerAnimated(true)
     }
 
@@ -243,7 +254,7 @@ import UIKit
 
             UIView.animate(withDuration: self.animationDuration, animations: {
                 contentViewController.view.alpha = 1
-                }, completion: { (_) in
+                }, completion: { _ in
                     if let contentViewController = self.contentViewController {
                         self.hideViewController(contentViewController)
                     }
@@ -307,7 +318,10 @@ import UIKit
                 self.contentViewContainer.transform = .identity
             }
 
-            self.contentViewContainer.center = CGPoint(x: (UIApplication.shared.statusBarOrientation.isLandscape ? self.contentViewInLandscapeOffsetCenterX + self.view.frame.width : self.contentViewInPortraitOffsetCenterX + self.view.frame.width), y: self.contentViewContainer.center.y)
+            let centerX = UIApplication.shared.statusBarOrientation.isLandscape ?
+                self.contentViewInLandscapeOffsetCenterX : self.contentViewInPortraitOffsetCenterX
+            self.contentViewContainer.center = CGPoint(x: centerX + self.view.frame.width,
+                                                       y: self.contentViewContainer.center.y)
 
             if self.fadeMenuView {
                 self.menuViewContainer.alpha = 1.0
@@ -434,7 +448,7 @@ import UIKit
             UIApplication.shared.beginIgnoringInteractionEvents()
             UIView.animate(withDuration: self.animationDuration, animations: {
                 animationBlock()
-                }, completion: { (_) in
+                }, completion: { _ in
                     UIApplication.shared.endIgnoringInteractionEvents()
                     completionBlock()
             })
@@ -584,7 +598,8 @@ import UIKit
 
     // MARK: - Pan gesture recognizer (Private)
 
-    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
 
         self.delegate?.sideMenu?(self, didRecognizePanGesture: recognizer)
 

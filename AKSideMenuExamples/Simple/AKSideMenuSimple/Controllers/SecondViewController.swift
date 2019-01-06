@@ -13,7 +13,7 @@ open class SecondViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Second Controller"
-        self.view.backgroundColor = UIColor(red: 255/255.0, green: 202/255.0, blue: 101/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 255 / 255.0, green: 202 / 255.0, blue: 101 / 255.0, alpha: 1.0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(self.presentLeftMenuViewController(_:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(self.presentRightMenuViewController(_:)))
 
@@ -25,7 +25,8 @@ open class SecondViewController: UIViewController {
         self.view.addSubview(button)
     }
 
-    @objc func pushViewController(_ sender: AnyObject) {
+    @objc
+    func pushViewController(_ sender: AnyObject) {
         let viewController = UIViewController()
         viewController.title = "Pushed Controller"
         viewController.view.backgroundColor = .white
@@ -34,11 +35,11 @@ open class SecondViewController: UIViewController {
 
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSLog("SecondViewController will appear")
+        print("SecondViewController will appear")
     }
 
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSLog("SecondViewController will disappear")
+        print("SecondViewController will disappear")
     }
 }

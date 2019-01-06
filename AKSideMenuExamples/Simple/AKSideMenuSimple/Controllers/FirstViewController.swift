@@ -25,11 +25,11 @@ open class FirstViewController: UIViewController {
 
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSLog("FirstViewController will appear")
+        print("FirstViewController will appear")
     }
 
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSLog("FirstViewController will disappear")
+        print("FirstViewController will disappear")
     }
 }
