@@ -383,61 +383,64 @@ import UIKit
     func hideMenuViewControllerAnimated(_ animated: Bool) {
         let rightMenuVisible: Bool = self.rightMenuVisible
 
-        if let visibleMenuViewController = (rightMenuVisible ? self.rightMenuViewController : self.leftMenuViewController) {
+        let visibleMenuViewController = (rightMenuVisible ? self.rightMenuViewController : self.leftMenuViewController)
 
-            visibleMenuViewController.beginAppearanceTransition(false, animated: animated)
+        visibleMenuViewController?.beginAppearanceTransition(false, animated: animated)
 
-            self.delegate?.sideMenu?(self, willHideMenuViewController: visibleMenuViewController)
+        if let viewController = visibleMenuViewController {
+            self.delegate?.sideMenu?(self, willHideMenuViewController: viewController)
+        }
 
-            self.visible = false
-            self.leftMenuVisible = false
-            self.rightMenuVisible = false
-            self.contentButton.removeFromSuperview()
+        self.visible = false
+        self.leftMenuVisible = false
+        self.rightMenuVisible = false
+        self.contentButton.removeFromSuperview()
 
-            let animationBlock = { [unowned self] in
-                self.contentViewContainer.transform = .identity
-                self.contentViewContainer.frame = self.view.bounds
-                self.updateContentViewAdditionalSafeAreaInsets()
+        let animationBlock = { [unowned self] in
+            self.contentViewContainer.transform = .identity
+            self.contentViewContainer.frame = self.view.bounds
+            self.updateContentViewAdditionalSafeAreaInsets()
 
-                if let transform = self.menuViewControllerTransformation, self.scaleMenuView {
-                    self.menuViewContainer.transform = transform
-                }
-                if self.fadeMenuView {
-                    self.menuViewContainer.alpha = 0
-                }
-                self.contentViewContainer.alpha = 1
+            if let transform = self.menuViewControllerTransformation, self.scaleMenuView {
+                self.menuViewContainer.transform = transform
+            }
+            if self.fadeMenuView {
+                self.menuViewContainer.alpha = 0
+            }
+            self.contentViewContainer.alpha = 1
 
-                if self.scaleBackgroundImageView {
-                    self.backgroundImageView?.transform = self.backgroundTransformMakeScale()
+            if self.scaleBackgroundImageView {
+                self.backgroundImageView?.transform = self.backgroundTransformMakeScale()
 
-                }
-                if self.parallaxEnabled {
-                    for effect in self.contentViewContainer.motionEffects {
-                        self.contentViewContainer.removeMotionEffect(effect)
-                    }
+            }
+            if self.parallaxEnabled {
+                for effect in self.contentViewContainer.motionEffects {
+                    self.contentViewContainer.removeMotionEffect(effect)
                 }
             }
+        }
 
-            let completionBlock = { [unowned self] in
-                visibleMenuViewController.endAppearanceTransition()
-                self.statusBarNeedsAppearanceUpdate()
-                if self.visible == false {
-                    self.delegate?.sideMenu?(self, didHideMenuViewController: visibleMenuViewController)
+        let completionBlock = { [unowned self] in
+            visibleMenuViewController?.endAppearanceTransition()
+            self.statusBarNeedsAppearanceUpdate()
+            if !self.visible {
+                if let viewController = visibleMenuViewController {
+                    self.delegate?.sideMenu?(self, willHideMenuViewController: viewController)
                 }
             }
+        }
 
-            if animated {
-                UIApplication.shared.beginIgnoringInteractionEvents()
-                UIView.animate(withDuration: self.animationDuration, animations: {
-                    animationBlock()
-                    }, completion: { (_) in
-                        UIApplication.shared.endIgnoringInteractionEvents()
-                        completionBlock()
-                })
-            } else {
+        if animated {
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            UIView.animate(withDuration: self.animationDuration, animations: {
                 animationBlock()
-                completionBlock()
-            }
+                }, completion: { (_) in
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    completionBlock()
+            })
+        } else {
+            animationBlock()
+            completionBlock()
         }
     }
 
