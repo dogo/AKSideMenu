@@ -363,7 +363,8 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
             } else {
                 self.contentViewContainer.transform = .identity
             }
-            self.contentViewContainer.center = CGPoint(x: (UIApplication.shared.statusBarOrientation.isLandscape ? -self.contentViewInLandscapeOffsetCenterX : -self.contentViewInPortraitOffsetCenterX), y: self.contentViewContainer.center.y)
+            self.contentViewContainer.center = CGPoint(x: (UIApplication.shared.statusBarOrientation.isLandscape ? -self.contentViewInLandscapeOffsetCenterX : -self.contentViewInPortraitOffsetCenterX),
+                                                       y: self.contentViewContainer.center.y)
 
             if self.fadeMenuView {
                 self.menuViewContainer.alpha = 1.0
@@ -438,7 +439,7 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
             self.statusBarNeedsAppearanceUpdate()
             if !self.visible {
                 if let viewController = visibleMenuViewController {
-                    self.delegate?.sideMenu?(self, willHideMenuViewController: viewController)
+                    self.delegate?.sideMenu?(self, didHideMenuViewController: viewController)
                 }
             }
         }
@@ -470,9 +471,9 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
     func statusBarNeedsAppearanceUpdate() {
         if self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate)) {
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.3) {
                 self.perform(#selector(UIViewController.setNeedsStatusBarAppearanceUpdate))
-            })
+            }
         }
     }
 
@@ -544,7 +545,7 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
                 self.contentViewContainer.removeMotionEffect(effect)
             }
 
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.2) {
                 let interpolationHorizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
                 interpolationHorizontal.minimumRelativeValue = self.parallaxContentMinimumRelativeValue
                 interpolationHorizontal.maximumRelativeValue = self.parallaxContentMaximumRelativeValue
@@ -555,7 +556,7 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
                 self.contentViewContainer.addMotionEffect(interpolationHorizontal)
                 self.contentViewContainer.addMotionEffect(interpolationVertical)
-            })
+            }
         }
     }
 
