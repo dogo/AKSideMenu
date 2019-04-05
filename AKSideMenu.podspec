@@ -11,6 +11,7 @@ Pod::Spec.new do |spec|
   spec.frameworks             = "UIKit", "Foundation", "CoreGraphics", "QuartzCore"
   spec.ios.deployment_target	= "8.0"
   spec.swift_version 			    = '4.2'
+  spec.swift_versions         = ['4.2', '5.0']
   spec.source             		= { :git => "https://github.com/dogo/AKSideMenu.git", :tag => spec.version.to_s }
   spec.source_files       		= "AKSideMenu/*.{swift}"
   spec.requires_arc       		= true
