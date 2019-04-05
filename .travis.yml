@@ -8,7 +8,7 @@ rvm:
   - 2.3.1
 
 before_install: 
-  - gem install cocoapods -v '1.6.1'
+  - gem install cocoapods -v '1.7.0.beta.3'
 
 script:
   - xcodebuild -workspace AKSideMenuExamples/Simple/AKSideMenuSimple.xcworkspace -scheme AKSideMenuSimple -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
