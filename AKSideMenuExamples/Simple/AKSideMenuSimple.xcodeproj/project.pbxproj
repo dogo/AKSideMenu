@@ -11,7 +11,6 @@
 		DD185F6D1D01B26700B38366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD185F651D01B26700B38366 /* AppDelegate.swift */; };
 		DD185F6E1D01B26700B38366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD185F661D01B26700B38366 /* Assets.xcassets */; };
 		DD185F6F1D01B26700B38366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD185F671D01B26700B38366 /* LaunchScreen.storyboard */; };
-		DD185F721D01B26700B38366 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD185F6C1D01B26700B38366 /* ViewController.swift */; };
 		DDA259B41D05EB410085AE9F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA259B31D05EB410085AE9F /* FirstViewController.swift */; };
 		DDC9B29D1D06FE79000EF1FE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */; };
 		DDC9B29F1D070024000EF1FE /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B29E1D070024000EF1FE /* RightMenuViewController.swift */; };
@@ -25,7 +24,6 @@
 		DD185F661D01B26700B38366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD185F681D01B26700B38366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD185F6B1D01B26700B38366 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD185F6C1D01B26700B38366 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD8F36A61D01AF32000DA9CC /* AKSideMenuSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSideMenuSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA259B31D05EB410085AE9F /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +49,6 @@
 			children = (
 				DDA259B21D05EB340085AE9F /* Controllers */,
 				DD185F651D01B26700B38366 /* AppDelegate.swift */,
-				DD185F6C1D01B26700B38366 /* ViewController.swift */,
 				DD185F671D01B26700B38366 /* LaunchScreen.storyboard */,
 				DD185F6B1D01B26700B38366 /* Info.plist */,
 				DD185F661D01B26700B38366 /* Assets.xcassets */,
@@ -102,7 +99,6 @@
 				04F5F8ED951A76443A0D207E /* Pods-AKSideMenuSimple.debug.xcconfig */,
 				E692D65950B61F3A101AB257 /* Pods-AKSideMenuSimple.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -225,7 +221,6 @@
 				DDC9B29D1D06FE79000EF1FE /* SecondViewController.swift in Sources */,
 				DDA259B41D05EB410085AE9F /* FirstViewController.swift in Sources */,
 				DDC9B2A11D070766000EF1FE /* LeftMenuViewController.swift in Sources */,
-				DD185F721D01B26700B38366 /* ViewController.swift in Sources */,
 				DD185F6D1D01B26700B38366 /* AppDelegate.swift in Sources */,
 				DDC9B29F1D070024000EF1FE /* RightMenuViewController.swift in Sources */,
 			);

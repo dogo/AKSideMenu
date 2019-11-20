@@ -13,8 +13,14 @@ open class FirstViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.title = "First Controller"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(self.presentLeftMenuViewController(_:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(self.presentRightMenuViewController(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left",
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(presentLeftMenuViewController(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right",
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(presentRightMenuViewController(_:)))
 
         let imageView = UIImageView(frame: self.view.bounds)
         imageView.contentMode = .scaleAspectFill

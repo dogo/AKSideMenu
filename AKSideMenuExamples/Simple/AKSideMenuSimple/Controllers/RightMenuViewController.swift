@@ -23,7 +23,11 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView = UITableView(frame: CGRect(x: 0, y: (self.view.frame.size.height - 54 * 2) / 2.0, width: self.view.frame.size.width, height: 54 * 2), style: .plain)
+        let tableView = UITableView(frame: CGRect(x: 0,
+                                                  y: (self.view.frame.size.height - 54 * 2) / 2.0,
+                                                  width: self.view.frame.size.width,
+                                                  height: 54 * 2),
+                                    style: .plain)
         tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,11 +47,13 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            self.sideMenuViewController!.setContentViewController(UINavigationController(rootViewController: FirstViewController()), animated: true)
+            let contentViewController = UINavigationController(rootViewController: FirstViewController())
+            self.sideMenuViewController!.setContentViewController(contentViewController, animated: true)
             self.sideMenuViewController!.hideMenuViewController()
 
         case 1:
-            self.sideMenuViewController!.setContentViewController(UINavigationController(rootViewController: SecondViewController()), animated: true)
+            let contentViewController = UINavigationController(rootViewController: SecondViewController())
+            self.sideMenuViewController!.setContentViewController(contentViewController, animated: true)
             self.sideMenuViewController!.hideMenuViewController()
 
         default:
@@ -83,7 +89,7 @@ open class RightMenuViewController: UIViewController, UITableViewDelegate, UITab
             cell!.selectedBackgroundView = UIView()
         }
 
-        var titles = ["Test 1", "Test 2"]
+        let titles = ["Test 1", "Test 2"]
         cell!.textLabel?.text = titles[indexPath.row]
         cell!.textLabel?.textAlignment = .right
 

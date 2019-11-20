@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AKSideMenuDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
         // Create content and menu controllers
@@ -23,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AKSideMenuDelegate {
         let rightMenuViewController = RightMenuViewController()
 
         // Create side menu controller
-        let sideMenuViewController: AKSideMenu = AKSideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
+        let sideMenuViewController = AKSideMenu(contentViewController: navigationController,
+                                                leftMenuViewController: leftMenuViewController,
+                                                rightMenuViewController: rightMenuViewController)
 
         sideMenuViewController.backgroundImage = UIImage(named: "Stars")
         sideMenuViewController.menuPreferredStatusBarStyle = .lightContent
