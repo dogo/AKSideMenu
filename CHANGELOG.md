@@ -1,16 +1,67 @@
-# Change Log
+# Changelog
 
 ## [Unreleased](https://github.com/dogo/AKSideMenu/tree/HEAD)
 
-[Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.1...HEAD)
+[Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.5...HEAD)
 
 **Closed issues:**
 
+- App Freeze when sideMenuController is not in hierarchy. [\#71](https://github.com/dogo/AKSideMenu/issues/71)
+
+## [1.4.5](https://github.com/dogo/AKSideMenu/tree/1.4.5) (2019-11-20)
+
+[Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.4...1.4.5)
+
+**Closed issues:**
+
+- Thread 1: EXC\_BAD\_INSTRUCTION \(code=EXC\_I386\_INVOP, subcode=0x0\) in preferredStatusBarStyle method [\#68](https://github.com/dogo/AKSideMenu/issues/68)
+- didHideMenuViewController is never called [\#62](https://github.com/dogo/AKSideMenu/issues/62)
+- need swift 5 support [\#58](https://github.com/dogo/AKSideMenu/issues/58)
+- Failed to verify bitcode in AKSideMenu.framework [\#55](https://github.com/dogo/AKSideMenu/issues/55)
+
+## [1.4.4](https://github.com/dogo/AKSideMenu/tree/1.4.4) (2019-05-22)
+
+[Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.3...1.4.4)
+
+**Fixed bugs:**
+
+- didHideMenuViewController delegate is never called. [\#53](https://github.com/dogo/AKSideMenu/issues/53)
+
+**Closed issues:**
+
+- space at top right and left corner of  navigation bar  while using aksidemenu [\#60](https://github.com/dogo/AKSideMenu/issues/60)
+- ContentViewCornerRadius is available? [\#57](https://github.com/dogo/AKSideMenu/issues/57)
+- Sidemenu stuck in swipe [\#50](https://github.com/dogo/AKSideMenu/issues/50)
+- How to Pass an object from RootViewController to contentViewController [\#49](https://github.com/dogo/AKSideMenu/issues/49)
+- Instance member 'autoresizingMask' cannot be used on type 'UIView' [\#48](https://github.com/dogo/AKSideMenu/issues/48)
+- Calling variable sideMenuViewController in UIViewController extension freezes the app when it is not in view heirarchy [\#47](https://github.com/dogo/AKSideMenu/issues/47)
+- How to show side menu from Other view controller ? [\#36](https://github.com/dogo/AKSideMenu/issues/36)
+
+## [1.4.3](https://github.com/dogo/AKSideMenu/tree/1.4.3) (2019-01-06)
+
+[Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.2...1.4.3)
+
+**Closed issues:**
+
+- Manage corner spaces. [\#45](https://github.com/dogo/AKSideMenu/issues/45)
+- Image on BackgroundImageView is not showing up [\#44](https://github.com/dogo/AKSideMenu/issues/44)
+- Get the position/frame of content View controller when side menu is opened [\#43](https://github.com/dogo/AKSideMenu/issues/43)
+- Black bar in iOS11 devices [\#35](https://github.com/dogo/AKSideMenu/issues/35)
+
+## [1.4.2](https://github.com/dogo/AKSideMenu/tree/1.4.2) (2018-09-22)
+
+[Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.1...1.4.2)
+
+**Closed issues:**
+
+- how to call side menu over the context..? [\#40](https://github.com/dogo/AKSideMenu/issues/40)
+- Unexpectedly found nil [\#39](https://github.com/dogo/AKSideMenu/issues/39)
 - how to support arabaic language? [\#38](https://github.com/dogo/AKSideMenu/issues/38)
 -  interactivePopGestureRecognizerEnabled - Make Disable [\#37](https://github.com/dogo/AKSideMenu/issues/37)
 - UI blocker [\#26](https://github.com/dogo/AKSideMenu/issues/26)
 
 ## [1.4.1](https://github.com/dogo/AKSideMenu/tree/1.4.1) (2017-12-05)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.0...1.4.1)
 
 **Fixed bugs:**
@@ -33,11 +84,12 @@
 - Create CODE\_OF\_CONDUCT.md [\#28](https://github.com/dogo/AKSideMenu/pull/28) ([dogo](https://github.com/dogo))
 
 ## [1.4.0](https://github.com/dogo/AKSideMenu/tree/1.4.0) (2017-09-27)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.3.5...1.4.0)
 
 **Implemented enhancements:**
 
-- Add support for simultaneous gesture recognitions [\#21](https://github.com/dogo/AKSideMenu/pull/21) ([roccx](https://github.com/roccx))
+- Add support for simultaneous gesture recognitions [\#21](https://github.com/dogo/AKSideMenu/pull/21) ([mrylmz](https://github.com/mrylmz))
 
 **Closed issues:**
 
@@ -47,6 +99,7 @@
 - Still crashing a little [\#18](https://github.com/dogo/AKSideMenu/issues/18)
 
 ## [1.3.5](https://github.com/dogo/AKSideMenu/tree/1.3.5) (2017-02-22)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.3.3...1.3.5)
 
 **Fixed bugs:**
@@ -58,6 +111,7 @@
 - Avoiding forced unwraps [\#19](https://github.com/dogo/AKSideMenu/pull/19) ([CodeReaper](https://github.com/CodeReaper))
 
 ## [1.3.3](https://github.com/dogo/AKSideMenu/tree/1.3.3) (2017-02-01)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.3.2...1.3.3)
 
 **Merged pull requests:**
@@ -65,6 +119,7 @@
 - Carthage support [\#15](https://github.com/dogo/AKSideMenu/pull/15) ([bitomule](https://github.com/bitomule))
 
 ## [1.3.2](https://github.com/dogo/AKSideMenu/tree/1.3.2) (2017-01-26)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.3.1...1.3.2)
 
 **Closed issues:**
@@ -78,6 +133,7 @@
 - changed weak self to unowned [\#12](https://github.com/dogo/AKSideMenu/pull/12) ([nschucky](https://github.com/nschucky))
 
 ## [1.3.1](https://github.com/dogo/AKSideMenu/tree/1.3.1) (2016-12-05)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.3.0...1.3.1)
 
 **Closed issues:**
@@ -87,6 +143,7 @@
 - Issue with modals [\#6](https://github.com/dogo/AKSideMenu/issues/6)
 
 ## [1.3.0](https://github.com/dogo/AKSideMenu/tree/1.3.0) (2016-11-21)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.2...1.3.0)
 
 **Closed issues:**
@@ -99,6 +156,7 @@
 - Update AKSideMenu.swift [\#8](https://github.com/dogo/AKSideMenu/pull/8) ([shimbetov](https://github.com/shimbetov))
 
 ## [1.2](https://github.com/dogo/AKSideMenu/tree/1.2) (2016-09-15)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.1.1...1.2)
 
 **Closed issues:**
@@ -107,12 +165,17 @@
 - Can't use extension. [\#1](https://github.com/dogo/AKSideMenu/issues/1)
 
 ## [1.1.1](https://github.com/dogo/AKSideMenu/tree/1.1.1) (2016-08-29)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.1...1.1.1)
 
 ## [1.1](https://github.com/dogo/AKSideMenu/tree/1.1) (2016-06-10)
+
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.0...1.1)
 
 ## [1.0](https://github.com/dogo/AKSideMenu/tree/1.0) (2016-06-09)
 
+[Full Changelog](https://github.com/dogo/AKSideMenu/compare/5b39bb98aea3e1bff5ac762b7003261824c14be5...1.0)
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
