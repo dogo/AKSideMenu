@@ -19,8 +19,10 @@ extension UIViewController {
         while strClass != nibName {
             if iterator is AKSideMenu {
                 return iterator as? AKSideMenu
-            } else if iterator.parent != nil && iterator.parent != iterator {
-                iterator = iterator.parent!
+            } else if let parent = iterator.parent, parent != iterator {
+                iterator = parent
+            } else {
+                break
             }
         }
         return nil
