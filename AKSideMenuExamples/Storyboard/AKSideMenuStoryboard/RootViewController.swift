@@ -26,7 +26,7 @@ public class RootViewController: AKSideMenu, AKSideMenuDelegate {
         if let storyboard = self.storyboard {
             self.contentViewController = storyboard.instantiateViewController(withIdentifier: "contentViewController")
             self.leftMenuViewController = storyboard.instantiateViewController(withIdentifier: "leftMenuViewController")
-            self.rightMenuViewController = storyboard.instantiateViewController(withIdentifier: "rightMenuViewController")
+            self.rightMenuViewController = storyboard.instantiateViewController(withIdentifier: "rightMenuViewController") //swiftlint:disable:this line_length
         }
     }
 
