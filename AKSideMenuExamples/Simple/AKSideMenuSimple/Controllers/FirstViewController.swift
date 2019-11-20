@@ -29,12 +29,12 @@ open class FirstViewController: UIViewController {
         self.view.addSubview(imageView)
     }
 
-    open override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("FirstViewController will appear")
     }
 
-    open override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("FirstViewController will disappear")
     }

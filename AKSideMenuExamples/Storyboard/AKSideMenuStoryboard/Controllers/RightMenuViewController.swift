@@ -12,7 +12,7 @@ public class RightMenuViewController: UIViewController, UITableViewDelegate, UIT
 
     var tableView: UITableView?
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 

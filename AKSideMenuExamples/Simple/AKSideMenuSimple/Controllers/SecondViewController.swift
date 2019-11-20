@@ -39,12 +39,12 @@ open class SecondViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
-    open override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("SecondViewController will appear")
     }
 
-    open override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("SecondViewController will disappear")
     }

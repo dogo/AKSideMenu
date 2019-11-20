@@ -36,10 +36,10 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     var rightMenuVisible: Bool = false
     var sideMenuDelegateNotify: Bool = false
     var originalPoint: CGPoint = .zero
-    var contentButton: UIButton = UIButton()
+    var contentButton = UIButton()
     var backgroundImageView: UIImageView?
-    var menuViewContainer: UIView = UIView()
-    var contentViewContainer: UIView = UIView()
+    var menuViewContainer = UIView()
+    var contentViewContainer = UIView()
 
     @IBInspectable public var contentViewStoryboardID: String?
     @IBInspectable public var leftMenuViewStoryboardID: String?
@@ -76,18 +76,18 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     public var panGestureEnabled: Bool = true
     public var panFromEdge: Bool = true
     public var panMinimumOpenThreshold: Float = 60.0
-    public var menuPreferredStatusBarStyle: UIStatusBarStyle = UIStatusBarStyle.default
+    public var menuPreferredStatusBarStyle = UIStatusBarStyle.default
     public var contentViewController: UIViewController?
 
     private var _leftMenuViewController: UIViewController?
     private var _rightMenuViewController: UIViewController?
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }
 
-    required public init(contentViewController: UIViewController, leftMenuViewController: UIViewController?, rightMenuViewController: UIViewController?) {
+    public required init(contentViewController: UIViewController, leftMenuViewController: UIViewController?, rightMenuViewController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
         self.commonInit()
         self.contentViewController = contentViewController

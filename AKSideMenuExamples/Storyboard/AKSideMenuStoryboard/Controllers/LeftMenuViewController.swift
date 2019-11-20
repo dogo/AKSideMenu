@@ -12,7 +12,7 @@ public class LeftMenuViewController: UIViewController, UITableViewDelegate, UITa
 
     var tableView: UITableView?
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
