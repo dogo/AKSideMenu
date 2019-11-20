@@ -4,7 +4,7 @@
 
 [Full Changelog](https://github.com/dogo/AKSideMenu/compare/1.4.5...HEAD)
 
-**Closed issues:**
+**Fixed bugs:**
 
 - App Freeze when sideMenuController is not in hierarchy. [\#71](https://github.com/dogo/AKSideMenu/issues/71)
 
@@ -26,6 +26,7 @@
 **Fixed bugs:**
 
 - didHideMenuViewController delegate is never called. [\#53](https://github.com/dogo/AKSideMenu/issues/53)
+- Calling variable sideMenuViewController in UIViewController extension freezes the app when it is not in view heirarchy [\#47](https://github.com/dogo/AKSideMenu/issues/47)
 
 **Closed issues:**
 
@@ -34,7 +35,6 @@
 - Sidemenu stuck in swipe [\#50](https://github.com/dogo/AKSideMenu/issues/50)
 - How to Pass an object from RootViewController to contentViewController [\#49](https://github.com/dogo/AKSideMenu/issues/49)
 - Instance member 'autoresizingMask' cannot be used on type 'UIView' [\#48](https://github.com/dogo/AKSideMenu/issues/48)
-- Calling variable sideMenuViewController in UIViewController extension freezes the app when it is not in view heirarchy [\#47](https://github.com/dogo/AKSideMenu/issues/47)
 - How to show side menu from Other view controller ? [\#36](https://github.com/dogo/AKSideMenu/issues/36)
 
 ## [1.4.3](https://github.com/dogo/AKSideMenu/tree/1.4.3) (2019-01-06)
