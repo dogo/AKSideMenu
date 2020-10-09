@@ -2,7 +2,7 @@ name: Building
 on: [push, pull_request]
 
 jobs:
-  test:
+  build:
     name: Building AKSideMenu Example
     runs-on: macOS-latest
     steps:
