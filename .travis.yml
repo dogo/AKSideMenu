@@ -5,7 +5,7 @@ osx_image: xcode12
 podfile: AKSideMenuExamples/Simple/Podfile
 
 rvm:
-  - 2.6.3
+  - 2.6.5
 
 before_install: 
   - gem install cocoapods -v '1.9.3'
