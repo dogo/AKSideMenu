@@ -65,15 +65,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DD10F1B71D09999E0053EDBB /* Controllers */ = {
+		DD1E0F07254BCD100052E9EC /* FirstViewController */ = {
 			isa = PBXGroup;
 			children = (
 				DD10F1B81D09999E0053EDBB /* FirstViewController.swift */,
-				DD10F1B91D09999E0053EDBB /* RightMenuViewController.swift */,
+			);
+			path = FirstViewController;
+			sourceTree = "<group>";
+		};
+		DD1E0F08254BCD180052E9EC /* LeftMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
 				DD10F1BA1D09999E0053EDBB /* LeftMenuViewController.swift */,
+			);
+			path = LeftMenuViewController;
+			sourceTree = "<group>";
+		};
+		DD1E0F09254BCD200052E9EC /* RightMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD10F1B91D09999E0053EDBB /* RightMenuViewController.swift */,
+			);
+			path = RightMenuViewController;
+			sourceTree = "<group>";
+		};
+		DD1E0F0A254BCD270052E9EC /* SecondViewController */ = {
+			isa = PBXGroup;
+			children = (
 				DD10F1BB1D09999E0053EDBB /* SecondViewController.swift */,
 			);
-			path = Controllers;
+			path = SecondViewController;
+			sourceTree = "<group>";
+		};
+		DD1E0F0B254BCD400052E9EC /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				DDA3AEC11D09955A0085CBF3 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		DD1E0F0C254BCD500052E9EC /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDA3AEC31D09955A0085CBF3 /* RootViewController.swift */,
+			);
+			path = RootViewController;
 			sourceTree = "<group>";
 		};
 		DDA3AEB51D0995590085CBF3 = {
@@ -97,13 +134,16 @@
 		DDA3AEC01D09955A0085CBF3 /* AKSideMenuStoryboard */ = {
 			isa = PBXGroup;
 			children = (
-				DD10F1B71D09999E0053EDBB /* Controllers */,
-				DDA3AEC11D09955A0085CBF3 /* AppDelegate.swift */,
-				DDA3AEC31D09955A0085CBF3 /* RootViewController.swift */,
-				DDA3AEC51D09955A0085CBF3 /* Main.storyboard */,
+				DDA3AECD1D09955A0085CBF3 /* Info.plist */,
 				DDA3AEC81D09955A0085CBF3 /* Assets.xcassets */,
 				DDA3AECA1D09955A0085CBF3 /* LaunchScreen.storyboard */,
-				DDA3AECD1D09955A0085CBF3 /* Info.plist */,
+				DDA3AEC51D09955A0085CBF3 /* Main.storyboard */,
+				DD1E0F0B254BCD400052E9EC /* AppDelegate */,
+				DD1E0F07254BCD100052E9EC /* FirstViewController */,
+				DD1E0F08254BCD180052E9EC /* LeftMenuViewController */,
+				DD1E0F09254BCD200052E9EC /* RightMenuViewController */,
+				DD1E0F0C254BCD500052E9EC /* RootViewController */,
+				DD1E0F0A254BCD270052E9EC /* SecondViewController */,
 			);
 			path = AKSideMenuStoryboard;
 			sourceTree = "<group>";
@@ -305,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -357,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

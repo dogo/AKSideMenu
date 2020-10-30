@@ -6,12 +6,13 @@
 //  Copyright © 2016 AnyKey Entertainment. All rights reserved.
 //
 
-import UIKit
 import AKSideMenu
+import Foundation
+import UIKit
 
-public class RootViewController: AKSideMenu, AKSideMenuDelegate {
+final class RootViewController: AKSideMenu, AKSideMenuDelegate {
 
-    override public func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
         self.menuPreferredStatusBarStyle = .lightContent
         self.contentViewShadowColor = .black
@@ -26,25 +27,25 @@ public class RootViewController: AKSideMenu, AKSideMenuDelegate {
         if let storyboard = self.storyboard {
             self.contentViewController = storyboard.instantiateViewController(withIdentifier: "contentViewController")
             self.leftMenuViewController = storyboard.instantiateViewController(withIdentifier: "leftMenuViewController")
-            self.rightMenuViewController = storyboard.instantiateViewController(withIdentifier: "rightMenuViewController") //swiftlint:disable:this line_length
+            self.rightMenuViewController = storyboard.instantiateViewController(withIdentifier: "rightMenuViewController")
         }
     }
 
     // MARK: - <AKSideMenuDelegate>
 
     public func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
-        print("willShowMenuViewController")
+        debugPrint("willShowMenuViewController")
     }
 
     public func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
-        print("didShowMenuViewController")
+        debugPrint("didShowMenuViewController")
     }
 
     public func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
-        print("willHideMenuViewController")
+        debugPrint("willHideMenuViewController")
     }
 
     public func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
-        print("didHideMenuViewController")
+        debugPrint("didHideMenuViewController")
     }
 }
