@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0AB62BB50ADDC6B808740CA7 /* Pods_AKSideMenuSimple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F3D49157CFFC1D42C56DEB /* Pods_AKSideMenuSimple.framework */; };
-		DD185F6D1D01B26700B38366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD185F651D01B26700B38366 /* AppDelegate.swift */; };
+		DD000FED254BC60700F4A6AB /* RightMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000FEC254BC60700F4A6AB /* RightMenuView.swift */; };
 		DD185F6E1D01B26700B38366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD185F661D01B26700B38366 /* Assets.xcassets */; };
 		DD185F6F1D01B26700B38366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD185F671D01B26700B38366 /* LaunchScreen.storyboard */; };
+		DD609A51254BB6C7009875F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD609A50254BB6C7009875F7 /* AppDelegate.swift */; };
+		DD609A56254BB6D2009875F7 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD609A55254BB6D2009875F7 /* SecondView.swift */; };
+		DD609A5B254BB860009875F7 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD609A5A254BB860009875F7 /* FirstView.swift */; };
+		DD609A63254BBAC3009875F7 /* LeftMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD609A62254BBAC3009875F7 /* LeftMenuView.swift */; };
 		DDA259B41D05EB410085AE9F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA259B31D05EB410085AE9F /* FirstViewController.swift */; };
 		DDC9B29D1D06FE79000EF1FE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */; };
 		DDC9B29F1D070024000EF1FE /* RightMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9B29E1D070024000EF1FE /* RightMenuViewController.swift */; };
@@ -20,10 +24,14 @@
 /* Begin PBXFileReference section */
 		04F5F8ED951A76443A0D207E /* Pods-AKSideMenuSimple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSideMenuSimple.debug.xcconfig"; path = "Target Support Files/Pods-AKSideMenuSimple/Pods-AKSideMenuSimple.debug.xcconfig"; sourceTree = "<group>"; };
 		A0F3D49157CFFC1D42C56DEB /* Pods_AKSideMenuSimple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AKSideMenuSimple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD185F651D01B26700B38366 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD000FEC254BC60700F4A6AB /* RightMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMenuView.swift; sourceTree = "<group>"; };
 		DD185F661D01B26700B38366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD185F681D01B26700B38366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD185F6B1D01B26700B38366 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD609A50254BB6C7009875F7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD609A55254BB6D2009875F7 /* SecondView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		DD609A5A254BB860009875F7 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		DD609A62254BBAC3009875F7 /* LeftMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuView.swift; sourceTree = "<group>"; };
 		DD8F36A61D01AF32000DA9CC /* AKSideMenuSimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSideMenuSimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA259B31D05EB410085AE9F /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -47,13 +55,51 @@
 		DD185F641D01B26700B38366 /* AKSideMenuSimple */ = {
 			isa = PBXGroup;
 			children = (
-				DDA259B21D05EB340085AE9F /* Controllers */,
-				DD185F651D01B26700B38366 /* AppDelegate.swift */,
-				DD185F671D01B26700B38366 /* LaunchScreen.storyboard */,
 				DD185F6B1D01B26700B38366 /* Info.plist */,
 				DD185F661D01B26700B38366 /* Assets.xcassets */,
+				DD185F671D01B26700B38366 /* LaunchScreen.storyboard */,
+				DD609A4F254BB6C7009875F7 /* AppDelegate */,
+				DD609A5E254BBA3B009875F7 /* FirstViewController */,
+				DD609A60254BBA8C009875F7 /* LeftMenuViewController */,
+				DDA259B21D05EB340085AE9F /* RightMenuViewController */,
+				DD609A54254BB6D2009875F7 /* SecondViewController */,
 			);
 			path = AKSideMenuSimple;
+			sourceTree = "<group>";
+		};
+		DD609A4F254BB6C7009875F7 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				DD609A50254BB6C7009875F7 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		DD609A54254BB6D2009875F7 /* SecondViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */,
+				DD609A55254BB6D2009875F7 /* SecondView.swift */,
+			);
+			path = SecondViewController;
+			sourceTree = "<group>";
+		};
+		DD609A5E254BBA3B009875F7 /* FirstViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDA259B31D05EB410085AE9F /* FirstViewController.swift */,
+				DD609A5A254BB860009875F7 /* FirstView.swift */,
+			);
+			path = FirstViewController;
+			sourceTree = "<group>";
+		};
+		DD609A60254BBA8C009875F7 /* LeftMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDC9B2A01D070766000EF1FE /* LeftMenuViewController.swift */,
+				DD609A62254BBAC3009875F7 /* LeftMenuView.swift */,
+			);
+			path = LeftMenuViewController;
 			sourceTree = "<group>";
 		};
 		DD8F369D1D01AF32000DA9CC = {
@@ -74,15 +120,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DDA259B21D05EB340085AE9F /* Controllers */ = {
+		DDA259B21D05EB340085AE9F /* RightMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DDA259B31D05EB410085AE9F /* FirstViewController.swift */,
 				DDC9B29E1D070024000EF1FE /* RightMenuViewController.swift */,
-				DDC9B2A01D070766000EF1FE /* LeftMenuViewController.swift */,
-				DDC9B29C1D06FE79000EF1FE /* SecondViewController.swift */,
+				DD000FEC254BC60700F4A6AB /* RightMenuView.swift */,
 			);
-			path = Controllers;
+			path = RightMenuViewController;
 			sourceTree = "<group>";
 		};
 		E08F638BB345ABCABEA76BCF /* Frameworks */ = {
@@ -218,10 +262,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD609A63254BBAC3009875F7 /* LeftMenuView.swift in Sources */,
+				DD000FED254BC60700F4A6AB /* RightMenuView.swift in Sources */,
+				DD609A5B254BB860009875F7 /* FirstView.swift in Sources */,
+				DD609A56254BB6D2009875F7 /* SecondView.swift in Sources */,
+				DD609A51254BB6C7009875F7 /* AppDelegate.swift in Sources */,
 				DDC9B29D1D06FE79000EF1FE /* SecondViewController.swift in Sources */,
 				DDA259B41D05EB410085AE9F /* FirstViewController.swift in Sources */,
 				DDC9B2A11D070766000EF1FE /* LeftMenuViewController.swift in Sources */,
-				DD185F6D1D01B26700B38366 /* AppDelegate.swift in Sources */,
 				DDC9B29F1D070024000EF1FE /* RightMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

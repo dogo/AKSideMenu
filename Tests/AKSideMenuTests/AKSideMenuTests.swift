@@ -10,6 +10,6 @@ final class AKSideMenuTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testExample)
     ]
 }
