@@ -6,6 +6,7 @@
 //  Copyright © 2016 AnyKey Entertainment. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 @objc
@@ -298,9 +299,9 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func showLeftMenuViewController() {
-        if self.leftMenuViewController == nil {
-            return
-        }
+
+        guard leftMenuViewController != nil else { return }
+
         self.leftMenuViewController?.beginAppearanceTransition(true, animated: true)
         self.leftMenuViewController?.view.isHidden = false
         self.rightMenuViewController?.view.isHidden = true
@@ -344,9 +345,8 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func showRightMenuViewController() {
-        if self.rightMenuViewController == nil {
-            return
-        }
+        guard rightMenuViewController != nil else { return }
+
         self.rightMenuViewController?.beginAppearanceTransition(true, animated: true)
         self.leftMenuViewController?.view.isHidden = true
         self.rightMenuViewController?.view.isHidden = false
