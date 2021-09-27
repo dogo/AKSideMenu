@@ -511,8 +511,14 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
                 let topSafeArea = self.view.safeAreaLayoutGuide.layoutFrame.minY
                 if insets.top > topSafeArea {
                     insets.top = topSafeArea
-                } else if insets.top < 0.0 {
-                    insets.top = 0.0
+                } else if insets.top < .zero {
+                    insets.top = .zero
+                }
+                let bottomSafeArea = self.view.safeAreaLayoutGuide.layoutFrame.maxY
+                if insets.bottom < bottomSafeArea {
+                    insets.bottom = bottomSafeArea
+                } else if insets.bottom <= bottomSafeArea {
+                    insets.bottom = .zero
                 }
                 self.contentViewController?.additionalSafeAreaInsets = insets
             }
