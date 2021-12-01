@@ -31,10 +31,10 @@ public protocol AKSideMenuDelegate {
 @IBDesignable
 open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
-    var visible: Bool = false
-    var leftMenuVisible: Bool = false
-    var rightMenuVisible: Bool = false
-    var sideMenuDelegateNotify: Bool = false
+    var visible = false
+    var leftMenuVisible = false
+    var rightMenuVisible = false
+    var sideMenuDelegateNotify = false
     var originalPoint: CGPoint = .zero
     var contentButton = UIButton()
     var backgroundImageView: UIImageView?
@@ -73,8 +73,8 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     public weak var delegate: AKSideMenuDelegate?
     public var animationDuration: TimeInterval = 0.35
     public var menuViewControllerTransformation: CGAffineTransform?
-    public var panGestureEnabled: Bool = true
-    public var panFromEdge: Bool = true
+    public var panGestureEnabled = true
+    public var panFromEdge = true
     public var panMinimumOpenThreshold: Float = 60.0
     public var menuPreferredStatusBarStyle = UIStatusBarStyle.default
     public var contentViewController: UIViewController?
@@ -424,7 +424,6 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
             if self.scaleBackgroundImageView {
                 self.backgroundImageView?.transform = self.backgroundTransformMakeScale()
-
             }
             if self.parallaxEnabled {
                 for effect in self.contentViewContainer.motionEffects {

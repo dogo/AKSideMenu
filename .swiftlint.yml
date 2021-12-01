@@ -1,47 +1,72 @@
-analyzer_rules:
-  - unused_import
-  - unused_declaration
-
 opt_in_rules:
-  - anyobject_protocol
-  - array_init
-  - attributes
-  - closure_end_indentation
-  - closure_spacing
-  - contains_over_filter_count
-  - contains_over_filter_is_empty
-  - convenience_type
-  - discouraged_object_literal
-  - discouraged_optional_boolean  
-  - empty_count
-  - empty_string    
-  - explicit_init
-  - fatal_error_message
-  - file_length
-  - first_where
-  - force_cast
-  - force_try
-  - force_unwrapping
-  - implicitly_unwrapped_optional
-  - joined_default_parameter
-  - modifier_order
-  - multiline_parameters
-  - operator_usage_whitespace
-  - overridden_super_call
-  - override_in_extension    
-  - prefixed_toplevel_constant
-  - private_action
-  - private_outlet
-  - prohibited_super_call
-  - redundant_nil_coalescing
-  - redundant_type_annotation
-  - sorted_first_last  
-  - switch_case_on_newline
-  - trailing_closure
-  - unavailable_function
-  - unneeded_parentheses_in_closure_argument
-  - vertical_parameter_alignment_on_call
-  - yoda_condition
+ - anyobject_protocol
+ - array_init
+ - attributes
+ - closure_body_length
+ - closure_end_indentation
+ - closure_spacing
+ - collection_alignment
+ - comment_spacing
+ - contains_over_filter_count
+ - contains_over_filter_is_empty
+ - contains_over_first_not_nil
+ - contains_over_range_nil_comparison
+ - convenience_type
+ - discarded_notification_center_observer
+ - discouraged_assert
+ - discouraged_object_literal
+ - discouraged_optional_boolean
+ - empty_collection_literal
+ - empty_count
+ - empty_string
+ - explicit_init
+ - enum_case_associated_values_count
+ - fallthrough
+ - fatal_error_message
+ - first_where
+ - flatmap_over_map_reduce
+ - force_unwrapping
+ - identical_operands
+ - implicitly_unwrapped_optional
+ - inclusive_language
+ - joined_default_parameter
+ - last_where
+ - legacy_multiple
+ - legacy_random
+ - literal_expression_end_indentation
+ - lower_acl_than_parent
+ - modifier_order
+ - multiline_arguments
+ - multiline_function_chains
+ - multiline_parameters
+ - nslocalizedstring_key
+ - nslocalizedstring_require_bundle
+ - operator_usage_whitespace
+ - optional_enum_case_matching
+ - overridden_super_call
+ - override_in_extension
+ - prefer_self_type_over_type_of_self
+ - prefer_zero_over_explicit_init
+ - prohibited_super_call
+ - raw_value_for_camel_cased_codable_enum
+ - reduce_into
+ - redundant_nil_coalescing
+ - sorted_first_last
+ - static_operator
+ - switch_case_on_newline
+ - test_case_accessibility
+ - toggle_bool
+ - trailing_closure
+ - unavailable_function
+ - unneeded_parentheses_in_closure_argument
+ - unowned_variable_capture
+ - unused_closure_parameter
+ - vertical_parameter_alignment_on_call
+ - vertical_whitespace_closing_braces
+ - yoda_condition
+
+disabled_rules:
+  - opening_brace  
 
 line_length: 160
 
@@ -49,7 +74,11 @@ function_body_length: 80
 
 line_length: 180
 
-excluded: # paths to ignore during linting. Takes precedence over `included`.
+identifier_name:
+  excluded:
+    - id
+
+excluded:
   - Pods
   - Carthage
 

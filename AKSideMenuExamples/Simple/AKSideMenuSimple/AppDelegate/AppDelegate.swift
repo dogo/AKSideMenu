@@ -40,7 +40,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         sideMenuViewController.menuPreferredStatusBarStyle = .lightContent
         sideMenuViewController.delegate = self
         sideMenuViewController.contentViewShadowColor = .black
-        sideMenuViewController.contentViewShadowOffset = CGSize(width: 0, height: 0)
+        sideMenuViewController.contentViewShadowOffset = .zero
         sideMenuViewController.contentViewShadowOpacity = 0.6
         sideMenuViewController.contentViewShadowRadius = 12
         sideMenuViewController.contentViewShadowEnabled = true

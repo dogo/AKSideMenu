@@ -16,7 +16,7 @@ final class RootViewController: AKSideMenu, AKSideMenuDelegate {
         super.awakeFromNib()
         self.menuPreferredStatusBarStyle = .lightContent
         self.contentViewShadowColor = .black
-        self.contentViewShadowOffset = CGSize(width: 0, height: 0)
+        self.contentViewShadowOffset = .zero
         self.contentViewShadowOpacity = 0.6
         self.contentViewShadowRadius = 12
         self.contentViewShadowEnabled = true
