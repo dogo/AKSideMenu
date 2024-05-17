@@ -9,7 +9,6 @@
 import UIKit
 
 final class SecondViewController: UIViewController {
-
     // MARK: - Properties
 
     let secondView = SecondView()
@@ -22,7 +21,7 @@ final class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Second Controller"
+        title = "Second Controller"
         addNavigationButtons()
 
         secondView.didTouchButton = { [weak self] in
@@ -57,6 +56,6 @@ final class SecondViewController: UIViewController {
         let viewController = UIViewController()
         viewController.title = "Pushed Controller"
         viewController.view.backgroundColor = .white
-        self.navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

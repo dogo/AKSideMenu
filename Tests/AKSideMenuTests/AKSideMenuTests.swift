@@ -1,5 +1,5 @@
-import XCTest
 @testable import AKSideMenu
+import XCTest
 
 final class AKSideMenuTests: XCTestCase {
     func testExample() {
@@ -10,6 +10,6 @@ final class AKSideMenuTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample)
+        ("testExample", testExample),
     ]
 }

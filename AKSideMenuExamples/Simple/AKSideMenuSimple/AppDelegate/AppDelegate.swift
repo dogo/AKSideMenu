@@ -6,25 +6,23 @@
 //  Copyright © 2016 AnyKey Entertainment. All rights reserved.
 //
 
-import UIKit
 import AKSideMenu
+import UIKit
 
-@UIApplicationMain
+@main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = buildController()
-        self.window?.makeKeyAndVisible()
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = buildController()
+        window?.makeKeyAndVisible()
         return true
     }
 
     private func buildController() -> UIViewController {
-
         // Create content and menu controllers
         let navigationController = UINavigationController(rootViewController: FirstViewController())
         let leftMenuViewController = LeftMenuViewController()
@@ -49,20 +47,19 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: AKSideMenuDelegate {
-
-    public func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
         debugPrint("willShowMenuViewController", menuViewController)
     }
 
-    public func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
         debugPrint("didShowMenuViewController", menuViewController)
     }
 
-    public func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
         debugPrint("willHideMenuViewController ", menuViewController)
     }
 
-    public func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
+    public func sideMenu(_: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
         debugPrint("didHideMenuViewController", menuViewController)
     }
 }

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 final class FirstViewController: UIViewController {
-
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {

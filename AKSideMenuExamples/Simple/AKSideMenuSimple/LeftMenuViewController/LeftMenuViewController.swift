@@ -10,7 +10,6 @@ import AKSideMenu
 import UIKit
 
 final class LeftMenuViewController: UIViewController {
-
     // MARK: - Properties
 
     let leftMenuView = LeftMenuView()

@@ -10,7 +10,6 @@ import AKSideMenu
 import UIKit
 
 final class FirstViewController: UIViewController {
-
     // MARK: - Life Cycle
 
     override func loadView() {
@@ -19,7 +18,7 @@ final class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "First Controller"
+        title = "First Controller"
         addNavigationButtons()
     }
 

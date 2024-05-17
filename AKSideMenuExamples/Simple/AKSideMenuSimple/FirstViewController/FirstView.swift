@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 final class FirstView: UIView {
-
     // MARK: - Properties
 
     lazy var imageView: UIImageView = {
@@ -30,13 +29,12 @@ final class FirstView: UIView {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension FirstView {
-
     // MARK: - ViewCode
 
     func setupViewHierarchy() {

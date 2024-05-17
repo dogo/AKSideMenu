@@ -11,10 +11,9 @@ import Foundation
 import UIKit
 
 final class LeftMenuViewController: UIViewController {
-
     // MARK: - Life Cycle
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         addTableView()
     }
@@ -23,8 +22,8 @@ final class LeftMenuViewController: UIViewController {
 
     private func addTableView() {
         let tableView = UITableView(frame: CGRect(x: 0,
-                                                  y: (self.view.frame.size.height - 54 * 5) / 2.0,
-                                                  width: self.view.frame.size.width,
+                                                  y: (view.frame.size.height - 54 * 5) / 2.0,
+                                                  width: view.frame.size.width,
                                                   height: 54 * 5), style: .plain)
         tableView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         tableView.delegate = self
@@ -40,7 +39,6 @@ final class LeftMenuViewController: UIViewController {
 }
 
 extension LeftMenuViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
@@ -63,17 +61,16 @@ extension LeftMenuViewController: UITableViewDelegate {
 }
 
 extension LeftMenuViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 54
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        54
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
-        return 5
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier: String = "Cell"
+        let cellIdentifier = "Cell"
 
         var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
 

@@ -11,7 +11,6 @@ import Foundation
 import UIKit
 
 final class RightMenuViewController: UIViewController {
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -41,7 +40,6 @@ final class RightMenuViewController: UIViewController {
 }
 
 extension RightMenuViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
@@ -64,17 +62,16 @@ extension RightMenuViewController: UITableViewDelegate {
 }
 
 extension RightMenuViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 54
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        54
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection sectionIndex: Int) -> Int {
-        return 2
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier: String = "Cell"
+        let cellIdentifier = "Cell"
 
         var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
 

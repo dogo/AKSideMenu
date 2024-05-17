@@ -10,7 +10,6 @@ import AKSideMenu
 import UIKit
 
 final class RightMenuViewController: UIViewController {
-
     // MARK: - Properties
 
     let rightMenuView = RightMenuView()
@@ -35,8 +34,8 @@ final class RightMenuViewController: UIViewController {
         switch index {
         case 0:
             let contentViewController = UINavigationController(rootViewController: FirstViewController())
-            self.sideMenuViewController?.setContentViewController(contentViewController, animated: true)
-            self.sideMenuViewController?.hideMenuViewController()
+            sideMenuViewController?.setContentViewController(contentViewController, animated: true)
+            sideMenuViewController?.hideMenuViewController()
         case 1:
             let contentViewController = UINavigationController(rootViewController: SecondViewController())
             sideMenuViewController?.setContentViewController(contentViewController, animated: true)

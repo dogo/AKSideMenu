@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 final class SecondViewController: UIViewController {
-
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
@@ -25,10 +24,10 @@ final class SecondViewController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction private func pushViewController(_ sender: Any) {
+    @IBAction private func pushViewController(_: Any) {
         let viewController = UIViewController()
         viewController.title = "Pushed Controller"
         viewController.view.backgroundColor = .white
-        self.navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

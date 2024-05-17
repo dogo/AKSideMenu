@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 final class SecondView: UIView {
-
     // MARK: - Properties
 
     var didTouchButton: (() -> Void)?
@@ -33,7 +32,7 @@ final class SecondView: UIView {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -46,7 +45,6 @@ final class SecondView: UIView {
 }
 
 extension SecondView {
-
     // MARK: - ViewCode
 
     func setupViewHierarchy() {

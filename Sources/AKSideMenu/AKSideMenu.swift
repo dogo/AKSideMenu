@@ -30,7 +30,6 @@ public protocol AKSideMenuDelegate {
 
 @IBDesignable
 open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
-
     var visible = false
     var leftMenuVisible = false
     var rightMenuVisible = false
@@ -84,12 +83,12 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.commonInit()
+        commonInit()
     }
 
     public required init(contentViewController: UIViewController, leftMenuViewController: UIViewController?, rightMenuViewController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
-        self.commonInit()
+        commonInit()
         self.contentViewController = contentViewController
         self.leftMenuViewController = leftMenuViewController
         self.rightMenuViewController = rightMenuViewController
@@ -97,145 +96,145 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
     override open func awakeFromNib() {
         super.awakeFromNib()
-        if let storybroadID = self.contentViewStoryboardID {
-            self.contentViewController = self.storyboard?.instantiateViewController(withIdentifier: storybroadID)
+        if let storybroadID = contentViewStoryboardID {
+            contentViewController = storyboard?.instantiateViewController(withIdentifier: storybroadID)
         }
-        if let storybroadID = self.leftMenuViewStoryboardID {
-            self.leftMenuViewController = self.storyboard?.instantiateViewController(withIdentifier: storybroadID)
+        if let storybroadID = leftMenuViewStoryboardID {
+            leftMenuViewController = storyboard?.instantiateViewController(withIdentifier: storybroadID)
         }
-        if let storybroadID = self.rightMenuViewStoryboardID {
-            self.rightMenuViewController = self.storyboard?.instantiateViewController(withIdentifier: storybroadID)
+        if let storybroadID = rightMenuViewStoryboardID {
+            rightMenuViewController = storyboard?.instantiateViewController(withIdentifier: storybroadID)
         }
     }
 
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        let imageView = UIImageView(frame: self.view.bounds)
-        imageView.image = self.backgroundImage
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.image = backgroundImage
         imageView.contentMode = .scaleAspectFill
         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.backgroundImageView = imageView
+        backgroundImageView = imageView
 
         let button = UIButton(frame: .zero)
         button.addTarget(self, action: #selector(AKSideMenu.hideMenuViewController), for: .touchUpInside)
-        self.contentButton = button
+        contentButton = button
 
-        self.view.addSubview(imageView)
-        self.view.addSubview(self.menuViewContainer)
-        self.view.addSubview(self.contentViewContainer)
+        view.addSubview(imageView)
+        view.addSubview(menuViewContainer)
+        view.addSubview(contentViewContainer)
 
-        self.menuViewContainer.frame = self.view.bounds
-        self.menuViewContainer.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        menuViewContainer.frame = view.bounds
+        menuViewContainer.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        if let leftMenuViewController = self.leftMenuViewController {
-            self.addChild(leftMenuViewController)
-            leftMenuViewController.view.frame = self.view.bounds
+        if let leftMenuViewController = leftMenuViewController {
+            addChild(leftMenuViewController)
+            leftMenuViewController.view.frame = view.bounds
             leftMenuViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.menuViewContainer.addSubview(leftMenuViewController.view)
+            menuViewContainer.addSubview(leftMenuViewController.view)
             leftMenuViewController.didMove(toParent: self)
         }
 
-        if let rightMenuViewController = self.rightMenuViewController {
-            self.addChild(rightMenuViewController)
-            rightMenuViewController.view.frame = self.view.bounds
+        if let rightMenuViewController = rightMenuViewController {
+            addChild(rightMenuViewController)
+            rightMenuViewController.view.frame = view.bounds
             rightMenuViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.menuViewContainer.addSubview(rightMenuViewController.view)
+            menuViewContainer.addSubview(rightMenuViewController.view)
             rightMenuViewController.didMove(toParent: self)
         }
 
-        self.contentViewContainer.frame = self.view.bounds
-        self.contentViewContainer.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentViewContainer.frame = view.bounds
+        contentViewContainer.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        if let contentViewController = self.contentViewController {
-            self.addChild(contentViewController)
-            contentViewController.view.frame = self.view.bounds
-            self.contentViewContainer.addSubview(contentViewController.view)
+        if let contentViewController = contentViewController {
+            addChild(contentViewController)
+            contentViewController.view.frame = view.bounds
+            contentViewContainer.addSubview(contentViewController.view)
             contentViewController.didMove(toParent: self)
         }
 
-        if self.fadeMenuView {
-            self.menuViewContainer.alpha = 0
+        if fadeMenuView {
+            menuViewContainer.alpha = 0
         }
 
-        if self.scaleBackgroundImageView {
-            self.backgroundImageView?.transform = self.backgroundTransformMakeScale()
+        if scaleBackgroundImageView {
+            backgroundImageView?.transform = backgroundTransformMakeScale()
         }
 
-        self.addMenuViewControllerMotionEffects()
+        addMenuViewControllerMotionEffects()
 
-        if self.panGestureEnabled {
-            self.view.isMultipleTouchEnabled = false
+        if panGestureEnabled {
+            view.isMultipleTouchEnabled = false
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(AKSideMenu.panGestureRecognized(_:)))
             panGestureRecognizer.delegate = self
-            self.view.addGestureRecognizer(panGestureRecognizer)
+            view.addGestureRecognizer(panGestureRecognizer)
         }
 
-        self.updateContentViewShadow()
+        updateContentViewShadow()
     }
 
     func commonInit() {
-        self.menuViewContainer = UIView()
-        self.contentViewContainer = UIView()
+        menuViewContainer = UIView()
+        contentViewContainer = UIView()
 
-        self.animationDuration = 0.35
-        self.interactivePopGestureRecognizerEnabled = true
+        animationDuration = 0.35
+        interactivePopGestureRecognizerEnabled = true
 
-        self.menuViewControllerTransformation = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        menuViewControllerTransformation = CGAffineTransform(scaleX: 1.5, y: 1.5)
 
-        self.scaleContentView = true
-        self.backgroundTransformScale = 1.7
-        self.scaleBackgroundImageView = true
-        self.scaleMenuView = true
-        self.fadeMenuView = true
+        scaleContentView = true
+        backgroundTransformScale = 1.7
+        scaleBackgroundImageView = true
+        scaleMenuView = true
+        fadeMenuView = true
 
-        self.parallaxEnabled = true
-        self.panGestureLeftEnabled = true
-        self.panGestureRightEnabled = true
-        self.parallaxMenuMinimumRelativeValue = -15
-        self.parallaxMenuMaximumRelativeValue = 15
-        self.parallaxContentMinimumRelativeValue = -25
-        self.parallaxContentMaximumRelativeValue = 25
+        parallaxEnabled = true
+        panGestureLeftEnabled = true
+        panGestureRightEnabled = true
+        parallaxMenuMinimumRelativeValue = -15
+        parallaxMenuMaximumRelativeValue = 15
+        parallaxContentMinimumRelativeValue = -25
+        parallaxContentMaximumRelativeValue = 25
 
-        self.bouncesHorizontally = true
+        bouncesHorizontally = true
 
-        self.panGestureEnabled = true
-        self.panFromEdge = true
-        self.panFromEdgeZoneWidth = 20.0
-        self.panMinimumOpenThreshold = 60.0
+        panGestureEnabled = true
+        panFromEdge = true
+        panFromEdgeZoneWidth = 20.0
+        panMinimumOpenThreshold = 60.0
 
-        self.contentViewShadowEnabled = false
-        self.contentViewShadowColor = .black
-        self.contentViewShadowOffset = .zero
-        self.contentViewShadowOpacity = 0.4
-        self.contentViewShadowRadius = 8.0
-        self.contentViewFadeOutAlpha = 1.0
-        self.contentViewInLandscapeOffsetCenterX = 30.0
-        self.contentViewInPortraitOffsetCenterX = 30.0
-        self.contentViewScaleValue = 0.7
+        contentViewShadowEnabled = false
+        contentViewShadowColor = .black
+        contentViewShadowOffset = .zero
+        contentViewShadowOpacity = 0.4
+        contentViewShadowRadius = 8.0
+        contentViewFadeOutAlpha = 1.0
+        contentViewInLandscapeOffsetCenterX = 30.0
+        contentViewInPortraitOffsetCenterX = 30.0
+        contentViewScaleValue = 0.7
     }
 
     // MARK: - Public
 
     public func presentLeftMenuViewController() {
-        guard let leftMenuViewController = self.leftMenuViewController else { return }
+        guard let leftMenuViewController = leftMenuViewController else { return }
 
-        self.presentMenuViewContainerWithMenuViewController(leftMenuViewController)
-        self.showLeftMenuViewController()
+        presentMenuViewContainerWithMenuViewController(leftMenuViewController)
+        showLeftMenuViewController()
     }
 
     public func presentRightMenuViewController() {
-        guard let rightMenuViewController = self.rightMenuViewController else { return }
+        guard let rightMenuViewController = rightMenuViewController else { return }
 
-        self.presentMenuViewContainerWithMenuViewController(rightMenuViewController)
-        self.showRightMenuViewController()
+        presentMenuViewContainerWithMenuViewController(rightMenuViewController)
+        showRightMenuViewController()
     }
 
     @objc
     public func hideMenuViewController() {
-        self.hideMenuViewControllerAnimated(true)
+        hideMenuViewControllerAnimated(true)
     }
 
     public func setContentViewController(_ contentViewController: UIViewController, animated: Bool) {
@@ -246,26 +245,26 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
         if !animated {
             self.contentViewController = contentViewController
         } else {
-            self.addChild(contentViewController)
+            addChild(contentViewController)
             contentViewController.view.alpha = 0
-            contentViewController.view.frame = self.contentViewContainer.bounds
-            self.contentViewContainer.addSubview(contentViewController.view)
+            contentViewController.view.frame = contentViewContainer.bounds
+            contentViewContainer.addSubview(contentViewController.view)
 
-            UIView.animate(withDuration: self.animationDuration, animations: {
+            UIView.animate(withDuration: animationDuration, animations: {
                 contentViewController.view.alpha = 1
-                }, completion: { _ in
-                    if let contentViewController = self.contentViewController {
-                        self.hideViewController(contentViewController)
-                    }
-                    contentViewController.didMove(toParent: self)
-                    self.contentViewController = contentViewController
+            }, completion: { _ in
+                if let contentViewController = self.contentViewController {
+                    self.hideViewController(contentViewController)
+                }
+                contentViewController.didMove(toParent: self)
+                self.contentViewController = contentViewController
 
-                    self.statusBarNeedsAppearanceUpdate()
-                    self.updateContentViewShadow()
+                self.statusBarNeedsAppearanceUpdate()
+                self.updateContentViewShadow()
 
-                    if self.visible {
-                        self.addContentViewControllerMotionEffects()
-                    }
+                if self.visible {
+                    self.addContentViewControllerMotionEffects()
+                }
             })
         }
     }
@@ -273,43 +272,42 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Private
 
     func presentMenuViewContainerWithMenuViewController(_ menuViewController: UIViewController) {
-        self.menuViewContainer.transform = .identity
+        menuViewContainer.transform = .identity
 
-        if self.scaleBackgroundImageView {
-            self.backgroundImageView?.transform = .identity
-            self.backgroundImageView?.frame = self.view.bounds
+        if scaleBackgroundImageView {
+            backgroundImageView?.transform = .identity
+            backgroundImageView?.frame = view.bounds
         }
 
-        self.menuViewContainer.frame = self.view.bounds
+        menuViewContainer.frame = view.bounds
 
-        if let transform = menuViewControllerTransformation, self.scaleMenuView {
-            self.menuViewContainer.transform = transform
+        if let transform = menuViewControllerTransformation, scaleMenuView {
+            menuViewContainer.transform = transform
         }
 
-        if self.fadeMenuView {
-            self.menuViewContainer.alpha = 0
+        if fadeMenuView {
+            menuViewContainer.alpha = 0
         }
 
-        if self.scaleBackgroundImageView {
-            self.backgroundImageView?.transform = self.backgroundTransformMakeScale()
+        if scaleBackgroundImageView {
+            backgroundImageView?.transform = backgroundTransformMakeScale()
         }
 
-        self.delegate?.sideMenu?(self, willShowMenuViewController: menuViewController)
+        delegate?.sideMenu?(self, willShowMenuViewController: menuViewController)
     }
 
     func showLeftMenuViewController() {
-
         guard leftMenuViewController != nil else { return }
 
-        self.leftMenuViewController?.beginAppearanceTransition(true, animated: true)
-        self.leftMenuViewController?.view.isHidden = false
-        self.rightMenuViewController?.view.isHidden = true
-        self.view.window?.endEditing(true)
-        self.addContentButton()
-        self.updateContentViewShadow()
-        self.resetContentViewScale()
+        leftMenuViewController?.beginAppearanceTransition(true, animated: true)
+        leftMenuViewController?.view.isHidden = false
+        rightMenuViewController?.view.isHidden = true
+        view.window?.endEditing(true)
+        addContentButton()
+        updateContentViewShadow()
+        resetContentViewScale()
 
-        UIView.animate(withDuration: self.animationDuration, animations: {
+        UIView.animate(withDuration: animationDuration, animations: {
             if self.scaleContentView {
                 self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
                 self.updateContentViewAdditionalSafeAreaInsets()
@@ -340,29 +338,29 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
             self.visible = true
             self.leftMenuVisible = true
         })
-        self.statusBarNeedsAppearanceUpdate()
+        statusBarNeedsAppearanceUpdate()
     }
 
     func showRightMenuViewController() {
         guard rightMenuViewController != nil else { return }
 
-        self.rightMenuViewController?.beginAppearanceTransition(true, animated: true)
-        self.leftMenuViewController?.view.isHidden = true
-        self.rightMenuViewController?.view.isHidden = false
-        self.view.window?.endEditing(true)
-        self.addContentButton()
-        self.updateContentViewShadow()
-        self.resetContentViewScale()
+        rightMenuViewController?.beginAppearanceTransition(true, animated: true)
+        leftMenuViewController?.view.isHidden = true
+        rightMenuViewController?.view.isHidden = false
+        view.window?.endEditing(true)
+        addContentButton()
+        updateContentViewShadow()
+        resetContentViewScale()
 
         UIApplication.shared.beginIgnoringInteractionEvents()
-        UIView.animate(withDuration: self.animationDuration, animations: {
+        UIView.animate(withDuration: animationDuration, animations: {
             if self.scaleContentView {
                 self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
                 self.updateContentViewAdditionalSafeAreaInsets()
             } else {
                 self.contentViewContainer.transform = .identity
             }
-            self.contentViewContainer.center = CGPoint(x: (UIApplication.shared.statusBarOrientation.isLandscape ? -self.contentViewInLandscapeOffsetCenterX : -self.contentViewInPortraitOffsetCenterX),
+            self.contentViewContainer.center = CGPoint(x: UIApplication.shared.statusBarOrientation.isLandscape ? -self.contentViewInLandscapeOffsetCenterX : -self.contentViewInPortraitOffsetCenterX,
                                                        y: self.contentViewContainer.center.y)
 
             if self.fadeMenuView {
@@ -384,7 +382,7 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
             UIApplication.shared.endIgnoringInteractionEvents()
             self.addContentViewControllerMotionEffects()
         })
-        self.statusBarNeedsAppearanceUpdate()
+        statusBarNeedsAppearanceUpdate()
     }
 
     func hideViewController(_ viewController: UIViewController) {
@@ -394,61 +392,61 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func hideMenuViewControllerAnimated(_ animated: Bool) {
-        let rightMenuVisible: Bool = self.rightMenuVisible
+        let rightMenuVisible: Bool = rightMenuVisible
 
-        let visibleMenuViewController = (rightMenuVisible ? self.rightMenuViewController : self.leftMenuViewController)
+        let visibleMenuViewController = (rightMenuVisible ? rightMenuViewController : leftMenuViewController)
 
         visibleMenuViewController?.beginAppearanceTransition(false, animated: animated)
 
         if let viewController = visibleMenuViewController {
-            self.delegate?.sideMenu?(self, willHideMenuViewController: viewController)
+            delegate?.sideMenu?(self, willHideMenuViewController: viewController)
         }
 
-        self.visible = false
-        self.leftMenuVisible = false
+        visible = false
+        leftMenuVisible = false
         self.rightMenuVisible = false
-        self.contentButton.removeFromSuperview()
+        contentButton.removeFromSuperview()
 
         let animationBlock = { [unowned self] in
-            self.contentViewContainer.transform = .identity
-            self.contentViewContainer.frame = self.view.bounds
-            self.updateContentViewAdditionalSafeAreaInsets()
+            contentViewContainer.transform = .identity
+            contentViewContainer.frame = view.bounds
+            updateContentViewAdditionalSafeAreaInsets()
 
-            if let transform = self.menuViewControllerTransformation, self.scaleMenuView {
-                self.menuViewContainer.transform = transform
+            if let transform = menuViewControllerTransformation, scaleMenuView {
+                menuViewContainer.transform = transform
             }
-            if self.fadeMenuView {
-                self.menuViewContainer.alpha = 0
+            if fadeMenuView {
+                menuViewContainer.alpha = 0
             }
-            self.contentViewContainer.alpha = 1
+            contentViewContainer.alpha = 1
 
-            if self.scaleBackgroundImageView {
-                self.backgroundImageView?.transform = self.backgroundTransformMakeScale()
+            if scaleBackgroundImageView {
+                backgroundImageView?.transform = backgroundTransformMakeScale()
             }
-            if self.parallaxEnabled {
-                for effect in self.contentViewContainer.motionEffects {
-                    self.contentViewContainer.removeMotionEffect(effect)
+            if parallaxEnabled {
+                for effect in contentViewContainer.motionEffects {
+                    contentViewContainer.removeMotionEffect(effect)
                 }
             }
         }
 
         let completionBlock = { [unowned self] in
             visibleMenuViewController?.endAppearanceTransition()
-            self.statusBarNeedsAppearanceUpdate()
-            if !self.visible {
+            statusBarNeedsAppearanceUpdate()
+            if !visible {
                 if let viewController = visibleMenuViewController {
-                    self.delegate?.sideMenu?(self, didHideMenuViewController: viewController)
+                    delegate?.sideMenu?(self, didHideMenuViewController: viewController)
                 }
             }
         }
 
         if animated {
             UIApplication.shared.beginIgnoringInteractionEvents()
-            UIView.animate(withDuration: self.animationDuration, animations: {
+            UIView.animate(withDuration: animationDuration, animations: {
                 animationBlock()
-                }, completion: { _ in
-                    UIApplication.shared.endIgnoringInteractionEvents()
-                    completionBlock()
+            }, completion: { _ in
+                UIApplication.shared.endIgnoringInteractionEvents()
+                completionBlock()
             })
         } else {
             animationBlock()
@@ -457,18 +455,18 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func addContentButton() {
-        guard self.contentButton.superview == nil else {
+        guard contentButton.superview == nil else {
             return
         }
 
-        self.contentButton.autoresizingMask = []
-        self.contentButton.frame = self.contentViewContainer.bounds
-        self.contentButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.contentViewContainer.addSubview(self.contentButton)
+        contentButton.autoresizingMask = []
+        contentButton.frame = contentViewContainer.bounds
+        contentButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentViewContainer.addSubview(contentButton)
     }
 
     func statusBarNeedsAppearanceUpdate() {
-        if self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate)) {
+        if responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate)) {
             UIView.animate(withDuration: 0.3) {
                 self.perform(#selector(UIViewController.setNeedsStatusBarAppearanceUpdate))
             }
@@ -476,30 +474,30 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func updateContentViewShadow() {
-        if self.contentViewShadowEnabled {
-            let layer = self.contentViewContainer.layer
+        if contentViewShadowEnabled {
+            let layer = contentViewContainer.layer
             let path = UIBezierPath(rect: layer.bounds)
             layer.shadowPath = path.cgPath
-            layer.shadowOffset = self.contentViewShadowOffset
-            layer.shadowOpacity = self.contentViewShadowOpacity
-            layer.shadowRadius = self.contentViewShadowRadius
-            if let color = self.contentViewShadowColor?.cgColor {
+            layer.shadowOffset = contentViewShadowOffset
+            layer.shadowOpacity = contentViewShadowOpacity
+            layer.shadowRadius = contentViewShadowRadius
+            if let color = contentViewShadowColor?.cgColor {
                 layer.shadowColor = color
             }
         }
     }
 
     func resetContentViewScale() {
-        let transform = self.contentViewContainer.transform
+        let transform = contentViewContainer.transform
         let scale: CGFloat = sqrt(transform.a * transform.a + transform.c * transform.c)
-        let frame = self.contentViewContainer.frame
-        self.contentViewContainer.transform = .identity
-        self.contentViewContainer.transform = CGAffineTransform(scaleX: scale, y: scale)
-        self.contentViewContainer.frame = frame
+        let frame = contentViewContainer.frame
+        contentViewContainer.transform = .identity
+        contentViewContainer.transform = CGAffineTransform(scaleX: scale, y: scale)
+        contentViewContainer.frame = frame
     }
 
     func backgroundTransformMakeScale() -> CGAffineTransform {
-        return CGAffineTransform(scaleX: self.backgroundTransformScale, y: self.backgroundTransformScale)
+        CGAffineTransform(scaleX: backgroundTransformScale, y: backgroundTransformScale)
     }
 
     func updateContentViewAdditionalSafeAreaInsets() {
@@ -527,27 +525,27 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Motion Effects (Private)
 
     func addMenuViewControllerMotionEffects() {
-        if self.parallaxEnabled {
-            for effect in self.menuViewContainer.motionEffects {
-                self.menuViewContainer.removeMotionEffect(effect)
+        if parallaxEnabled {
+            for effect in menuViewContainer.motionEffects {
+                menuViewContainer.removeMotionEffect(effect)
             }
             let interpolationHorizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-            interpolationHorizontal.minimumRelativeValue = self.parallaxMenuMinimumRelativeValue
-            interpolationHorizontal.maximumRelativeValue = self.parallaxMenuMaximumRelativeValue
+            interpolationHorizontal.minimumRelativeValue = parallaxMenuMinimumRelativeValue
+            interpolationHorizontal.maximumRelativeValue = parallaxMenuMaximumRelativeValue
 
             let interpolationVertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-            interpolationVertical.minimumRelativeValue = self.parallaxMenuMinimumRelativeValue
-            interpolationVertical.maximumRelativeValue = self.parallaxMenuMaximumRelativeValue
+            interpolationVertical.minimumRelativeValue = parallaxMenuMinimumRelativeValue
+            interpolationVertical.maximumRelativeValue = parallaxMenuMaximumRelativeValue
 
-            self.menuViewContainer.addMotionEffect(interpolationHorizontal)
-            self.menuViewContainer.addMotionEffect(interpolationVertical)
+            menuViewContainer.addMotionEffect(interpolationHorizontal)
+            menuViewContainer.addMotionEffect(interpolationVertical)
         }
     }
 
     func addContentViewControllerMotionEffects() {
-        if self.parallaxEnabled {
-            for effect in self.contentViewContainer.motionEffects {
-                self.contentViewContainer.removeMotionEffect(effect)
+        if parallaxEnabled {
+            for effect in contentViewContainer.motionEffects {
+                contentViewContainer.removeMotionEffect(effect)
             }
 
             UIView.animate(withDuration: 0.2) {
@@ -568,29 +566,29 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - <UIGestureRecognizerDelegate>
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return delegate?.sideMenu?(self, shouldRecognizeGesture: gestureRecognizer, simultaneouslyWith: otherGestureRecognizer) ?? false
+        delegate?.sideMenu?(self, shouldRecognizeGesture: gestureRecognizer, simultaneouslyWith: otherGestureRecognizer) ?? false
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return delegate?.sideMenu?(self, gestureRecognizer: gestureRecognizer, shouldRequireFailureOf: otherGestureRecognizer) ?? false
+        delegate?.sideMenu?(self, gestureRecognizer: gestureRecognizer, shouldRequireFailureOf: otherGestureRecognizer) ?? false
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return delegate?.sideMenu?(self, gestureRecognizer: gestureRecognizer, shouldBeRequiredToFailBy: otherGestureRecognizer) ?? false
+        delegate?.sideMenu?(self, gestureRecognizer: gestureRecognizer, shouldBeRequiredToFailBy: otherGestureRecognizer) ?? false
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if self.interactivePopGestureRecognizerEnabled && self.contentViewController is UINavigationController {
-            if let navigationController = self.contentViewController as? UINavigationController {
-                if navigationController.viewControllers.count > 1 && navigationController.interactivePopGestureRecognizer?.isEnabled ?? false {
+        if interactivePopGestureRecognizerEnabled, contentViewController is UINavigationController {
+            if let navigationController = contentViewController as? UINavigationController {
+                if navigationController.viewControllers.count > 1, navigationController.interactivePopGestureRecognizer?.isEnabled ?? false {
                     return false
                 }
             }
         }
 
-        if self.panFromEdge && gestureRecognizer is UIPanGestureRecognizer && !self.visible {
+        if panFromEdge, gestureRecognizer is UIPanGestureRecognizer, !visible {
             let point: CGPoint = touch.location(in: gestureRecognizer.view)
-            if (self.panGestureLeftEnabled && point.x < self.panFromEdgeZoneWidth) || (self.panGestureRightEnabled && point.x > self.view.frame.size.width - self.panFromEdgeZoneWidth) {
+            if (panGestureLeftEnabled && point.x < panFromEdgeZoneWidth) || (panGestureRightEnabled && point.x > view.frame.size.width - panFromEdgeZoneWidth) {
                 return true
             } else {
                 return false
@@ -603,88 +601,87 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
     @objc
     func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+        delegate?.sideMenu?(self, didRecognizePanGesture: recognizer)
 
-        self.delegate?.sideMenu?(self, didRecognizePanGesture: recognizer)
-
-        if !self.panGestureEnabled {
+        if !panGestureEnabled {
             return
         }
 
         if recognizer.state == .began {
-            self.recognizerBegan()
+            recognizerBegan()
         }
 
         if recognizer.state == .changed {
-            self.recognizerChanged(recognizer)
+            recognizerChanged(recognizer)
         }
 
         if recognizer.state == .ended {
-            self.recognizerEnded(recognizer)
+            recognizerEnded(recognizer)
         }
     }
 
     // MARK: - Regonizer States
 
     private func recognizerBegan() {
-        self.updateContentViewShadow()
+        updateContentViewShadow()
 
-        self.originalPoint = CGPoint(x: self.contentViewContainer.center.x - self.contentViewContainer.bounds.width / 2.0,
-                                     y: self.contentViewContainer.center.y - self.contentViewContainer.bounds.height / 2.0)
-        self.menuViewContainer.transform = .identity
-        if self.scaleBackgroundImageView {
-            self.backgroundImageView?.transform = .identity
-            self.backgroundImageView?.frame = self.view.bounds
+        originalPoint = CGPoint(x: contentViewContainer.center.x - contentViewContainer.bounds.width / 2.0,
+                                y: contentViewContainer.center.y - contentViewContainer.bounds.height / 2.0)
+        menuViewContainer.transform = .identity
+        if scaleBackgroundImageView {
+            backgroundImageView?.transform = .identity
+            backgroundImageView?.frame = view.bounds
         }
-        self.menuViewContainer.frame = self.view.bounds
-        self.view.window?.endEditing(true)
-        self.sideMenuDelegateNotify = false
+        menuViewContainer.frame = view.bounds
+        view.window?.endEditing(true)
+        sideMenuDelegateNotify = false
     }
 
     private func recognizerChanged(_ recognizer: UIPanGestureRecognizer) {
-        var point = recognizer.translation(in: self.view)
+        var point = recognizer.translation(in: view)
         var delta: CGFloat = 0.0
 
-        if self.visible {
-            delta = self.originalPoint.x != 0 ? (point.x + self.originalPoint.x) / self.originalPoint.x : 0
+        if visible {
+            delta = originalPoint.x != 0 ? (point.x + originalPoint.x) / originalPoint.x : 0
         } else {
-            delta = point.x / self.view.frame.size.width
+            delta = point.x / view.frame.size.width
         }
         delta = min(abs(delta), 1.6)
 
-        var contentViewScale: CGFloat = self.scaleContentView ? 1 - ((1 - self.contentViewScaleValue) * delta) : 1
+        var contentViewScale: CGFloat = scaleContentView ? 1 - ((1 - contentViewScaleValue) * delta) : 1
 
-        var backgroundViewScale: CGFloat = self.backgroundTransformScale - (0.7 * delta)
+        var backgroundViewScale: CGFloat = backgroundTransformScale - (0.7 * delta)
         var menuViewScale: CGFloat = 1.5 - (0.5 * delta)
 
-        if !self.bouncesHorizontally {
-            contentViewScale = max(contentViewScale, self.contentViewScaleValue)
+        if !bouncesHorizontally {
+            contentViewScale = max(contentViewScale, contentViewScaleValue)
             backgroundViewScale = max(backgroundViewScale, 1.0)
             menuViewScale = max(menuViewScale, 1.0)
         }
 
-        if self.fadeMenuView {
-            self.menuViewContainer.alpha = delta
+        if fadeMenuView {
+            menuViewContainer.alpha = delta
         }
-        self.contentViewContainer.alpha = 1 - (1 - self.contentViewFadeOutAlpha) * delta
+        contentViewContainer.alpha = 1 - (1 - contentViewFadeOutAlpha) * delta
 
-        if self.scaleBackgroundImageView {
-            self.backgroundImageView?.transform = CGAffineTransform(scaleX: backgroundViewScale, y: backgroundViewScale)
-        }
-
-        if self.scaleMenuView {
-            self.menuViewContainer.transform = CGAffineTransform(scaleX: menuViewScale, y: menuViewScale)
+        if scaleBackgroundImageView {
+            backgroundImageView?.transform = CGAffineTransform(scaleX: backgroundViewScale, y: backgroundViewScale)
         }
 
-        if self.scaleBackgroundImageView && (backgroundViewScale < 1) {
-            self.backgroundImageView?.transform = .identity
+        if scaleMenuView {
+            menuViewContainer.transform = CGAffineTransform(scaleX: menuViewScale, y: menuViewScale)
         }
 
-        if !self.bouncesHorizontally && self.visible {
-            if self.contentViewContainer.frame.origin.x > self.contentViewContainer.frame.size.width / 2.0 {
+        if scaleBackgroundImageView, backgroundViewScale < 1 {
+            backgroundImageView?.transform = .identity
+        }
+
+        if !bouncesHorizontally, visible {
+            if contentViewContainer.frame.origin.x > contentViewContainer.frame.size.width / 2.0 {
                 point.x = min(0.0, point.x)
             }
 
-            if self.contentViewContainer.frame.origin.x < -(self.contentViewContainer.frame.size.width / 2.0) {
+            if contentViewContainer.frame.origin.x < -(contentViewContainer.frame.size.width / 2.0) {
                 point.x = max(0.0, point.x)
             }
         }
@@ -696,73 +693,74 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
         } else {
             point.x = min(point.x, UIScreen.main.bounds.size.height)
         }
-        recognizer.setTranslation(point, in: self.view)
+        recognizer.setTranslation(point, in: view)
 
-        if !self.sideMenuDelegateNotify {
+        if !sideMenuDelegateNotify {
             if point.x > 0 {
-                if let leftMenuViewController = self.leftMenuViewController, !self.visible {
-                    self.delegate?.sideMenu?(self, willShowMenuViewController: leftMenuViewController)
+                if let leftMenuViewController = leftMenuViewController, !self.visible {
+                    delegate?.sideMenu?(self, willShowMenuViewController: leftMenuViewController)
                 }
             }
             if point.x < 0 {
-                if let rightMenuViewController = self.rightMenuViewController, !self.visible {
-                    self.delegate?.sideMenu?(self, willShowMenuViewController: rightMenuViewController)
+                if let rightMenuViewController = rightMenuViewController, !self.visible {
+                    delegate?.sideMenu?(self, willShowMenuViewController: rightMenuViewController)
                 }
             }
-            self.sideMenuDelegateNotify = true
+            sideMenuDelegateNotify = true
         }
 
         if contentViewScale > 1 {
             let oppositeScale: CGFloat = (1 - (contentViewScale - 1))
-            self.contentViewContainer.transform = CGAffineTransform(scaleX: oppositeScale, y: oppositeScale)
-            self.contentViewContainer.transform = self.contentViewContainer.transform.translatedBy(x: point.x, y: 0)
+            contentViewContainer.transform = CGAffineTransform(scaleX: oppositeScale, y: oppositeScale)
+            contentViewContainer.transform = contentViewContainer.transform.translatedBy(x: point.x, y: 0)
         } else {
-            self.contentViewContainer.transform = CGAffineTransform(scaleX: contentViewScale, y: contentViewScale)
-            self.contentViewContainer.transform = self.contentViewContainer.transform.translatedBy(x: point.x, y: 0)
+            contentViewContainer.transform = CGAffineTransform(scaleX: contentViewScale, y: contentViewScale)
+            contentViewContainer.transform = contentViewContainer.transform.translatedBy(x: point.x, y: 0)
         }
 
-        self.leftMenuViewController?.view.isHidden = self.contentViewContainer.frame.origin.x < 0
-        self.rightMenuViewController?.view.isHidden = self.contentViewContainer.frame.origin.x > 0
+        leftMenuViewController?.view.isHidden = contentViewContainer.frame.origin.x < 0
+        rightMenuViewController?.view.isHidden = contentViewContainer.frame.origin.x > 0
 
-        if self.leftMenuViewController == nil && (self.contentViewContainer.frame.origin.x > 0) {
-            self.contentViewContainer.transform = .identity
-            self.contentViewContainer.frame = self.view.bounds
-            self.visible = false
-            self.leftMenuVisible = false
-        } else  if self.rightMenuViewController == nil && (self.contentViewContainer.frame.origin.x < 0) {
-            self.contentViewContainer.transform = .identity
-            self.contentViewContainer.frame = self.view.bounds
-            self.visible = false
-            self.rightMenuVisible = false
+        if leftMenuViewController == nil, contentViewContainer.frame.origin.x > 0 {
+            contentViewContainer.transform = .identity
+            contentViewContainer.frame = view.bounds
+            visible = false
+            leftMenuVisible = false
+        } else if rightMenuViewController == nil, contentViewContainer.frame.origin.x < 0 {
+            contentViewContainer.transform = .identity
+            contentViewContainer.frame = view.bounds
+            visible = false
+            rightMenuVisible = false
         }
 
-        self.updateContentViewAdditionalSafeAreaInsets()
-        self.statusBarNeedsAppearanceUpdate()
+        updateContentViewAdditionalSafeAreaInsets()
+        statusBarNeedsAppearanceUpdate()
     }
 
     private func recognizerEnded(_ recognizer: UIPanGestureRecognizer) {
-        self.sideMenuDelegateNotify = false
-        if self.panMinimumOpenThreshold > 0 && ((self.contentViewContainer.frame.origin.x < 0 && self.contentViewContainer.frame.origin.x > -(CGFloat(self.panMinimumOpenThreshold))) ||
-            (self.contentViewContainer.frame.origin.x > 0 && self.contentViewContainer.frame.origin.x < CGFloat(self.panMinimumOpenThreshold))) {
-            self.hideMenuViewController()
-        } else if self.contentViewContainer.frame.origin.x == 0 {
-            self.hideMenuViewControllerAnimated(false)
+        sideMenuDelegateNotify = false
+        if panMinimumOpenThreshold > 0, (contentViewContainer.frame.origin.x < 0 && contentViewContainer.frame.origin.x > -CGFloat(panMinimumOpenThreshold)) ||
+            (contentViewContainer.frame.origin.x > 0 && contentViewContainer.frame.origin.x < CGFloat(panMinimumOpenThreshold))
+        {
+            hideMenuViewController()
+        } else if contentViewContainer.frame.origin.x == 0 {
+            hideMenuViewControllerAnimated(false)
         } else {
-            if recognizer.velocity(in: self.view).x > 0 {
-                if self.contentViewContainer.frame.origin.x < 0 {
-                    self.hideMenuViewController()
+            if recognizer.velocity(in: view).x > 0 {
+                if contentViewContainer.frame.origin.x < 0 {
+                    hideMenuViewController()
                 } else {
-                    if self.leftMenuViewController != nil {
-                        self.showLeftMenuViewController()
+                    if leftMenuViewController != nil {
+                        showLeftMenuViewController()
                     }
                 }
             } else {
-                if self.contentViewContainer.frame.origin.x < 20 {
-                    if self.rightMenuViewController != nil {
-                        self.showRightMenuViewController()
+                if contentViewContainer.frame.origin.x < 20 {
+                    if rightMenuViewController != nil {
+                        showRightMenuViewController()
                     }
                 } else {
-                    self.hideMenuViewController()
+                    hideMenuViewController()
                 }
             }
         }
@@ -772,148 +770,148 @@ open class AKSideMenu: UIViewController, UIGestureRecognizerDelegate {
 
     public var backgroundImage: UIImage? {
         didSet(newValue) {
-            self.backgroundImageView?.image = newValue
+            backgroundImageView?.image = newValue
         }
     }
 
     public var leftMenuViewController: UIViewController? {
         get {
-            return self._leftMenuViewController
+            _leftMenuViewController
         }
         set {
-            guard self._leftMenuViewController != nil else {
-                self._leftMenuViewController = newValue
+            guard _leftMenuViewController != nil else {
+                _leftMenuViewController = newValue
                 return
             }
             guard let oldViewController = newValue else { return }
 
-            self.hideViewController(oldViewController)
+            hideViewController(oldViewController)
 
             guard let newViewController = _leftMenuViewController else {
-                self._leftMenuViewController = nil
+                _leftMenuViewController = nil
                 return
             }
 
-            self._leftMenuViewController = newViewController
+            _leftMenuViewController = newViewController
 
-            self.addChild(newViewController)
-            newViewController.view.frame = self.view.bounds
+            addChild(newViewController)
+            newViewController.view.frame = view.bounds
             newViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.menuViewContainer.addSubview(newViewController.view)
+            menuViewContainer.addSubview(newViewController.view)
             newViewController.didMove(toParent: self)
 
-            self.addContentViewControllerMotionEffects()
-            self.view.bringSubviewToFront(self.contentViewContainer)
+            addContentViewControllerMotionEffects()
+            view.bringSubviewToFront(contentViewContainer)
         }
     }
 
     public var rightMenuViewController: UIViewController? {
         get {
-            return self._rightMenuViewController
+            _rightMenuViewController
         }
         set {
-            guard self._rightMenuViewController != nil else {
-                self._rightMenuViewController = newValue
+            guard _rightMenuViewController != nil else {
+                _rightMenuViewController = newValue
                 return
             }
             guard let oldViewController = newValue else { return }
 
-            self.hideViewController(oldViewController)
+            hideViewController(oldViewController)
 
             guard let newViewController = _rightMenuViewController else {
-                self._rightMenuViewController = nil
+                _rightMenuViewController = nil
                 return
             }
 
-            self._rightMenuViewController = newViewController
+            _rightMenuViewController = newViewController
 
-            self.addChild(newViewController)
-            newViewController.view.frame = self.view.bounds
+            addChild(newViewController)
+            newViewController.view.frame = view.bounds
             newViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.menuViewContainer.addSubview(newViewController.view)
+            menuViewContainer.addSubview(newViewController.view)
             newViewController.didMove(toParent: self)
 
-            self.addContentViewControllerMotionEffects()
-            self.view.bringSubviewToFront(self.contentViewContainer)
+            addContentViewControllerMotionEffects()
+            view.bringSubviewToFront(contentViewContainer)
         }
     }
 
     // MARK: - ViewController Rotation handler
 
     override open var shouldAutorotate: Bool {
-        return self.contentViewController?.shouldAutorotate ?? false
+        contentViewController?.shouldAutorotate ?? false
     }
 
     override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return self.contentViewController?.supportedInterfaceOrientations ?? .all
+        contentViewController?.supportedInterfaceOrientations ?? .all
     }
 
-    override open func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        if self.visible {
-            self.menuViewContainer.bounds = self.view.bounds
-            self.contentViewContainer.transform = .identity
-            self.contentViewContainer.frame = self.view.bounds
+    override open func willAnimateRotation(to _: UIInterfaceOrientation, duration _: TimeInterval) {
+        if visible {
+            menuViewContainer.bounds = view.bounds
+            contentViewContainer.transform = .identity
+            contentViewContainer.frame = view.bounds
 
-            if self.scaleContentView {
-                self.contentViewContainer.transform = CGAffineTransform(scaleX: self.contentViewScaleValue, y: self.contentViewScaleValue)
-                self.updateContentViewAdditionalSafeAreaInsets()
+            if scaleContentView {
+                contentViewContainer.transform = CGAffineTransform(scaleX: contentViewScaleValue, y: contentViewScaleValue)
+                updateContentViewAdditionalSafeAreaInsets()
             } else {
-                self.contentViewContainer.transform = .identity
+                contentViewContainer.transform = .identity
             }
 
             let center: CGPoint
-            if self.leftMenuVisible {
-                center = CGPoint(x: (UIDevice.current.orientation.isLandscape ? self.contentViewInLandscapeOffsetCenterX + self.view.frame.width : self.contentViewInPortraitOffsetCenterX + self.view.frame.width), y: self.contentViewContainer.center.y)
+            if leftMenuVisible {
+                center = CGPoint(x: UIDevice.current.orientation.isLandscape ? contentViewInLandscapeOffsetCenterX + view.frame.width : contentViewInPortraitOffsetCenterX + view.frame.width, y: contentViewContainer.center.y)
             } else {
-                center = CGPoint(x: (UIDevice.current.orientation.isLandscape ? -self.contentViewInLandscapeOffsetCenterX : -self.contentViewInPortraitOffsetCenterX), y: self.contentViewContainer.center.y)
+                center = CGPoint(x: UIDevice.current.orientation.isLandscape ? -contentViewInLandscapeOffsetCenterX : -contentViewInPortraitOffsetCenterX, y: contentViewContainer.center.y)
             }
-            self.contentViewContainer.center = center
+            contentViewContainer.center = center
         }
-        self.updateContentViewShadow()
+        updateContentViewShadow()
     }
 
     // MARK: - Status Bar Appearance Management
 
     override open var preferredStatusBarStyle: UIStatusBarStyle {
-        var statusBarStyle = self.contentViewController?.preferredStatusBarStyle ?? .default
+        var statusBarStyle = contentViewController?.preferredStatusBarStyle ?? .default
 
-        if self.scaleContentView {
-            if self.contentViewContainer.frame.origin.y > 10 {
-                statusBarStyle = self.menuPreferredStatusBarStyle
+        if scaleContentView {
+            if contentViewContainer.frame.origin.y > 10 {
+                statusBarStyle = menuPreferredStatusBarStyle
             }
         } else {
-            if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
-                statusBarStyle = self.menuPreferredStatusBarStyle
+            if contentViewContainer.frame.origin.x > 10 || contentViewContainer.frame.origin.x < -10 {
+                statusBarStyle = menuPreferredStatusBarStyle
             }
         }
         return statusBarStyle
     }
 
     override open var prefersStatusBarHidden: Bool {
-        var statusBarHidden = self.contentViewController?.prefersStatusBarHidden ?? false
+        var statusBarHidden = contentViewController?.prefersStatusBarHidden ?? false
 
-        if self.scaleContentView {
-            if self.contentViewContainer.frame.origin.y > 10 {
-                statusBarHidden = self.menuPrefersStatusBarHidden
+        if scaleContentView {
+            if contentViewContainer.frame.origin.y > 10 {
+                statusBarHidden = menuPrefersStatusBarHidden
             }
         } else {
-            if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
-                statusBarHidden = self.menuPrefersStatusBarHidden
+            if contentViewContainer.frame.origin.x > 10 || contentViewContainer.frame.origin.x < -10 {
+                statusBarHidden = menuPrefersStatusBarHidden
             }
         }
         return statusBarHidden
     }
 
     override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        var statusBarAnimation = self.contentViewController?.preferredStatusBarUpdateAnimation ?? .fade
+        var statusBarAnimation = contentViewController?.preferredStatusBarUpdateAnimation ?? .fade
 
-        if self.scaleContentView {
-            if self.contentViewContainer.frame.origin.y > 10 {
-                statusBarAnimation = self.leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
+        if scaleContentView {
+            if contentViewContainer.frame.origin.y > 10 {
+                statusBarAnimation = leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
             }
         } else {
-            if self.contentViewContainer.frame.origin.x > 10 || self.contentViewContainer.frame.origin.x < -10 {
-                statusBarAnimation = self.leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
+            if contentViewContainer.frame.origin.x > 10 || contentViewContainer.frame.origin.x < -10 {
+                statusBarAnimation = leftMenuViewController?.preferredStatusBarUpdateAnimation ?? statusBarAnimation
             }
         }
 
