@@ -4,15 +4,15 @@ on: [push, pull_request]
 jobs:
   build:
     name: Building AKSideMenu Example
-    runs-on: macOS-latest
+    runs-on: macOS-13
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Xcode version
-        uses: maxim-lobanov/setup-xcode@v1.4.1
+        uses: maxim-lobanov/setup-xcode@v1.6.0
         with:
-          xcode-version: 13.2.1
+          xcode-version: 15.1
       
       - name: Install Dependencies for Simple Example
         run: |
