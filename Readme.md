@@ -162,71 +162,71 @@ Enables interactive pop gesture recognizer. Defaults to True.
 ```swift
 public var scaleContentView: Bool
 ```
-TODO. Defaults to True.
+Scales the content view down when a menu is visible. Defaults to True.
 ```swift
 public var scaleBackgroundImageView: Bool
 ```
-TODO. Defaults to False.
+Scales the background image view before the menu is opened, then animates it back to its normal size while presenting the menu. Defaults to True.
 ```swift
 public var scaleMenuView: Bool
 ```
-TODO. Defaults to True.
+Scales the menu view during menu presentation. Defaults to True.
 ```swift
-public let contentViewShadowEnabled: Bool
+public var contentViewShadowEnabled: Bool
 ```
-TODO. Defaults to False.
+Shows a shadow around the content view while the menu is visible. Defaults to False.
 ```swift
 public var contentViewShadowOffset: CGSize
 ```
-TODO. Defaults to CGSizeZero.
+Sets the content view shadow offset. Defaults to CGSizeZero.
 ```swift
 public var contentViewShadowOpacity: Float
 ```
-TODO. Defaults to 0.4.
+Sets the content view shadow opacity. Defaults to 0.4.
 ```swift
 public var contentViewShadowRadius: CGFloat
 ```
-TODO. Defaults to 8.0.
+Sets the content view shadow blur radius. Defaults to 8.0.
 ```swift
 public var contentViewScaleValue: CGFloat
 ```
-TODO. Defaults to 0.7.
+Sets the scale applied to the content view when a menu is visible. Defaults to 0.7.
 ```swift
 public var contentViewInLandscapeOffsetCenterX: CGFloat
 ```
-TODO. Defaults to 30.0.
+Sets the horizontal center offset applied to the content view in landscape orientation when a menu is visible. Defaults to 30.0.
 ```swift
 public var contentViewInPortraitOffsetCenterX: CGFloat
 ```
-TODO. Defaults to 30.0.
+Sets the horizontal center offset applied to the content view in portrait orientation when a menu is visible. Defaults to 30.0.
 ```swift
 public var parallaxMenuMinimumRelativeValue: CGFloat
 ```
-TODO. Defaults to -15.
+Sets the minimum relative value for menu view parallax motion effects. Defaults to -15.
 ```swift
 public var parallaxMenuMaximumRelativeValue: CGFloat
 ```
-TODO. Defaults to 15.
+Sets the maximum relative value for menu view parallax motion effects. Defaults to 15.
 ```swift
 public var parallaxContentMinimumRelativeValue: CGFloat
 ```
-TODO. Defaults to -25.
+Sets the minimum relative value for content view parallax motion effects. Defaults to -25.
 ```swift
 public var parallaxContentMaximumRelativeValue: CGFloat
 ```
-TODO. Defaults to 25.
+Sets the maximum relative value for content view parallax motion effects. Defaults to 25.
 ```swift
-public var menuViewControllerTransformation: CGAffineTransform
+public var menuViewControllerTransformation: CGAffineTransform?
 ```
-TODO. Defaults to nil.
+Sets the initial transform applied to the menu view before it is animated into place. Defaults to `CGAffineTransform(scaleX: 1.5, y: 1.5)`.
 ```swift
 public var parallaxEnabled: Bool
 ```
-TODO. Defaults to True.
+Enables motion-effect parallax for the menu and content views. Defaults to True.
 ```swift
 public var bouncesHorizontally: Bool
 ```
-TODO. Defaults to True.
+Allows horizontal pan gestures to move past the fully opened menu position. Defaults to True.
 ```swift
 public var menuPreferredStatusBarStyle: UIStatusBarStyle
 ```
