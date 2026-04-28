@@ -22,7 +22,7 @@ fi
 # Build function
 build_example() {
 	local example=$1
-	local capitalized=$(echo "$example" | sed 's/^./\U&/')
+	local capitalized=$(echo "$example" | awk '{print toupper(substr($0,1,1)) substr($0,2)}')
 	local workspace="AKSideMenuExamples/${capitalized}/AKSideMenu${capitalized}.xcworkspace"
 	local scheme="AKSideMenu${capitalized}"
 	
