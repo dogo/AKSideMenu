@@ -12,18 +12,15 @@ import UIKit
 
 public extension UIViewController {
     var sideMenuViewController: AKSideMenu? {
-        guard var iterator = parent else { return nil }
-        guard let strClass = String(describing: type(of: iterator)).components(separatedBy: ".").last else { return nil }
+        var iterator = parent
 
-        while strClass != nibName {
-            if iterator is AKSideMenu {
-                return iterator as? AKSideMenu
-            } else if let parent = iterator.parent, parent != iterator {
-                iterator = parent
-            } else {
-                break
+        while let viewController = iterator {
+            if let sideMenuViewController = viewController as? AKSideMenu {
+                return sideMenuViewController
             }
+            iterator = viewController.parent
         }
+
         return nil
     }
 
