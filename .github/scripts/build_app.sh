@@ -22,8 +22,9 @@ fi
 # Build function
 build_example() {
 	local example=$1
-	local workspace="AKSideMenuExamples/${example^}/AKSideMenu${example^}.xcworkspace"
-	local scheme="AKSideMenu${example^}"
+	local capitalized=$(echo "$example" | sed 's/^./\U&/')
+	local workspace="AKSideMenuExamples/${capitalized}/AKSideMenu${capitalized}.xcworkspace"
+	local scheme="AKSideMenu${capitalized}"
 	
 	echo "Building $example example..."
 	xcodebuild -workspace "$workspace" \
