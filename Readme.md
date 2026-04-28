@@ -30,7 +30,7 @@ pod 'AKSideMenu'
 To install, add the following line to your  Cartfile: 
  
 ```ruby
-github "dogo/AKSideMenu" "1.4.5"
+github "dogo/AKSideMenu" "1.4.6"
 ```
 
 ## Easy to use
@@ -39,22 +39,22 @@ github "dogo/AKSideMenu" "1.4.5"
 In your AppDelegate, add the code below.
 
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    self.window = UIWindow.init(frame: UIScreen.main.bounds)
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    window = UIWindow(frame: UIScreen.main.bounds)
 
     // Create content and menu controllers
-    let navigationController: UINavigationController = UINavigationController.init(rootViewController: FirstViewController.init())
-    let leftMenuViewController: LeftMenuViewController = LeftMenuViewController.init()
-    let rightMenuViewController: RightMenuViewController = RightMenuViewController.init()
+    let navigationController = UINavigationController(rootViewController: FirstViewController())
+    let leftMenuViewController = LeftMenuViewController()
+    let rightMenuViewController = RightMenuViewController()
 
     // Create side menu controller
-    let sideMenuViewController: AKSideMenu = AKSideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
+    let sideMenuViewController = AKSideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
 
     // Make it a root controller
-    self.window!.rootViewController = sideMenuViewController
+    window?.rootViewController = sideMenuViewController
 
-    self.window!.backgroundColor = UIColor.white
-    self.window?.makeKeyAndVisible()
+    window?.backgroundColor = .white
+    window?.makeKeyAndVisible()
     return true
 }        
 ```
@@ -67,9 +67,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ```swift
 override public func awakeFromNib() {    
-    self.contentViewController = self.storyboard!.instantiateViewControllerWithIdentifier("contentViewController")
-    self.leftMenuViewController = self.storyboard!.instantiateViewControllerWithIdentifier("leftMenuViewController")
-    self.rightMenuViewController = self.storyboard!.instantiateViewControllerWithIdentifier("rightMenuViewController")
+    contentViewController = storyboard!.instantiateViewController(withIdentifier: "contentViewController")
+    leftMenuViewController = storyboard!.instantiateViewController(withIdentifier: "leftMenuViewController")
+    rightMenuViewController = storyboard!.instantiateViewController(withIdentifier: "rightMenuViewController")
 }
 ```
 
