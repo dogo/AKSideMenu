@@ -1,267 +1,278 @@
-AKSideMenu
-============
+# AKSideMenu
 
 ![Building](https://github.com/dogo/AKSideMenu/workflows/Building/badge.svg)
-[![Cocoapods](http://img.shields.io/cocoapods/v/AKSideMenu.svg)](http://cocoapods.org/?q=AKSideMenu)
-[![Pod License](http://img.shields.io/cocoapods/l/AKSideMenu.svg)](https://github.com/dogo/AKSideMenu/blob/master/LICENSE)
+[![CocoaPods](https://img.shields.io/cocoapods/v/AKSideMenu.svg)](https://cocoapods.org/pods/AKSideMenu)
+[![License](https://img.shields.io/cocoapods/l/AKSideMenu.svg)](https://github.com/dogo/AKSideMenu/blob/master/LICENSE)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-AKSideMenu is a double side menu library with parallax effect.
+AKSideMenu is a UIKit side menu controller for iOS. It supports left and right menus, pan gestures, menu transitions, content scaling, shadows, fade effects, and optional parallax motion.
 
-<img src="https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Screenshot.png" alt="AKSideMenu Screenshot" width="400" height="568" />
-<img src="https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Demo.gif?2" alt="AKSideMenu Screenshot" width="320" height="568" />
+<p>
+  <img src="https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Screenshot.png" alt="AKSideMenu screenshot" width="320">
+  <img src="https://github.com/dogo/AKSideMenu/raw/master/Screenshots/Demo.gif?2" alt="AKSideMenu demo" width="260">
+</p>
 
-## Example Project
-See the contained examples to get a sample of how `AKSideMenu` can easily be integrated in your project.
+## Requirements
 
-Build the examples from the `AKSideMenuExamples` directory.
+- iOS 12.0+
+- Swift 5.6+
+- UIKit
+- ARC
 
 ## Installation
 
-### [CocoaPods](https://cocoapods.org/).
+### Swift Package Manager
 
-To install, add the following line to your Podfile:
+In Xcode, open **File > Add Package Dependencies...** and use:
+
+```text
+https://github.com/dogo/AKSideMenu.git
+```
+
+Or add it to `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/dogo/AKSideMenu.git", from: "1.4.7")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: ["AKSideMenu"]
+    )
+]
+```
+
+### CocoaPods
+
+Add AKSideMenu to your `Podfile`:
+
 ```ruby
 pod 'AKSideMenu'
 ```
- 
-### [Carthage](https://github.com/Carthage/Carthage).
 
-To install, add the following line to your  Cartfile: 
- 
+Then run:
+
+```sh
+pod install
+```
+
+### Carthage
+
+Add AKSideMenu to your `Cartfile`:
+
 ```ruby
 github "dogo/AKSideMenu" "1.4.7"
 ```
 
-## Easy to use
+Then run:
 
-### Simple implementation
-In your AppDelegate, add the code below.
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    window = UIWindow(frame: UIScreen.main.bounds)
-
-    // Create content and menu controllers
-    let navigationController = UINavigationController(rootViewController: FirstViewController())
-    let leftMenuViewController = LeftMenuViewController()
-    let rightMenuViewController = RightMenuViewController()
-
-    // Create side menu controller
-    let sideMenuViewController = AKSideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: rightMenuViewController)
-
-    // Make it a root controller
-    window?.rootViewController = sideMenuViewController
-
-    window?.backgroundColor = .white
-    window?.makeKeyAndVisible()
-    return true
-}        
+```sh
+carthage update --use-xcframeworks
 ```
-### Storyboards Example
 
-1. Create a subclass of `AKSideMenu`. In this example we call it `RootViewController`.
-2. In the Storyboard designate the root view's owner as `RootViewController`.
-3. Add more view controllers to your Storyboard, and give them identifiers "leftMenuViewController", "rightMenuViewController" and "contentViewController". Note that in the new XCode the identifier is called "Storyboard ID" and can be found in the Identity inspector.
-4. Add a method `awakeFromNib` to `RootViewController.swift` with the following code:
+## Quick Start
+
+Create your content controller, optional left and right menu controllers, and make `AKSideMenu` the root controller.
 
 ```swift
-override public func awakeFromNib() {    
-    contentViewController = storyboard!.instantiateViewController(withIdentifier: "contentViewController")
-    leftMenuViewController = storyboard!.instantiateViewController(withIdentifier: "leftMenuViewController")
-    rightMenuViewController = storyboard!.instantiateViewController(withIdentifier: "rightMenuViewController")
+import AKSideMenu
+import UIKit
+
+@main
+final class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+
+        let contentViewController = UINavigationController(rootViewController: FirstViewController())
+        let leftMenuViewController = LeftMenuViewController()
+        let rightMenuViewController = RightMenuViewController()
+
+        let sideMenuViewController = AKSideMenu(
+            contentViewController: contentViewController,
+            leftMenuViewController: leftMenuViewController,
+            rightMenuViewController: rightMenuViewController
+        )
+
+        sideMenuViewController.contentViewShadowEnabled = true
+        sideMenuViewController.contentViewShadowOpacity = 0.4
+        sideMenuViewController.contentViewScaleValue = 0.8
+
+        window.rootViewController = sideMenuViewController
+        window.backgroundColor = .white
+        window.makeKeyAndVisible()
+
+        self.window = window
+        return true
+    }
 }
 ```
 
-Here is an example of a delegate implementation. Please adapt the code to your context.
+## Presenting Menus
+
+Every child controller can access the nearest side menu controller through `sideMenuViewController`.
 
 ```swift
-...
+sideMenuViewController?.presentLeftMenuViewController()
+sideMenuViewController?.presentRightMenuViewController()
+sideMenuViewController?.hideMenuViewController()
+```
+
+You can also wire buttons directly in Interface Builder using these `IBAction` helpers:
+
+```swift
+@IBAction func presentLeftMenuViewController(_: AnyObject)
+@IBAction func presentRightMenuViewController(_: AnyObject)
+```
+
+## Switching Content
+
+Use `setContentViewController(_:animated:)` when a menu item should replace the main content.
+
+```swift
+let nextViewController = UINavigationController(rootViewController: SettingsViewController())
+
+sideMenuViewController?.setContentViewController(nextViewController, animated: true)
+sideMenuViewController?.hideMenuViewController()
+```
+
+## Storyboard Setup
+
+AKSideMenu can instantiate its content and menu controllers directly from storyboard identifiers.
+
+1. Add a root view controller to your storyboard.
+2. Set its class to `AKSideMenu` or to your own `AKSideMenu` subclass.
+3. Add controllers for the content, left menu, and right menu.
+4. Set their Storyboard IDs.
+5. In the Attributes inspector for the side menu controller, set:
+   - `contentViewStoryboardID`
+   - `leftMenuViewStoryboardID`
+   - `rightMenuViewStoryboardID`
+
+You can also configure the controllers manually in a subclass:
+
+```swift
+import AKSideMenu
+import UIKit
+
+final class RootViewController: AKSideMenu {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        contentViewController = storyboard?.instantiateViewController(withIdentifier: "contentViewController")
+        leftMenuViewController = storyboard?.instantiateViewController(withIdentifier: "leftMenuViewController")
+        rightMenuViewController = storyboard?.instantiateViewController(withIdentifier: "rightMenuViewController")
+    }
+}
+```
+
+## Delegate
+
+Set the delegate to observe menu presentation, hiding, and gesture-recognizer behavior.
+
+```swift
 sideMenuViewController.delegate = self
-...
+```
 
-// MARK: - <AKSideMenuDelegate>
+```swift
+extension RootViewController: AKSideMenuDelegate {
+    func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
+        print("Will show menu")
+    }
 
-open func sideMenu(_ sideMenu: AKSideMenu, shouldRecognizeGesture recognizer: UIGestureRecognizer, simultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-    // return true to allow both gesture recognizers to recognize simultaneously. Returns false by default
-    return false
-}
+    func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
+        print("Did show menu")
+    }
 
-open func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-    // return true or false based on your failure requirements. Returns false by default
-    return false
-}
+    func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
+        print("Will hide menu")
+    }
 
-open func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-    // return true or false based on your failure requirements. Returns false by default
-    return false
-}
+    func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
+        print("Did hide menu")
+    }
 
-open func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController) {
-    print("willShowMenuViewController")
-}
-
-open func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController) {
-    print("didShowMenuViewController")
-}
-
-open func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController) {
-    print("willHideMenuViewController")
-}
-
-open func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController) {
-    print("didHideMenuViewController")
+    func sideMenu(_ sideMenu: AKSideMenu, didRecognizePanGesture recognizer: UIPanGestureRecognizer) {
+        print("Pan gesture recognized")
+    }
 }
 ```
 
-Present the menu view controller:
+Available delegate methods:
 
 ```swift
-self.sideMenuViewController!.presentLeftMenuViewController()
+optional func sideMenu(_ sideMenu: AKSideMenu, shouldRecognizeGesture recognizer: UIGestureRecognizer, simultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
+optional func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
+optional func sideMenu(_ sideMenu: AKSideMenu, gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
+optional func sideMenu(_ sideMenu: AKSideMenu, didRecognizePanGesture recognizer: UIPanGestureRecognizer)
+optional func sideMenu(_ sideMenu: AKSideMenu, willShowMenuViewController menuViewController: UIViewController)
+optional func sideMenu(_ sideMenu: AKSideMenu, didShowMenuViewController menuViewController: UIViewController)
+optional func sideMenu(_ sideMenu: AKSideMenu, willHideMenuViewController menuViewController: UIViewController)
+optional func sideMenu(_ sideMenu: AKSideMenu, didHideMenuViewController menuViewController: UIViewController)
 ```
 
-or
+## Configuration
 
-```swift
-self.sideMenuViewController!.presentRightMenuViewController()
-```
+| Property | Default | Description |
+| --- | --- | --- |
+| `contentViewController` | `nil` | Main controller displayed above the menus. |
+| `leftMenuViewController` | `nil` | Controller used as the left menu. |
+| `rightMenuViewController` | `nil` | Controller used as the right menu. |
+| `backgroundImage` | `nil` | Optional image displayed behind the menu and content containers. |
+| `animationDuration` | `0.35` | Duration used for menu and content animations. |
+| `panGestureEnabled` | `true` | Enables or disables pan gesture handling. |
+| `panFromEdge` | `true` | Requires the pan gesture to begin near the screen edge. |
+| `panFromEdgeZoneWidth` | `20.0` | Width of the edge zone that starts menu panning. |
+| `panMinimumOpenThreshold` | `60.0` | Minimum pan distance needed to open a menu. |
+| `panGestureLeftEnabled` | `true` | Enables pan gestures for the left menu. |
+| `panGestureRightEnabled` | `true` | Enables pan gestures for the right menu. |
+| `interactivePopGestureRecognizerEnabled` | `true` | Keeps navigation controller interactive pop gestures available when possible. |
+| `scaleContentView` | `true` | Scales the content view while a menu is visible. |
+| `contentViewScaleValue` | `0.7` | Scale applied to the content view. |
+| `contentViewFadeOutAlpha` | `1.0` | Alpha applied to the content view while a menu is visible. |
+| `contentViewInLandscapeOffsetCenterX` | `30.0` | Horizontal content offset in landscape. |
+| `contentViewInPortraitOffsetCenterX` | `30.0` | Horizontal content offset in portrait. |
+| `contentViewShadowEnabled` | `false` | Enables a shadow around the content view. |
+| `contentViewShadowColor` | `.black` | Shadow color for the content view. |
+| `contentViewShadowOffset` | `.zero` | Shadow offset for the content view. |
+| `contentViewShadowOpacity` | `0.4` | Shadow opacity for the content view. |
+| `contentViewShadowRadius` | `8.0` | Shadow blur radius for the content view. |
+| `scaleMenuView` | `true` | Applies `menuViewControllerTransformation` before the menu animates in. |
+| `menuViewControllerTransformation` | `CGAffineTransform(scaleX: 1.5, y: 1.5)` | Initial menu transform. |
+| `fadeMenuView` | `true` | Fades the menu view during presentation and dismissal. |
+| `scaleBackgroundImageView` | `true` | Scales the background image before the menu opens. |
+| `backgroundTransformScale` | `1.7` | Scale applied to the background image view. |
+| `parallaxEnabled` | `true` | Enables motion-effect parallax. |
+| `parallaxMenuMinimumRelativeValue` | `-15` | Minimum menu parallax value. |
+| `parallaxMenuMaximumRelativeValue` | `15` | Maximum menu parallax value. |
+| `parallaxContentMinimumRelativeValue` | `-25` | Minimum content parallax value. |
+| `parallaxContentMaximumRelativeValue` | `25` | Maximum content parallax value. |
+| `bouncesHorizontally` | `true` | Allows horizontal panning past the fully opened menu position. |
+| `menuPreferredStatusBarStyle` | `.default` | Preferred status bar style while a menu is visible. |
+| `menuPrefersStatusBarHidden` | `false` | Controls status bar visibility while a menu is visible. |
 
-Switch content view controllers:
+## Examples
 
-```swift
-self.sideMenuViewController!.setContentViewController(viewController, animated: true)
-self.sideMenuViewController!.hideMenuViewController()
-```
+The repository includes sample apps in `AKSideMenuExamples`:
 
-### Properties
-```swift
-public var animationDuration: TimeInterval
-```
-The animation duration. Defaults to 0.35.
-```swift
-public var backgroundImage: UIImage
-```
-The content background image. Defaults to white.
-```swift
-public var panGestureEnabled: Bool
-```
+- `Simple`: programmatic UIKit setup.
+- `Storyboard`: storyboard-based setup.
 
-Enables panGesture detection. Defaults to True.
-```swift
-public var panFromEdge: Bool
-```
-Enables panGesture detection from the edge. Defaults to True.
-```swift
-public var panMinimumOpenThreshold: Float
-```
-The minimum pan gesture amount to open the side menu. Defaults to 60.0.
-```swift
-public var interactivePopGestureRecognizerEnabled: Bool
-```
-Enables interactive pop gesture recognizer. Defaults to True.
-```swift
-public var scaleContentView: Bool
-```
-Scales the content view down when a menu is visible. Defaults to True.
-```swift
-public var scaleBackgroundImageView: Bool
-```
-Scales the background image view before the menu is opened, then animates it back to its normal size while presenting the menu. Defaults to True.
-```swift
-public var scaleMenuView: Bool
-```
-Scales the menu view during menu presentation. Defaults to True.
-```swift
-public var contentViewShadowEnabled: Bool
-```
-Shows a shadow around the content view while the menu is visible. Defaults to False.
-```swift
-public var contentViewShadowOffset: CGSize
-```
-Sets the content view shadow offset. Defaults to CGSizeZero.
-```swift
-public var contentViewShadowOpacity: Float
-```
-Sets the content view shadow opacity. Defaults to 0.4.
-```swift
-public var contentViewShadowRadius: CGFloat
-```
-Sets the content view shadow blur radius. Defaults to 8.0.
-```swift
-public var contentViewScaleValue: CGFloat
-```
-Sets the scale applied to the content view when a menu is visible. Defaults to 0.7.
-```swift
-public var contentViewInLandscapeOffsetCenterX: CGFloat
-```
-Sets the horizontal center offset applied to the content view in landscape orientation when a menu is visible. Defaults to 30.0.
-```swift
-public var contentViewInPortraitOffsetCenterX: CGFloat
-```
-Sets the horizontal center offset applied to the content view in portrait orientation when a menu is visible. Defaults to 30.0.
-```swift
-public var parallaxMenuMinimumRelativeValue: CGFloat
-```
-Sets the minimum relative value for menu view parallax motion effects. Defaults to -15.
-```swift
-public var parallaxMenuMaximumRelativeValue: CGFloat
-```
-Sets the maximum relative value for menu view parallax motion effects. Defaults to 15.
-```swift
-public var parallaxContentMinimumRelativeValue: CGFloat
-```
-Sets the minimum relative value for content view parallax motion effects. Defaults to -25.
-```swift
-public var parallaxContentMaximumRelativeValue: CGFloat
-```
-Sets the maximum relative value for content view parallax motion effects. Defaults to 25.
-```swift
-public var menuViewControllerTransformation: CGAffineTransform?
-```
-Sets the initial transform applied to the menu view before it is animated into place. Defaults to `CGAffineTransform(scaleX: 1.5, y: 1.5)`.
-```swift
-public var parallaxEnabled: Bool
-```
-Enables motion-effect parallax for the menu and content views. Defaults to True.
-```swift
-public var bouncesHorizontally: Bool
-```
-Allows horizontal pan gestures to move past the fully opened menu position. Defaults to True.
-```swift
-public var menuPreferredStatusBarStyle: UIStatusBarStyle
-```
-Preferred UIStatusBarStyle when the menu is visible. Defaults to UIStatusBarStyle.default.
-```swift
-public var menuPrefersStatusBarHidden: Bool
-```
-Sets StatusBar hidden or not when the menu is visible. Defaults to False.
-```swift
-public var backgroundTransformScale: CGFloat
-```
-Sets the transform scale amount applied to the background imageview. Defaults to 1.7.
-```swift
-public var panFromEdgeZoneWidth: CGFloat
-```
-Sets the width of the pan gesture zone should be recognized. Defaults to 20.0.
-```swift
-public var panGestureLeftEnabled: Bool
-```
-Enable or disable left pan gesture recognition. Defaults to True.
-```swift
-public var panGestureRightEnabled: Bool
-```
-Enable or disable right pan gesture recognition. Defaults to True.
+Open either example project in Xcode and run the shared scheme.
 
-## Collaboration
-I tried to build an easy way to use API, while being flexible enough for multiple variations, but I'm sure there are ways of improving and adding more features, so feel free to collaborate with ideas, issues and/or pull requests.
+## Contributing
 
-## ARC
-AKSideMenu needs ARC.
+Ideas, issues, and pull requests are welcome. Please keep changes focused and include an example or test when the behavior changes.
 
-## Licence
-AKSideMenu is available under the MIT license.
+## Credits
 
-### Thanks to the original team
-Roman Efimov [@romaonthego](http://twitter.com/romaonthego)
+AKSideMenu was inspired by [RESideMenu](https://github.com/romaonthego/RESideMenu) by Roman Efimov.
 
-https://github.com/romaonthego/RESideMenu
+## License
+
+AKSideMenu is available under the MIT license. See [LICENSE](LICENSE) for details.
