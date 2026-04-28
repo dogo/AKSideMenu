@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 	spec.name         = "AKSideMenu"
-	spec.version      = "1.4.6"
+	spec.version      = "1.4.7"
 	spec.summary      = "Beautiful iOS side menu library with parallax effect. Written in Swift"
 	spec.homepage     = "https://github.com/dogo/AKSideMenu"
 

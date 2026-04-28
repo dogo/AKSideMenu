@@ -30,7 +30,7 @@ pod 'AKSideMenu'
 To install, add the following line to your  Cartfile: 
  
 ```ruby
-github "dogo/AKSideMenu" "1.4.6"
+github "dogo/AKSideMenu" "1.4.7"
 ```
 
 ## Easy to use
